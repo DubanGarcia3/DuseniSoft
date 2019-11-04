@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/servicios/login.service';
+
+import { Router } from '@angular/router';
+import{Location} from '@angular/common'
 
 @Component({
   selector: 'app-login',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public email = '';
+  public password = '';
+  constructor(private loginService: LoginService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
+  restablecimiento() {
+    this.router.navigate(['restablecimiento']);
+  }
 }

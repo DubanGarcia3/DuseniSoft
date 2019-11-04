@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'DuseniSoft';
 
   constructor(private router:Router){
-    this.welcome();
+    this.estadisticas();
   }
 
   welcome(){
@@ -18,7 +18,18 @@ export class AppComponent {
   }
 
   login(){
+    console.log("entra al login");
     this.router.navigate(["app-login"]);
+
+  }
+
+  inicio(){
+    console.log("entra al inicio");
+    this.router.navigate(["app-inicio"]);
+  }
+
+  estadisticas(){
+    this.router.navigate(["app-statistics"]);
   }
  
 }
