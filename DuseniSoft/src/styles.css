@@ -1,11 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 .cabecera {
-    margin: -8px;
     padding: 0px;
     display: flex;
     align-items: center;
     background-color: #dcedc8;
     color: white;
     font-weight: 600;
+}
+
+.centrado {
+    text-align: center;
 }
