@@ -18,7 +18,5 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  restablecimiento() {
-    this.router.navigate(['restablecimiento']);
-  }
+  
 }

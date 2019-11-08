@@ -8,6 +8,10 @@
     font-weight: 600;
 }
 
+.fondo {
+    background-color: #f1f8e9;
+}
+
 .centrado {
     text-align: center;
 }
