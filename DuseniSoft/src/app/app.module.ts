@@ -7,6 +7,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { InicioComponent } from './Components/inicio/inicio.component';
 import { StatisticsComponent } from './Components/statistics/statistics.component';
+import { PedidosComponent } from './Components/pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { StatisticsComponent } from './Components/statistics/statistics.componen
     LoginComponent,
     WelcomeComponent,
     InicioComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    PedidosComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ export class WelcomeComponent implements OnInit {
     this.router.navigate(["app-login"]);
   }
 
-  contactUs(){
+  contact(){
     console.log("vista contacto");
     this.router.navigate(["app-contacto"]);
   }
