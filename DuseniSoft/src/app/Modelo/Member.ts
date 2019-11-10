@@ -1,4 +1,5 @@
 export class Member{
+    idMiembro:number;
     firstName:String;
     secondName:String;
     firstLastName:String;

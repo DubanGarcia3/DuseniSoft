@@ -1,0 +1,21 @@
+.card-deck {
+    margin-top: 50px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    align-content: center;
+}
+
+.final {
+    margin-right: 30px !important;
+}
+
+.lista {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.botones-sup {
+    margin-top: 2%;
+    text-align: end;
+}

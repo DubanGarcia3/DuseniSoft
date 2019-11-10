@@ -5,11 +5,16 @@ import { Pedido } from '../Modelo/Pedido';
 @Injectable({
   providedIn: 'root'
 })
-export class PedidosService {constructor(private http: HttpClient) { }
+export class PedidosService {
+  
+constructor(private http: HttpClient) {
+  
+}
 
 Url = 'http://localhost:8081/';
 
-getProducto() {
+
+getPedidos() {
   return this.http.get<Pedido[]>(this.Url+'getRequest');
 }
 
