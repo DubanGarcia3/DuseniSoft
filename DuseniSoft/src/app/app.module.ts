@@ -12,6 +12,13 @@ import { AddPedidoComponent } from './Components/pedidos/add-pedido/add-pedido.c
 import { MiembrosComponent } from './Components/miembros/miembros.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+import{LoginService} from 'src/app/servicios/login.service';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +33,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

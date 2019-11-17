@@ -13,13 +13,30 @@ export class LoginComponent implements OnInit {
 
   public email = '';
   public password = '';
+  public isLoginOK: boolean;
+
+
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   login(){
-    this.router.navigate(["app-inicio"]);
+    let bool;
+    this.loginService.getLogin()
+    .subscribe(
+      (data)=> {
+        if(data){
+          
+        }else{
+          this.router.navigate(["app-inicio"]);
+          console.log("te jodiste");
+        }
+        bool=data;
+       
+      }
+    );
+    console.log(bool);
   }
 
   
