@@ -9,10 +9,10 @@ import { Member } from 'src/app/Modelo/Member';
   styleUrls: ['./miembros.component.css']
 })
 export class MiembrosComponent implements OnInit {
-
+/*
   constructor(private service: MiembrosService,
     private router: Router) { }
-
+*/
   dtOption: any = {};
   productos: Member[];
 

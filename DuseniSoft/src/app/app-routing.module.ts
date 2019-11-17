@@ -7,6 +7,7 @@ import { StatisticsComponent } from './Components/statistics/statistics.componen
 import { PedidosComponent } from './Components/pedidos/pedidos.component';
 import { AddPedidoComponent } from './Components/pedidos/add-pedido/add-pedido.component';
 import { MiembrosComponent } from './Components/miembros/miembros.component';
+import { AddMiembroComponent } from './Components/miembros/add-miembro/add-miembro.component';
 
 
 
@@ -16,8 +17,9 @@ const routes: Routes = [
   {path:'app-inicio', component:InicioComponent},
   {path:'app-statistics', component:StatisticsComponent},
   {path:'app-pedidos', component: PedidosComponent},
-  {path: 'app-add-pedido', component: AddPedidoComponent},
-  {path: 'app-miembros', component: MiembrosComponent}
+  {path:'app-add-pedido', component: AddPedidoComponent},
+  {path:'app-miembros', component: MiembrosComponent},
+  {path:'app-add-miembro', component: AddMiembroComponent}
 ];
 
 @NgModule({
