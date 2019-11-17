@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nuevo Miembro</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Pedido</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -18,7 +18,7 @@
                                 Looks good!
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
+                        <div class="">
                             <label for="validationTooltip02">Primer apellido</label>
                             <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
                             <div class="valid-tooltip">
@@ -26,29 +26,21 @@
                             </div>
                         </div>
 
+
+                        <div class="">
+                            <div class="form-group row">
+                                <label for="example-month-input" class="col-6 col-form-label">Fecha límite pedido </label>
+                                <input class="form-control col-6" type="month" value="2011-08" id="example-month-input" required>
+                            </div>
+                            <div class="invalid-tooltip">
+                                Por favor, ingrese una fecha valida
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                            <label for="validationTooltip03">City</label>
-                            <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
-                            <div class="invalid-tooltip">
-                                Please provide a valid city.
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationTooltip04">State</label>
-                            <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required>
-                            <div class="invalid-tooltip">
-                                Please provide a valid state.
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationTooltip05">Zip</label>
-                            <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
-                            <div class="invalid-tooltip">
-                                Please provide a valid zip.
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Descripción del pedido</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                 </form>
             </div>
