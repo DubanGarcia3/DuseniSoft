@@ -77,7 +77,7 @@ body {
 }
 
 .input_container:hover {
-    background-color: var(--input_hover);
+    background-color: azure
 }
 
 .input_container,
@@ -86,6 +86,7 @@ body {
     /* make the borders more round */
     border-radius: 30px;
     width: 100%;
+   
 }
 
 .input_field {
@@ -109,7 +110,7 @@ body {
     background-color: var(--submit_bg);
     padding-left: 0;
     font-weight: bold;
-    color: white;
+    color: darkgreen;
     text-transform: uppercase;
 }
 
