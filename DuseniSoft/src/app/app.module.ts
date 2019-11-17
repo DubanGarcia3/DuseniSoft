@@ -11,6 +11,7 @@ import { PedidosComponent } from './Components/pedidos/pedidos.component';
 import { AddPedidoComponent } from './Components/pedidos/add-pedido/add-pedido.component';
 import { MiembrosComponent } from './Components/miembros/miembros.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddMiembroComponent} from './Components/miembros/add-miembro/add-miembro.component';
 
 
 import{LoginService} from 'src/app/servicios/login.service';
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     StatisticsComponent,
     PedidosComponent,
     AddPedidoComponent,
-    MiembrosComponent
+    MiembrosComponent,
+    AddMiembroComponent
   ],
   imports: [
     BrowserModule,

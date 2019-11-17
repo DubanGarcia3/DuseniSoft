@@ -21,7 +21,7 @@ export class InicioComponent implements OnInit {
     this.router.navigate(["app-miembros"]);
   }
   irEstadisticas(){
-    this.router.navigate(["app-estadisticas"]);
+    this.router.navigate(["app-statistics"]);
   }
 
 }
