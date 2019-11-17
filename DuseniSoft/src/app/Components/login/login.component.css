@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     background-color: #f1f8e9 !important;
+   
 }
 
 body {
@@ -11,14 +12,18 @@ body {
     font-family: 'Roboto', sans-serif;
     /* create a linear gradient*/
     display: flex;
+    background-image: url("/assets/img/S3.jpeg") ;
+    background-size:100% 100%
+
 }
 
 #form_wrapper {
-    width: 1000px;
-    height: 700px;
+    
+    width: 350px;
+    height: 750px;
     /* this will help us center it*/
     margin: auto;
-    border-radius: 50px;
+    border-radius: 25px;
     /* make it a grid container*/
     display: grid;
     /* with two columns of same width*/
@@ -27,19 +32,30 @@ body {
     grid-gap: 5vw;
     /* add some padding around */
     padding: 5vh 15px;
+    align-content: center;
+   
+  
+    
 }
+
+.circular--square {
+    border-radius: 25%;
+  }
 
 #form_left {
     /* center the image */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f1f8e9;
+
+    
+    
+    
 }
 
 #form_left img {
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
 }
 
 #form_right {
@@ -48,7 +64,8 @@ body {
     grid-template-columns: 1fr;
     /* have some gap in between elements*/
     grid-gap: 20px;
-    padding: 10% 5%;
+    padding: 10% 10%;
+    align-content: center;
 }
 
 .input_container {

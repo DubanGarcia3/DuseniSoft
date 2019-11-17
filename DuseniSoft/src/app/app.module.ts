@@ -10,6 +10,7 @@ import { StatisticsComponent } from './Components/statistics/statistics.componen
 import { PedidosComponent } from './Components/pedidos/pedidos.component';
 import { AddPedidoComponent } from './Components/pedidos/add-pedido/add-pedido.component';
 import { MiembrosComponent } from './Components/miembros/miembros.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MiembrosComponent } from './Components/miembros/miembros.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
