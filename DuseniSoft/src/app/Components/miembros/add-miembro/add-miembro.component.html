@@ -1,9 +1,9 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nuevo Miembro</h5>
+                <h5 class="modal-title" id="modalAddMember">Nuevo Miembro</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,15 +12,15 @@
                 <form class="needs-validation" novalidate>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationTooltip01">Primer nombre</label>
-                            <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required>
+                            <label for="validationTooltip01">Nombres</label>
+                            <input type="text" class="form-control" id="validationTooltip01" placeholder="Nombres" required>
                             <div class="valid-tooltip">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationTooltip02">Primer apellido</label>
-                            <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
+                            <label for="validationTooltip02">Apellidos</label>
+                            <input type="text" class="form-control" id="validationTooltip02" placeholder="Apellidos" required>
                             <div class="valid-tooltip">
                                 Looks good!
                             </div>
@@ -29,24 +29,46 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validationTooltip03">City</label>
-                            <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
+                            <label for="validationTooltip03">Correo electrónico</label>
+                            <input type="text" class="form-control" id="validationTooltip03" placeholder="correo electronico" required>
                             <div class="invalid-tooltip">
-                                Please provide a valid city.
+                                los campos de email no son válidos
                             </div>
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationTooltip04">State</label>
-                            <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationTooltip04">Contraseña</label>
+                            <input type="text" class="form-control" id="validationTooltip04" placeholder="Contraseña" required>
                             <div class="invalid-tooltip">
-                                Please provide a valid state.
+                                Contraseña no valida
                             </div>
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationTooltip05">Zip</label>
-                            <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
+                        <div class="col-md-10 mb-3">
+                            <label for="example-month-input" class=" col-form-label">Fecha de nacimiento
+                            </label>
+                            <input class="form-control " type="month" value="2011-08" id="example-month-input" required>
                             <div class="invalid-tooltip">
-                                Please provide a valid zip.
+                                Por favor, ingrese una fecha valida
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-6">
+                                <label for="inputPassword" class="col-form-label">Género</label>
+                                <select class="form-control">
+                                    <option>Masculino</option>
+                                    <option>Femenino</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <form enctype="multipart/form-data" action="uploader.php" method="POST">
+                                    <input name="uploadedfile" type="file" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="">
+                            <label for="inputPassword" class="col-form-label">Numero telefónico</label>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">+57</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Numero">
                             </div>
                         </div>
                     </div>
@@ -54,7 +76,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Aceptar</button>
+                <button type="button" class="btn btn-success">Aceptar</button>
             </div>
         </div>
     </div>

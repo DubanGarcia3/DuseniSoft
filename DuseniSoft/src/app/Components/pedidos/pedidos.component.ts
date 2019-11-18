@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosComponent implements OnInit {
 
-  
+
 
   constructor() { }
 
@@ -24,14 +24,13 @@ export class PedidosComponent implements OnInit {
     isActive:boolean;
     */
 
-   public PedidoList = [
-    { idPedido: 0, quantity: 100, dateOrder:new Date("2018-03-16"), dateLimmit:new Date("2018-03-16"),unitPrice: 50,isActive: true},
-    { idPedido: 1, quantity: 200, dateOrder:new Date("2018-03-16"), dateLimmit:new Date("2018-03-16"),unitPrice: 50,isActive: true},
-    { idPedido: 2, quantity: 300, dateOrder:new Date("2018-03-16"), dateLimmit:new Date("2018-03-16"),unitPrice: 50,isActive: true},
-    { idPedido: 3, quantity: 400, dateOrder:new Date("2018-03-16"), dateLimmit:new Date("2018-03-16"),unitPrice: 50,isActive: true},
+  public PedidoList = [
+    { idPedido: 0, quantity: 100, dateOrder: new Date("2018-03-16"), dateLimmit: new Date("2018-03-16"), unitPrice: 50, isActive: true },
+    { idPedido: 1, quantity: 200, dateOrder: new Date("2018-03-16"), dateLimmit: new Date("2018-03-16"), unitPrice: 50, isActive: true },
+    { idPedido: 2, quantity: 300, dateOrder: new Date("2018-03-16"), dateLimmit: new Date("2018-03-16"), unitPrice: 50, isActive: true },
   ];
-  
-  getPedidosQuemados(){
+
+  getPedidosQuemados() {
     return this.PedidoList;
   }
 }

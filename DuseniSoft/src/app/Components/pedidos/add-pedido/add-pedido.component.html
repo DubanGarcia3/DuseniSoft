@@ -11,42 +11,37 @@
             <div class="modal-body">
                 <form class="needs-validation" novalidate>
                     <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label for="validationTooltip01">Primer nombre</label>
-                            <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required>
-                            <div class="valid-tooltip">
-                                Looks good!
+                        <div class="form-group col-12">
+                            <label for="example-month-input" class=" col-form-label">Fecha límite pedido
+                            </label>
+                            <input class="form-control " type="month" value="2011-08" id="example-month-input" required>
+                        </div>
+                        <div class="invalid-tooltip">
+                            Por favor, ingrese una fecha valida
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Dirección</label>
+                            <input type="text" class="form-control" id="inputDesc">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Ciudad</label>
+                            <select id="inputState" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <div class="">
+                                <label for="exampleFormControlTextarea1">Descripción del pedido</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
                         </div>
-                        <div class="">
-                            <label for="validationTooltip02">Primer apellido</label>
-                            <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
-                            <div class="valid-tooltip">
-                                Looks good!
-                            </div>
-                        </div>
-
-
-                        <div class="">
-                            <div class="form-group row">
-                                <label for="example-month-input" class="col-6 col-form-label">Fecha límite pedido </label>
-                                <input class="form-control col-6" type="month" value="2011-08" id="example-month-input" required>
-                            </div>
-                            <div class="invalid-tooltip">
-                                Por favor, ingrese una fecha valida
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Descripción del pedido</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Aceptar</button>
+                <button type="button" class="btn btn-success">Aceptar</button>
             </div>
         </div>
     </div>
