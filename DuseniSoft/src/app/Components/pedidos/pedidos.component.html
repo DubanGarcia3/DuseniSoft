@@ -4,6 +4,24 @@
         <button class="btn btn-outline-success my-2 final" type="submit">Cerrar sesion</button>
     </form>
 </nav>
+<form class="botones-sup ">
+    <div class="form-row">
+        <div class="col">
+            <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#exampleModal">Agregar nuevo pedido</button>
+        </div>
+        <div class="col mb-3">
+            <div class="input-group-append final">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar pedidos">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" type="button">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
 <div class="album">
     <div class="container">
         <div class="row">
@@ -28,22 +46,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-title">Registrar nuevo pedido</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#exampleModal">Ir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <app-add-pedido>
 
-    </app-add-pedido>
+        <app-add-pedido>
+        </app-add-pedido>
+    </div>
 </div>
