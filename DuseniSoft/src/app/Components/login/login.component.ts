@@ -24,22 +24,18 @@ export class LoginComponent implements OnInit {
 
   login(){
     console.log("correo",this.email);
-    let bool;
+    
     this.loginService.getLogin(this.email, this.password)
     .subscribe(
       (data)=> {
-        // if(data){
-          
-        // }else{
-        //   this.router.navigate(["app-inicio"]);
-        //   console.log("te jodiste");
-        // }
-        // bool=data;
-        console.log(data);
-       
+        console.log("un mensajito   ----",  data)
+          if(data != "[]" ){
+            this.router.navigate(["app-inicio"]);
+          }else{
+            console.log("validar que los datos esten correctos");
+          }
       }
     );
-    console.log(bool);
   }
 
   

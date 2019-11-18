@@ -19,7 +19,7 @@ body {
 
 #form_wrapper {
     
-    width: 350px;
+    width: 340px;
     height: 750px;
     /* this will help us center it*/
     margin: auto;
@@ -34,7 +34,7 @@ body {
     padding: 5vh 15px;
     align-content: center;
    
-  
+    align-items: center;
     
 }
 

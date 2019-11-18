@@ -10,11 +10,11 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   // cabiar luego por el servicio de login real
-  configUrl = 'http://localhost:8082';
+  configUrl = 'http://localhost:8081';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
 
   getLogin(email: any, password: any) {
-       return this.http.get(this.configUrl + '/authenticationMember/email/' + email +'/password/' + password);
+       return this.http.get(this.configUrl + '/authenticationMember2/' + email +'/' + password, { responseType: 'text' });
   }
 }
