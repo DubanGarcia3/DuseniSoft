@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   public password = '';
   public isLoginOK: boolean;
 
+  
 
   constructor(private loginService: LoginService, private router: Router) { }
 
@@ -22,17 +23,19 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    console.log("correo",this.email);
     let bool;
-    this.loginService.getLogin()
+    this.loginService.getLogin(this.email, this.password)
     .subscribe(
       (data)=> {
-        if(data){
+        // if(data){
           
-        }else{
-          this.router.navigate(["app-inicio"]);
-          console.log("te jodiste");
-        }
-        bool=data;
+        // }else{
+        //   this.router.navigate(["app-inicio"]);
+        //   console.log("te jodiste");
+        // }
+        // bool=data;
+        console.log(data);
        
       }
     );

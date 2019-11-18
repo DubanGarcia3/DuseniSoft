@@ -21,11 +21,11 @@
             <h1>Iniciar sesión </h1>
             <div class="input_container">
                 <i class="fas fa-envelope"></i>
-                <input placeholder="usuario" type="email" name="Email" id="field_email" class='input_field'>
+                <input placeholder="usuario" type="email" name="Email" id="field_email" [(ngModel)] = "email" class='input_field'>
             </div>
             <div class="input_container">
                 <i class="fas fa-lock"></i>
-                <input placeholder="Contraseña" type="password" name="Password" id="field_password" class='input_field'>
+                <input placeholder="Contraseña" type="password" name="Password" id="field_password"  [(ngModel)] = "password" class='input_field'>
             </div>
             <button value="Login" id='input_submit' class='btn btn-success ' (click)='login()'>Ingresar</button>
             <span>ha olvidado <a href="#"> usuario / contraseña ?</a></span>
