@@ -20,15 +20,15 @@ export class MiembrosService {
     return this.http.post<Member>(this.Url,miembro);
   }
 
-  getMiembroId(idMiembro:number){
-    return this.http.get<Member>(this.Url+"member/"+idMiembro);
+  getMiembroId(cedula_member:number){
+    return this.http.get<Member>(this.Url+"member/"+cedula_member);
   }
 
   updateMiembro(miembro:Member){
-    return this.http.put<Member>(this.Url+"/editMember"+miembro.idMiembro,miembro);
+    return this.http.put<Member>(this.Url+"/editMember"+miembro.cedula_member,miembro);
   }
 
   Miembro(miembro:Member){
-    return this.http.delete<Member>(this.Url+"/"+miembro.idMiembro);
+    return this.http.delete<Member>(this.Url+"/"+miembro.cedula_member);
   }
 }
