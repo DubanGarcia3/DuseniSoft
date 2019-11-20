@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PedidosService } from 'src/app/Servicios/pedidos.service';
+import { Router } from '@angular/router';
+import { Request } from 'src/app/Modelo/Request';
 
 @Component({
   selector: 'app-pedidos',
@@ -9,28 +12,21 @@ export class PedidosComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private service:PedidosService, private router: Router) {
+
+   }
+   dtOption: any = {};
+   pedidos: Request[];
 
   ngOnInit() {
+    this.service.getPedidos().subscribe(data => { this.pedidos  = data; });
+    this.loadDataTable();
   }
 
 
-  /*
-  idPedido: number;
-    quantity: number;
-    dateOrder:Date;
-    dateLimmit: Date;
-    unitPrice: number;
-    isActive:boolean;
-    */
-
-  public PedidoList = [
-    { idPedido: 0, quantity: 100, dateOrder: new Date("2018-03-16"), dateLimmit: new Date("2018-03-16"), unitPrice: 50, isActive: true },
-    { idPedido: 1, quantity: 200, dateOrder: new Date("2018-03-16"), dateLimmit: new Date("2018-03-16"), unitPrice: 50, isActive: true },
-    { idPedido: 2, quantity: 300, dateOrder: new Date("2018-03-16"), dateLimmit: new Date("2018-03-16"), unitPrice: 50, isActive: true },
-  ];
-
-  getPedidosQuemados() {
-    return this.PedidoList;
+  loadDataTable() {
+    
   }
+
+  
 }

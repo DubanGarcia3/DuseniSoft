@@ -19,7 +19,7 @@ getPedidos() {
 }
 
 guardarPedido(pedido:Request){
-  return this.http.post<Request>(this.Url+'addRequest',Request);
+  return this.http.post<Request>(this.Url+'addRequest',pedido);
 }
 
 getPedidoId(idPedido:number){
