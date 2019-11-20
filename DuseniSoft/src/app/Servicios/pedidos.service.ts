@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Pedido } from '../Modelo/Pedido';
+import { Request } from '../Modelo/Request';
 
 @Injectable({
   providedIn: 'root'
@@ -15,22 +15,22 @@ Url = 'http://localhost:8081/';
 
 
 getPedidos() {
-  return this.http.get<Pedido[]>(this.Url+'getRequest');
+  return this.http.get<Request[]>(this.Url+'getRequest');
 }
 
-guardarPedido(pedido:Pedido){
-  return this.http.post<Pedido>(this.Url+'addRequest',Pedido);
+guardarPedido(pedido:Request){
+  return this.http.post<Request>(this.Url+'addRequest',Request);
 }
 
 getPedidoId(idPedido:number){
-  return this.http.get<Pedido>(this.Url+"/"+ idPedido);
+  return this.http.get<Request>(this.Url+"/"+ idPedido);
 }
 
-updatePedido(pedido:Pedido){
-  return this.http.put<Pedido>(this.Url+"/"+pedido.idPedido,pedido);
+updatePedido(pedido:Request){
+  return this.http.put<Request>(this.Url+"/"+pedido.idPedido,pedido);
 }
 
-deletePedido(pedido:Pedido){
-  return this.http.delete<Pedido>(this.Url+"/"+pedido.idPedido);
+deletePedido(pedido:Request){
+  return this.http.delete<Request>(this.Url+"/"+pedido.idPedido);
 }
 }

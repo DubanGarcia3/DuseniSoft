@@ -1,9 +1,28 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
 /* You can add global styles to this file, and also import other style files */
 
 .cabecera {
     padding: 0px;
-    display: flex;
-    align-items: center;
     background-color: #f1f8e9;
     font-weight: 600;
 }
@@ -15,8 +34,17 @@
 .centrado {
     text-align: center;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.nav {
+    margin-left: 0px;
+}
+
+.navegation {
+    color: black;
+    margin-left: 0px;
+    font-size: 2.5em;
+}
+
+.navegation:hover {
+    color: green;
+}

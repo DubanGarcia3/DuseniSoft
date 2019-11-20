@@ -2,8 +2,7 @@ import { City } from './City';
 import { Member } from './Member';
 
 export class Address{
-    id:number;
-    descripcion:String;
-    miembro:Member;
+    id_address:number;
+    address_description:String;
     ciudad:City;
 }

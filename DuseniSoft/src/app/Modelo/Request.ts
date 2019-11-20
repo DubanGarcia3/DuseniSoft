@@ -1,4 +1,4 @@
-export class Pedido{
+export class Request{
     idPedido: number;
     quantity: number;
     dateOrder:Date;

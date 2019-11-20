@@ -1,5 +1,5 @@
 export class City{
-    id:number;
-    name:String;
-    postalCode:string;
+    id_city:number;
+    name_city:String;
+    postal_code:string;
 }
