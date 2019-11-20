@@ -1,15 +1,20 @@
+import { Address } from './Address';
+import { Association } from './Association';
+
 export class Member{
-    idMiembro:number;
-    firstName:String;
-    secondName:String;
-    firstLastName:String;
-    firstSecondName:String;
-    email:String;
-    password:String;
-    imageProfile:String;
+    cedula_member:number;
+    first_name:String;
+    second_name:String;
+    first_last_name:String;
+    first_second_name:String;
+    email_member:String;
+    password_member:String;
+    image_profile_member:String;
     gender:String;
-    isActive:boolean;
-    phoneNumberOne:number;
+    is_active_user:boolean;
+    phone_number:number;
     phoneNumberTwo:number;
     dateOfBirth:Date;
+    address:Address;
+    association:Association;
 }
