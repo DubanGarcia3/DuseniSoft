@@ -15,7 +15,7 @@ Url = 'http://localhost:8081/';
 
 
 getPedidos() {
-  return this.http.get<Request[]>(this.Url+'getRequest');
+  return this.http.get<Request[]>(this.Url+'allRequests');
 }
 
 guardarPedido(pedido:Request){
