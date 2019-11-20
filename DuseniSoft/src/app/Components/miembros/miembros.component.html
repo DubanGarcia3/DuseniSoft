@@ -33,9 +33,8 @@
                         <th>Primer Nombre</th>
                         <th>Segundo Nombre</th>
                         <th>Apellido</th>
-                        <th>Segundo Apellido</th>
                         <th>correo electrónico</th>
-                        <th>Estado</th>
+                        <th>Numero de teléfono</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,7 +45,6 @@
                         <td class="text-center">{{miembro.first_last_name}}</td>
                         <td class="text-center">{{miembro.email_member}}</td>
                         <td class="text-center">{{miembro.phone_number}}</td>
-                        <td class="text-center">{{miembro.address}}</td>
                         <td class="text-center">
                             <button (click)="verInfoProducto(producto.codigoProducto)" class="btn btn-success" data-toggle="modal" data-target="#myModal">Ver</button>
                             <button (click)="editarProducto(producto)" class="btn btn-primary">Editar</button>
