@@ -40,13 +40,13 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let miembro of miembros" class="text-center">
-                        <td class="text-center">{{miembro.idMiembrio}}</td>
-                        <td class="text-center">{{miembro.firstName}}</td>
-                        <td class="text-center">{{miembro.secondName}}</td>
-                        <td class="text-center">{{miembro.firstLastName}}</td>
-                        <td class="text-center">{{miembro.secondLastName}}</td>
-                        <td class="text-center">{{miembro.email}}</td>
-                        <td class="text-center">{{miembro.isActive}}</td>
+                        <td class="text-center">{{miembro.cedula_member}}</td>
+                        <td class="text-center">{{miembro.first_name}}</td>
+                        <td class="text-center">{{miembro.second_name}}</td>
+                        <td class="text-center">{{miembro.first_last_name}}</td>
+                        <td class="text-center">{{miembro.email_member}}</td>
+                        <td class="text-center">{{miembro.phone_number}}</td>
+                        <td class="text-center">{{miembro.address}}</td>
                         <td class="text-center">
                             <button (click)="verInfoProducto(producto.codigoProducto)" class="btn btn-success" data-toggle="modal" data-target="#myModal">Ver</button>
                             <button (click)="editarProducto(producto)" class="btn btn-primary">Editar</button>
