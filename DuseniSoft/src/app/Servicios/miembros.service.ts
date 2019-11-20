@@ -13,7 +13,7 @@ export class MiembrosService {
   constructor(private http:HttpClient) { }
 
   getMiembros() {
-    return this.http.get<Member[]>(this.Url);
+    return this.http.get<Member[]>(this.Url+"allMembers");
   }
 
   guardarMiembro(miembro:Member){
