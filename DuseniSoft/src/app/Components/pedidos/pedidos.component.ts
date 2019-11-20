@@ -20,6 +20,7 @@ export class PedidosComponent implements OnInit {
 
   ngOnInit() {
     this.service.getPedidos().subscribe(data => { this.pedidos  = data; });
+    console.log(this.pedidos);
     this.loadDataTable();
   }
 
