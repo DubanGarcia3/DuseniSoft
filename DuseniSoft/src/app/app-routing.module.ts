@@ -8,6 +8,7 @@ import { PedidosComponent } from './Components/pedidos/pedidos.component';
 import { AddPedidoComponent } from './Components/pedidos/add-pedido/add-pedido.component';
 import { MiembrosComponent } from './Components/miembros/miembros.component';
 import { AddMiembroComponent } from './Components/miembros/add-miembro/add-miembro.component';
+import { TreeNavComponent } from './Components/tree-nav/tree-nav.component';
 
 
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:'app-pedidos', component: PedidosComponent},
   {path:'app-add-pedido', component: AddPedidoComponent},
   {path:'app-miembros', component: MiembrosComponent},
-  {path:'app-add-miembro', component: AddMiembroComponent}
+  {path:'app-add-miembro', component: AddMiembroComponent},
+  {path: 'app-tree-nav', component: TreeNavComponent}
 ];
 
 @NgModule({

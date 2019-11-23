@@ -17,6 +17,7 @@ import { AddMiembroComponent} from './Components/miembros/add-miembro/add-miembr
 import{LoginService} from 'src/app/servicios/login.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TreeNavComponent } from './Components/tree-nav/tree-nav.component';
 
 
 
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     PedidosComponent,
     AddPedidoComponent,
     MiembrosComponent,
-    AddMiembroComponent
+    AddMiembroComponent,
+    TreeNavComponent
   ],
   imports: [
     BrowserModule,
