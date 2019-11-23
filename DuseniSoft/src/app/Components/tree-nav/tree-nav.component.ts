@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatTreeModule} from '@angular/material/tree';
 
 @Component({
   selector: 'app-tree-nav',
