@@ -1,15 +1,12 @@
-<div class="fondo">
-    <div id="treeview1" class="treeview">
-        <ul class="list-group">
-            <li class="list-group-item node-treeview1" data-nodeid="0"><span class="icon expand-icon glyphicon glyphicon-minus"></span><span class="icon node-icon"></span>Parent 1</li>
-            <li class="list-group-item node-treeview1" data-nodeid="1"><span class="indent"></span><span class="icon expand-icon glyphicon glyphicon-minus"></span><span class="icon node-icon"></span>Child 1</li>
-            <li class="list-group-item node-treeview1 node-selected" data-nodeid="2"><span class="indent"></span><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Grandchild 1</li>
-            <li class="list-group-item node-treeview1" data-nodeid="3"><span class="indent"></span><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Grandchild 2</li>
-            <li class="list-group-item node-treeview1" data-nodeid="4"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Child 2</li>
-            <li class="list-group-item node-treeview1" data-nodeid="5"><span class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 2</li>
-            <li class="list-group-item node-treeview1" data-nodeid="6"><span class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 3</li>
-            <li class="list-group-item node-treeview1" data-nodeid="7"><span class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 4</li>
-            <li class="list-group-item node-treeview1" data-nodeid="8"><span class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 5</li>
-        </ul>
+<div class="">
+    <div class="btn-group-vertical button-l" role="group" aria-label="Vertical button group">
+        <button type="button" class="btn fondo">Inicio</button>
+        <button type="button" class="btn fondo button-l"></button>
+        <button type="button" class="btn fondo button-l" (click)='irPedidos()'>Pedidos</button>
+        <button type="button" class="btn fondo button-l" (click)='irEstadisticas()'>Reportes y estadísticas </button>
+        <button type="button" class="btn fondo button-l" (click)='irMiembros()'>Miembros</button>
+        <button type="button" class="btn fondo button-l" data-toggle="dialogLogOut" data-target="#dialogLogOut">Cerrar Sesión
+                <app-log-out></app-log-out>
+        </button>
     </div>
 </div>

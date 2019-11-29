@@ -25,3 +25,7 @@
 .navegation:hover {
     color: green;
 }
+
+.no-padd {
+    padding: 0%;
+}

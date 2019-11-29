@@ -9,7 +9,8 @@ import { AddPedidoComponent } from './Components/pedidos/add-pedido/add-pedido.c
 import { MiembrosComponent } from './Components/miembros/miembros.component';
 import { AddMiembroComponent } from './Components/miembros/add-miembro/add-miembro.component';
 import { TreeNavComponent } from './Components/tree-nav/tree-nav.component';
-
+import { LogOutComponent} from './Components/login/log-out/log-out.component';
+import { IconBarComponent } from './Components/inicio/icon-bar/icon-bar.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path:'app-add-pedido', component: AddPedidoComponent},
   {path:'app-miembros', component: MiembrosComponent},
   {path:'app-add-miembro', component: AddMiembroComponent},
-  {path: 'app-tree-nav', component: TreeNavComponent}
+  {path: 'app-tree-nav', component: TreeNavComponent},
+  {path: 'app-log-out', component: LogOutComponent},
+  {path: 'app-icon-bar', component: IconBarComponent}
 ];
 
 @NgModule({
