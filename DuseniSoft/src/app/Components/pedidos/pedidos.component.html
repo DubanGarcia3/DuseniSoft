@@ -4,50 +4,62 @@
         <button class="btn btn-outline-success my-2 final" type="submit">Cerrar sesion</button>
     </form>
 </nav>
-<form class="botones-sup ">
-    <div class="form-row">
-        <div class="col">
-            <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#exampleModal">Agregar nuevo pedido</button>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 fondo">
+            <app-tree-nav>
+            </app-tree-nav>
         </div>
-        <div class="col mb-3">
-            <div class="input-group-append final">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Buscar pedidos">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-success" type="button">Buscar</button>
+        <div class="col-10">
+            <form class="botones-sup ">
+                <div class="form-row">
+                    <div class="col">
+                        <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#exampleModal">Agregar nuevo pedido</button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-
-<div class="album">
-    <div class="container">
-        <div class="row">
-            <div class="col-4" *ngFor="let pedido of pedidos">
-                <div class="card">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                            dy=".3em"></text>
-                    </svg>
-                    <div class="card-body">
-                        <p class="card-title">{{pedido.idPedido}}</p>
-                        <p class="card-text">{{pedido.quantity}}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-success">Ver</button>
-                                <button type="button" class="btn btn-sm btn-outline-success">Editar</button>
+                    <div class="col mb-3">
+                        <div class="input-group-append final">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Buscar pedidos">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <small class="text-muted">{{pedido.dateLimmit}}</small>
                         </div>
                     </div>
                 </div>
+            </form>
+
+            <div class="album">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4" *ngFor="let pedido of pedidos">
+                            <div class="card">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                    <title>Placeholder</title>
+                                    <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%"
+                                        fill="#eceeef" dy=".3em"></text>
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-title">{{pedido.idPedido}}</p>
+                                    <p class="card-text">{{pedido.quantity}}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-success">Ver</button>
+                                            <button type="button" class="btn btn-sm btn-outline-success">Editar</button>
+                                        </div>
+                                        <small class="text-muted">{{pedido.dateLimmit}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <app-add-pedido>
+                    </app-add-pedido>
+                </div>
             </div>
         </div>
-
-        <app-add-pedido>
-        </app-add-pedido>
     </div>
 </div>
