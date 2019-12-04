@@ -32,5 +32,4 @@ export class AppComponent {
   estadisticas(){
     this.router.navigate(["app-statistics"]);
   }
- 
 }

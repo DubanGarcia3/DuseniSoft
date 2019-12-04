@@ -28,6 +28,12 @@
 
                     </div>
                     <div class="form-row">
+                        <div class="col-md-10 mb-3">
+                            <div class="">
+                                <label for="inputPassword" class="col-form-label">Numero de documento de identidad</label>
+                                <input [(ngModel)]="member.id" formControlName="id" type="text" class="form-control" id="input_id" placeholder="Numero de documento" required>
+                            </div>
+                        </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationTooltip03">Correo electrónico</label>
                             <input [(ngModel)]="member.email" formControlName="email" type="text" class="form-control" id="input_email" placeholder="correo electronico" required>
@@ -50,13 +56,26 @@
                                 Por favor, ingrese una fecha valida
                             </div>
                         </div>
-                        <div class="col-md-10 mb-3">
-                            <label for="example-month-input" class=" col-form-label">Dirección de vivienda
-                                </label>
-                            <input [(ngModel)]="member.direccion" formControlName="direccion" class="form-control " id="address" required>
+                        <div class="col-md-8 mb-3">
+                            <label for="example-month-input" class=" col-form-label">Dirección de
+                                vivienda
+                            </label>
+                        </div>
+
+                        <div class="col-md-8 mb-3">
+
+                            <input [(ngModel)]="member.direccion" formControlName="direccion" class="form-control" id="address" required>
                             <div class="invalid-tooltip">
                                 Por favor, ingrese una direccion correcta
                             </div>
+                        </div>
+                        <div class="input-group col-md-4 mb-3">
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Ciudad</option>
+                                <option value="1">Tunja</option>
+                                <option value="2">Bogotá</option>
+                                <option value="3">Samacá</option>
+                            </select>
                         </div>
                         <div class="col-md-10 mb-3">
                             <div class="">
@@ -69,7 +88,8 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label for="inputPassword" class="col-form-label input-group-append">Numero telefónico</label>
+                            <label for="inputPassword" class="col-form-label input-group-append">Numero
+                                telefónico</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">+57</span>
                                 <input [(ngModel)]="member.telefono" formControlName="telefono" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="input_telefono" placeholder="Número">
