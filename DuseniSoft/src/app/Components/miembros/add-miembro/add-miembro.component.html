@@ -63,26 +63,22 @@
                         </div>
 
                         <div class="col-md-8 mb-3">
-
                             <input [(ngModel)]="member.direccion" formControlName="direccion" class="form-control" id="address" required>
                             <div class="invalid-tooltip">
                                 Por favor, ingrese una direccion correcta
                             </div>
                         </div>
-                        <div class="input-group col-md-4 mb-3">
+                        <div class="input-group col-md-4 mb-3" *ngFor="let ciudad of ciudades">
                             <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Ciudad</option>
-                                <option value="1">Tunja</option>
-                                <option value="2">Bogotá</option>
-                                <option value="3">Samacá</option>
+                                <option selected >{{ciudad.name_city}}</option>
                             </select>
                         </div>
                         <div class="col-md-10 mb-3">
                             <div class="">
                                 <label for="inputPassword" class="col-form-label">Género</label>
                                 <select [(ngModel)]="member.genero" formControlName="genero" class="form-control" id="input_genero">
-                                    <option>Masculino</option>
-                                    <option>Femenino</option>
+                                    <option value="1">Masculino</option>
+                                    <option value="2">Femenino</option>
                                 </select>
                             </div>
                         </div>
@@ -100,7 +96,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button (click)="addMember()" type="button" class="btn btn-success">Aceptar</button>
+                <button (click)="addMember()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
             </div>
         </div>
     </div>
