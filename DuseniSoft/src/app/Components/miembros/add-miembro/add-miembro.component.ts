@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MiembrosService } from 'src/app/Servicios/miembros.service';
 import { Member } from 'src/app/Modelo/Member';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CiudadService } from 'src/app/Servicios/ciudad.service';
+import { City } from 'src/app/Modelo/City';
 
 @Component({
   selector: 'app-add-miembro',
@@ -11,12 +13,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class AddMiembroComponent implements OnInit {
 
   datos_miembro_formulario: FormGroup;
+  ciudades:City[];
   
-  constructor(private miembrosService: MiembrosService, private formBuilder: FormBuilder) { }
+  constructor(private miembrosService: MiembrosService,private CiudadService:CiudadService, private formBuilder: FormBuilder) { }
 
   member: Member = new Member();
 
   ngOnInit() {
+
+    this.CiudadService.getCiudades().subscribe(data => { this.ciudades = data; });
+
     this.datos_miembro_formulario = this.formBuilder.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
