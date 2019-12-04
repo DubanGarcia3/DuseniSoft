@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-icon-bar',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IconBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
   mostrarDialog(){
     console.log("dio click al boton del modal");
+  }
+
+  toHome(){
+    this.router.navigate(["app-inicio"]);
   }
 }
