@@ -6,7 +6,7 @@ export class Member{
     first_name:String;
     second_name:String;
     first_last_name:String;
-    first_second_name:String;
+    second_last_Name:String;
     email_member:String;
     password_member:String;
     image_profile_member:String;
