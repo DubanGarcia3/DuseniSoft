@@ -13,7 +13,6 @@ export class Member{
     gender:String;
     is_active_user:boolean;
     phone_number:number;
-    phoneNumberTwo:number;
     dateOfBirth:Date;
     address:Address;
     association:Association;
