@@ -5,7 +5,7 @@ export class Member{
     cedula_member:number;
     first_name:String;
     second_name:String;
-    first_last_name:String;
+    first_last_Name:String;
     second_last_Name:String;
     email_member:String;
     password_member:String;

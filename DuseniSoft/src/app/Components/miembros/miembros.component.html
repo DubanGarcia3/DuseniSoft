@@ -33,9 +33,9 @@
                     <table class="table table-striped table-bordered table-sm row-border hover" id="tableProductos">
                         <thead class="text-center">
                             <tr>
-                                <th>Código</th>
-                                <th>Primer Nombre</th>
-                                <th>Segundo Nombre</th>
+                                <th>Cédula</th>
+                                <th>Nombre</th>
+                                <!-- <th>Segundo Nombre</th> -->
                                 <th>Apellido</th>
                                 <th>correo electrónico</th>
                                 <th>Numero de teléfono</th>
@@ -45,8 +45,8 @@
                             <tr *ngFor="let miembro of miembros" class="text-center">
                                 <td class="text-center">{{miembro.cedula_member}}</td>
                                 <td class="text-center">{{miembro.first_name}}</td>
-                                <td class="text-center">{{miembro.second_name}}</td>
-                                <td class="text-center">{{miembro.first_last_name}}</td>
+                                <!-- <td class="text-center">{{miembro.second_name}}</td> -->
+                                <td class="text-center">{{miembro.first_last_Name}}</td>
                                 <td class="text-center">{{miembro.email_member}}</td>
                                 <td class="text-center">{{miembro.phone_number}}</td>
                                 <td class="text-center">

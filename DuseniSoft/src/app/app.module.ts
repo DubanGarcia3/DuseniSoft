@@ -15,7 +15,7 @@ import { AddMiembroComponent} from './Components/miembros/add-miembro/add-miembr
 
 
 import{LoginService} from 'src/app/servicios/login.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TreeNavComponent } from './Components/tree-nav/tree-nav.component';
 import { LogOutComponent } from './Components/login/log-out/log-out.component';
@@ -43,7 +43,8 @@ import { IconBarComponent } from './Components/inicio/icon-bar/icon-bar.componen
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     LoginService
