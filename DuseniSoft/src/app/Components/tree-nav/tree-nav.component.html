@@ -1,12 +1,25 @@
 <div class="">
+    <!--
     <div class="btn-group-vertical button-l" role="group" aria-label="Vertical button group">
         <button type="button" class="btn fondo">Inicio</button>
-        <button type="button" class="btn fondo button-l"></button>
+        <div class="dropdown-divider fondo"></div>
         <button type="button" class="btn fondo button-l" (click)='irPedidos()'>Pedidos</button>
         <button type="button" class="btn fondo button-l" (click)='irEstadisticas()'>Reportes y estadísticas </button>
         <button type="button" class="btn fondo button-l" (click)='irMiembros()'>Miembros</button>
-        <button type="button" class="btn fondo button-l" data-toggle="dialogLogOut" data-target="#dialogLogOut">Cerrar Sesión
-                <app-log-out></app-log-out>
+        <button type="button" class="btn fondo button-l" data-toggle="dialogLogOut" data-target="#dialogLogOut">Cerrar
+            Sesión
+            <app-log-out></app-log-out>
         </button>
+
     </div>
+    -->
+    <div class="fondo">
+        <a class="dropdown-item" href="#">Inicio</a>
+        <div class="dropdown-divider a"></div>
+        <button class="dropdown-item " (click)='irPedidos()'>Pedidos</button>
+        <button class="dropdown-item " (click)='irEstadisticas()'>Reportes y estadisticas</button>
+        <button class="dropdown-item " (click)='irMiembros()'>Miembros</button>
+        <button class="dropdown-item " data-toggle="dialogLogOut" data-target="#dialogLogOut">Cerrar sesión</button>
+    </div>
+    <app-log-out></app-log-out>
 </div>

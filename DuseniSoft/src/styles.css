@@ -29,3 +29,9 @@
 .no-padd {
     padding: 0%;
 }
+
+.dropdown-divider {
+    background: gray;
+    margin-left: 2%;
+    margin-right: 2%;
+}
