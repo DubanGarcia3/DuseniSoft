@@ -12,4 +12,7 @@ export class IconBarComponent implements OnInit {
   ngOnInit() {
   }
 
+  mostrarDialog(){
+    console.log("dio click al boton del modal");
+  }
 }
