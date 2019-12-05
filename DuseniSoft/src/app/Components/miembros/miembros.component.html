@@ -26,7 +26,6 @@
             </div>
         </form>
         <app-add-miembro></app-add-miembro>
-
         <div class="lista">
             <div class="">
                 <div class="table-responsive">
@@ -51,9 +50,11 @@
                                 <td class="text-center">{{miembro.email_member}}</td>
                                 <td class="text-center">{{miembro.phone_number}}</td>
                                 <td class="text-center">
-                                    <button (click)="verInfoProducto(producto.codigoProducto)" class="btn btn-success" data-toggle="Modal" data-target="#myModal">Ver</button>
-                                    <button (click)="editarProducto(producto)" class="btn btn-primary">Editar</button>
-                                    <button (click)="eliminarProducto(producto)" class="btn btn-danger">Eliminar</button>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button (click)="verInfoProducto(producto.codigoProducto)" class="btn btn-outline-success" data-toggle="Modal" data-target="#myModal">Ver</button>
+                                        <button (click)="editarProducto(producto)" class="btn btn-outline-dark">Editar</button>
+                                        <button (click)="eliminarProducto(producto)" class="btn btn-outline-danger">Eliminar</button>
+                                    </div>
                             </tr>
                         </tbody>
                     </table>

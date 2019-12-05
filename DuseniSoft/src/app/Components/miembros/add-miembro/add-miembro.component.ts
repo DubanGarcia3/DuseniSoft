@@ -20,8 +20,18 @@ export class AddMiembroComponent implements OnInit {
 
 
   ngOnInit() {
-
+    //carga las ciudades
     this.CiudadService.getCiudades().subscribe(data => { this.ciudades = data; });
+/*
+    this.CiudadService.getCiudades()
+    .subscribe(data=>{
+      this.ciudades=data;
+      this.ciudades.forEach(element => {
+        $('#select-ciudades').append('<option value="'+element.id_city+'">'+element.name_city+'</option>');
+      });
+      console.log(this.ciudades);
+    });
+    */
     
     this.datos_miembro_formulario = this.formBuilder.group({
       nombre: ['', Validators.required],
@@ -36,30 +46,33 @@ export class AddMiembroComponent implements OnInit {
     });    
   }
 
-  getTamano(){
+  get f(){return this.datos_miembro_formulario.controls;}
 
+  miembroPrueba: Member = new Member();
+  addMember(){
+    console.log("entró al addmember");
+    this.miembroPrueba.cedula_member= 123;
+    this.miembroPrueba.first_name="Prueba";
+    this.miembroPrueba.second_name="Pruebasn"
+    this.miembroPrueba.second_last_name="Pruebaapellido";
+    this.miembroPrueba.first_last_name="prueba apellid";
+    this.miembroPrueba.email_member="email";
+    this.miembroPrueba.password_member="1234";
+    this.miembroPrueba.image_profile_member="image_url";
+    this.miembroPrueba.gender="M";
+    this.miembroPrueba.is_active_user=true;
+    this.miembroPrueba.dateOfBirth = new Date("1998-08-03");
+    this.miembroPrueba.address = {id_address:null, address_description: 'asdfg', city:{id_city: 1, name_city:null, postal_code:null}};
+    this.miembroPrueba.association={id_association:1, name_association:null, email_admin:null, password_admin:null, image_profile_association:null, address:null};
+
+    this.miembrosService.guardarMiembro(this.miembroPrueba).subscribe();
+  }
+  
+  getTamano(){
     let length = this.ciudades.length;
     for (var i = 0; i < length; i++) {
       console.log(this.ciudades[i]);
     }
   }
-  get f(){return this.datos_miembro_formulario.controls;}
-  addMember(){
-    this.member.cedula_member= 123;
-    this.member.first_name="Prueba";
-    this.member.second_name="Pruebasn"
-    this.member.second_last_name="Pruebaapellido";
-    this.member.first_last_name="prueba apellid";
-    this.member.email_member="email";
-    this.member.password_member="1234";
-    this.member.image_profile_member="image_url";
-    this.member.gender="M";
-    this.member.is_active_user=true;
-    this.member.dateOfBirth = new Date("1998-08-03");
-    this.member.address = {id_address:null, address_description: 'asdfg', city:{id_city: 1, name_city:null, postal_code:null}};
-    this.member.association={id_association:1, name_association:null, email_admin:null, password_admin:null, image_profile_association:null, address:null};
-
-    this.miembrosService.guardarMiembro(this.member).subscribe();
-  }
-
+  
 }

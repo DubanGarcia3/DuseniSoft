@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Member } from '../Modelo/Member';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { Member } from '../Modelo/Member';
 export class MiembrosService {
 
   Url = 'http://localhost:8081/';
+  private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
   constructor(private http:HttpClient) { }
 
@@ -17,7 +18,7 @@ export class MiembrosService {
   }
 
   guardarMiembro(miembro:Member){
-    return this.http.post<Member>(this.Url,miembro);
+    return this.http.post<Member>(this.Url+"addMember",miembro);
   }
 
   getMiembroId(cedula_member:number){
