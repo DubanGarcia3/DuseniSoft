@@ -27,10 +27,10 @@ getPedidoId(idPedido:number){
 }
 
 updatePedido(pedido:Request){
-  return this.http.put<Request>(this.Url+"/"+pedido.idPedido,pedido);
+  return this.http.put<Request>(this.Url+"/"+pedido.id_request,pedido);
 }
 
 deletePedido(pedido:Request){
-  return this.http.delete<Request>(this.Url+"/"+pedido.idPedido);
+  return this.http.delete<Request>(this.Url+"/"+pedido.id_request);
 }
 }

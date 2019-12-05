@@ -15,4 +15,9 @@ export class CiudadService {
     return this.http.get<City[]>(this.Url+"allCities");
   }
 
+  guardarCiudad(ciudad:City){
+    return this.http.post<City>(this.Url+"addCity",ciudad);
+  }
+
+
 }
