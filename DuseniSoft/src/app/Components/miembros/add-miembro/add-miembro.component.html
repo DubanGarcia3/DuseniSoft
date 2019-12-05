@@ -57,9 +57,7 @@
                             </div>
                         </div>
                         <div class="col-md-8 mb-3">
-                            <label for="example-month-input" class=" col-form-label">Dirección de
-                                vivienda
-                            </label>
+                            <label for="example-month-input" class=" col-form-label">Dirección de vivienda</label>
                         </div>
 
                         <div class="col-md-8 mb-3">
@@ -68,9 +66,9 @@
                                 Por favor, ingrese una direccion correcta
                             </div>
                         </div>
-                        <div class="input-group col-md-4 mb-3" *ngFor="let ciudad of ciudades">
+                        <div class="input-group col-md-4 mb-3">
                             <select class="custom-select" id="inputGroupSelect01">
-                                <option selected >{{ciudad.name_city}}</option>
+                                <option *ngFor="let ciudad of ciudades ">{{ciudad.id_city}}. {{ciudad.name_city}}</option>
                             </select>
                         </div>
                         <div class="col-md-10 mb-3">
@@ -95,7 +93,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="getTamano()">Cerrar</button>
                 <button (click)="addMember()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
             </div>
         </div>

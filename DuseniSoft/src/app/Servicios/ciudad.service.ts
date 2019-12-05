@@ -12,7 +12,7 @@ export class CiudadService {
   constructor(private http:HttpClient) { }
 
   getCiudades() {
-    return this.http.get<City[]>(this.Url+"allMembers");
+    return this.http.get<City[]>(this.Url+"allCities");
   }
 
 }

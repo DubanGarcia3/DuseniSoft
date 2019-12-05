@@ -14,15 +14,15 @@ export class AddMiembroComponent implements OnInit {
 
   datos_miembro_formulario: FormGroup;
   ciudades:City[];
+  member: Member = new Member();
   
   constructor(private miembrosService: MiembrosService,private CiudadService:CiudadService, private formBuilder: FormBuilder) { }
 
-  member: Member = new Member();
 
   ngOnInit() {
 
     this.CiudadService.getCiudades().subscribe(data => { this.ciudades = data; });
-
+    
     this.datos_miembro_formulario = this.formBuilder.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -36,6 +36,13 @@ export class AddMiembroComponent implements OnInit {
     });    
   }
 
+  getTamano(){
+
+    let length = this.ciudades.length;
+    for (var i = 0; i < length; i++) {
+      console.log(this.ciudades[i]);
+    }
+  }
   get f(){return this.datos_miembro_formulario.controls;}
   addMember(){
     this.member.cedula_member= 123;
