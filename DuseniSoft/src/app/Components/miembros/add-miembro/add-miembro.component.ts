@@ -20,6 +20,8 @@ export class AddMiembroComponent implements OnInit {
   member: Member = new Member();
   miembroPrueba: Member = new Member();
   direccionNueva:Address = new Address();
+  ciudadFromSelect: String;
+  genderFromSelect: number;
   ciudadExistente: City = new City();
   asociacionExistente:Association = new Association();
 
@@ -57,21 +59,27 @@ export class AddMiembroComponent implements OnInit {
   get f() { return this.datos_miembro_formulario.controls; }
 
 
-  getSelectedCityFromForm(){
+  getCiudadFromSelect(){ 
     this.ciudades.forEach(ciudadActual => {
-      if (this.ciudadExistente.id_city == ciudadActual.id_city) {
-        console.log("ES IGUAL: " + ciudadActual.id_city);
+      if (ciudadActual.name_city == this.ciudadFromSelect) {
+        this.ciudadExistente.id_city = ciudadActual.id_city;
+        return;
       }
-    });    
+    });
   }
 
-  getAddressFromForm(){
-    this.direccionNueva
+  getGenderFromSelect(){
+    this.member.gender = this.genderFromSelect == 1 ? "M" : "F";
+    // if (this.genderFromSelect == 1) {
+    //   this.member.gender = "M";
+    // }else{
+    //   this.member.gender = "F";
+    // }
   }
 
-  addMember() {
-    console.log("CIUDAD ELEGIDA OBJECT -->" + this.ciudadExistente.name_city); 
-    
+  addMember() {    
+    // console.log("CIUDAD DEL FORM --> " + this.ciudadExistente.id_city );
+    // console.log("GENERO DEL FORM --> " + this.member.gender);
     // // CREO EL MIEMBRO
     // this.miembroPrueba.cedula_member = 3;
     // this.miembroPrueba.first_name = "PrimerNombre";
@@ -90,33 +98,33 @@ export class AddMiembroComponent implements OnInit {
     // this.ciudadExistente.id_city = 1;
 
     // // CREO LA DIRECCION NUEVA CON LA CIUDAD EXISTENTE
-    // this.direccionNueva.city = this.ciudadExistente;
+    this.direccionNueva.city = this.ciudadExistente;
     // this.direccionNueva.address_description = "direccion de prueba";
 
     // //CREO LA ASOCIACION EXISTENTE
-    // this.asociacionExistente.id_association = 1;
+    this.asociacionExistente.id_association = 1;
 
-    // this.miembroPrueba.address = this.direccionNueva;
-    // this.miembroPrueba.association = this.asociacionExistente;
-
-    // this.direccionService.guardarDireccion(this.direccionNueva).subscribe(
-    //   (data)=> {console.log("Lo que retorna el server tras agregar la dirección",  data)
-    //       if(data != null){
-    //         console.log("OK DIRECIÓN");
-    //       }else{
-    //         console.log("validar que los datos esten correctos");
-    //       }
-    //   }
-    // );
-    // this.miembrosService.guardarMiembro(this.miembroPrueba).subscribe(
-    //   (data)=> {console.log("Lo que retorna el server tras agregar el miembro",  data)
-    //       if(data != null){
-    //         console.log("OK MIEMBRO");
-    //       }else{
-    //         console.log("validar que los datos esten correctos");
-    //       }
-    //   }
-    // );
+    this.member.address = this.direccionNueva;
+    this.member.association = this.asociacionExistente;
+    this.member.dateOfBirth = new Date("2019-01-10");
+    this.direccionService.guardarDireccion(this.direccionNueva).subscribe(
+      (data)=> {console.log("Lo que retorna el server tras agregar la dirección",  data)
+          if(data != null){
+            console.log("OK DIRECIÓN");
+          }else{
+            console.log("validar que los datos esten correctos");
+          }
+      }
+    );
+    this.miembrosService.guardarMiembro(this.member).subscribe(
+      (data)=> {console.log("Lo que retorna el server tras agregar el miembro",  data)
+          if(data != null){
+            console.log("OK MIEMBRO");
+          }else{
+            console.log("validar que los datos esten correctos");
+          }
+      }
+    );
   }
 
   getTamano() {
