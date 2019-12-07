@@ -14,7 +14,7 @@ export class LoginService {
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
 
-  getLogin(email: any, password: any) {
-       return this.http.get(this.configUrl + '/authenticationMember2/' + email +'/' + password, { responseType: 'text' });
+  getLoginAdmin(email: any, password: any) {
+       return this.http.get(this.configUrl + '/authenticationAdmin/' + email +'/' + password, { responseType: 'text' });
   }
 }

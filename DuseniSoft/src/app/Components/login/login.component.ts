@@ -25,10 +25,10 @@ export class LoginComponent implements OnInit {
   login(){
     console.log("correo",this.email);
     
-    this.loginService.getLogin(this.email, this.password)
+    this.loginService.getLoginAdmin(this.email, this.password)
     .subscribe(
       (data)=> {
-        console.log("un mensajito   ----",  data)
+        console.log("Estos son los datos que se ingresaron para el login admin",  data)
           if(data != "[]" ){
             this.router.navigate(["app-inicio"]);
           }else{
@@ -36,7 +36,5 @@ export class LoginComponent implements OnInit {
           }
       }
     );
-  }
-
-  
+  }  
 }
