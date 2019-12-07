@@ -18,6 +18,10 @@ export class AddMiembroComponent implements OnInit {
   datos_miembro_formulario: FormGroup;
   ciudades: City[];
   member: Member = new Member();
+  miembroPrueba: Member = new Member();
+  direccionNueva:Address = new Address();
+  ciudadExistente: City = new City();
+  asociacionExistente:Association = new Association();
 
   constructor(private miembrosService: MiembrosService, private CiudadService: CiudadService,private direccionService:DireccionService ,private formBuilder: FormBuilder) { }
 
@@ -45,45 +49,74 @@ export class AddMiembroComponent implements OnInit {
       fecha_nacimiento: ['', Validators.required],
       direccion: ['', Validators.required],
       genero: ['', Validators.required],
-      telefono: ['', Validators.required]
+      telefono: ['', Validators.required],
+      ciudad: ['', Validators.required]
     });
   }
 
   get f() { return this.datos_miembro_formulario.controls; }
 
-  miembroPrueba: Member = new Member();
-  ciudad:City = new City();
-  dir:Address = new Address();
-  asn:Association = new Association();
+
+  getSelectedCityFromForm(){
+    this.ciudades.forEach(ciudadActual => {
+      if (this.ciudadExistente.id_city == ciudadActual.id_city) {
+        console.log("ES IGUAL: " + ciudadActual.id_city);
+      }
+    });    
+  }
+
+  getAddressFromForm(){
+    this.direccionNueva
+  }
+
   addMember() {
-    console.log("entró al addmember");
-    this.miembroPrueba.cedula_member = 123;
-    this.miembroPrueba.first_name = "Prueba";
-    this.miembroPrueba.second_name = "Pruebasn"
-    this.miembroPrueba.second_last_name = "Pruebaapellido";
-    this.miembroPrueba.first_last_name = "prueba apellid";
-    this.miembroPrueba.email_member = "email";
-    this.miembroPrueba.password_member = "1234";
-    this.miembroPrueba.image_profile_member = "image_url";
-    this.miembroPrueba.gender = "M";
-    this.miembroPrueba.is_active_user = true;
-    this.miembroPrueba.dateOfBirth = new Date("2019-01-16");
-
-    this.ciudad.name_city = "ciudadprueba";
-    this.ciudad.postal_code = "15779";
-
-    this.dir.address_description = "direccion de prueba";
-    this.dir.city= this.ciudad;
-
-    this.asn.id_association = 326532;
-
-    this.miembroPrueba.address = this.dir;
-    this.miembroPrueba.association = this.asn ;
-
+    console.log("CIUDAD ELEGIDA OBJECT -->" + this.ciudadExistente.name_city); 
     
-    this.CiudadService.guardarCiudad(this.ciudad).subscribe();
-    this.direccionService.guardarDireccion(this.dir).subscribe();
-    this.miembrosService.guardarMiembro(this.miembroPrueba).subscribe();
+    // // CREO EL MIEMBRO
+    // this.miembroPrueba.cedula_member = 3;
+    // this.miembroPrueba.first_name = "PrimerNombre";
+    // this.miembroPrueba.second_name = "SegundoNombre"
+    // this.miembroPrueba.second_last_name = "SegundoApellido";
+    // this.miembroPrueba.first_last_name = "PrimerApellido";
+    // this.miembroPrueba.email_member = "emailPrube";
+    // this.miembroPrueba.password_member = "1234";
+    // this.miembroPrueba.image_profile_member = "image_url_prueba";
+    // this.miembroPrueba.gender = "M";
+    // this.miembroPrueba.is_active_user = true;
+    // this.miembroPrueba.dateOfBirth = new Date("2019-01-16");
+    // this.miembroPrueba.phone_number = 12345689;
+
+    // // CREO LA CIUDAD EXISTENTE 
+    // this.ciudadExistente.id_city = 1;
+
+    // // CREO LA DIRECCION NUEVA CON LA CIUDAD EXISTENTE
+    // this.direccionNueva.city = this.ciudadExistente;
+    // this.direccionNueva.address_description = "direccion de prueba";
+
+    // //CREO LA ASOCIACION EXISTENTE
+    // this.asociacionExistente.id_association = 1;
+
+    // this.miembroPrueba.address = this.direccionNueva;
+    // this.miembroPrueba.association = this.asociacionExistente;
+
+    // this.direccionService.guardarDireccion(this.direccionNueva).subscribe(
+    //   (data)=> {console.log("Lo que retorna el server tras agregar la dirección",  data)
+    //       if(data != null){
+    //         console.log("OK DIRECIÓN");
+    //       }else{
+    //         console.log("validar que los datos esten correctos");
+    //       }
+    //   }
+    // );
+    // this.miembrosService.guardarMiembro(this.miembroPrueba).subscribe(
+    //   (data)=> {console.log("Lo que retorna el server tras agregar el miembro",  data)
+    //       if(data != null){
+    //         console.log("OK MIEMBRO");
+    //       }else{
+    //         console.log("validar que los datos esten correctos");
+    //       }
+    //   }
+    // );
   }
 
   getTamano() {
