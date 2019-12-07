@@ -17,5 +17,21 @@
 
 .botones-sup {
     margin-top: 2%;
-    text-align: end;
+    text-align: center;
+}
+.botones-sup div{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#divTablaMiembros{
+    border: 2px solid black;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 1px 0px;
+}
+#divAgregar, #divBuscador{
+    margin: 1px 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }

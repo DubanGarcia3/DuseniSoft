@@ -1,67 +1,74 @@
 <app-icon-bar></app-icon-bar>
-<div class="row">
-    <div class="col-2">
-        <app-tree-nav></app-tree-nav>
-        <app-log-out></app-log-out>
-    </div>
-    <div class="col-10">
-        <form class="botones-sup ">
-            <div class="form-row">
-                <div class="col">
-                    <button class="btn btn-outline-success" type="submit" data-toggle="modal" data-target="#Modal">Agregar
-                        miembro</button>
-                </div>
-                <div class="col mb-3">
-                    <div class="input-group-append final">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Buscar miembros">
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12"  id="divArbolNavegacion">
+                <app-tree-nav></app-tree-nav>
+                <app-log-out></app-log-out>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+                <div class="container">
+                    <div class="row" id="divAgregaryBuscador">
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6" id="divAgregar">
+                            <button class="btn btn-outline-success" type="submit" data-toggle="modal" data-target="#Modal">Agregar miembro
+                            </button>
+                        </div>
+                        <div class="col-lg-10 col-md-8 col-sm-6 col-xs-6" id="divBuscador">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-success" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Buscar miembros">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-success" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
-        <app-add-miembro></app-add-miembro>
-        <div class="lista">
-            <div class="">
-                <div class="table-responsive">
-                    <table class="table table-hover table-sm row-border hover" id="tableProductos">
-                        <thead class="text-center fondo">
-                            <tr class="">
-                                <th>Cédula</th>
-                                <th>Nombre</th>
-                                <!-- <th>Segundo Nombre</th> -->
-                                <th>Apellido</th>
-                                <th>correo electrónico</th>
-                                <th>Numero de teléfono</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let miembro of miembros" class="text-center">
-                                <td class="text-center">{{miembro.cedula_member}}</td>
-                                <td class="text-center">{{miembro.first_name}}</td>
-                                <!-- <td class="text-center">{{miembro.second_name}}</td> -->
-                                <td class="text-center">{{miembro.first_last_name}}</td>
-                                <td class="text-center">{{miembro.email_member}}</td>
-                                <td class="text-center">{{miembro.phone_number}}</td>
-                                <td class="text-center">
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <button (click)="verInfoProducto(producto.codigoProducto)" class="btn btn-outline-success" data-toggle="Modal" data-target="#myModal">Ver</button>
-                                        <button (click)="editarProducto(producto)" class="btn btn-outline-dark">Editar</button>
-                                        <button (click)="eliminarProducto(producto)" class="btn btn-outline-danger">Eliminar</button>
-                                    </div>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!--Table-->
+                <app-add-miembro></app-add-miembro>
+                <div class="lista" id="divTablaMiembros">
+                        <div class="">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-sm row-border hover" id="tableProductos">
+                                    <thead class="text-center fondo">
+                                        <tr class="">
+                                            <th>Cédula</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>correo electrónico</th>
+                                            <th>Teléfono</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let miembro of miembros" class="text-center">
+                                            <td class="text-center">{{miembro.cedula_member}}</td>
+                                            <td class="text-center">{{miembro.first_name}}</td>
+                                            <td class="text-center">{{miembro.first_last_name}}</td>
+                                            <td class="text-center">{{miembro.email_member}}</td>
+                                            <td class="text-center">{{miembro.phone_number}}</td>
+                                            <td class="text-center">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button (click)="verInfoProducto(producto.codigoProducto)"
+                                                                class="btn btn-outline-success" data-toggle="Modal"
+                                                                data-target="#myModal">Ver
+                                                </button>
+                                                <button (click)="editarProducto(producto)"
+                                                                class="btn btn-outline-dark">Editar
+                                                </button>
+                                                <button (click)="eliminarProducto(producto)"
+                                                                class="btn btn-outline-danger">Eliminar
+                                                </button>
+                                            </div>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                 </div>
-            </div>
-
+            </div>   
         </div>
     </div>
 </div>
