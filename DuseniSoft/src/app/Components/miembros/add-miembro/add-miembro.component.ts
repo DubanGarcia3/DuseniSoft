@@ -43,9 +43,11 @@ export class AddMiembroComponent implements OnInit {
         */
 
     this.datos_miembro_formulario = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
       id: ['', Validators.required],
+      primer_nombre: ['', Validators.required],
+      segundo_nombre: ['', Validators.required],
+      primer_apellido: ['', Validators.required],
+      segundo_apellido: ['', Validators.required],
       email: ['', Validators.required],
       contrasena: ['', Validators.required],
       fecha_nacimiento: ['', Validators.required],
@@ -106,7 +108,9 @@ export class AddMiembroComponent implements OnInit {
 
     this.member.address = this.direccionNueva;
     this.member.association = this.asociacionExistente;
+
     this.member.dateOfBirth = new Date("2019-01-10");
+    // console.log("Esto retorna la dirección ---> " + this.member.dateOfBirth.getDay);
     this.direccionService.guardarDireccion(this.direccionNueva).subscribe(
       (data)=> {console.log("Lo que retorna el server tras agregar la dirección",  data)
           if(data != null){
