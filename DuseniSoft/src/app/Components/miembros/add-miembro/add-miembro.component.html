@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Modal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -66,7 +66,19 @@
                         <div class="col-md-10 mb-3 ">
                             <label for="example-month-input " class=" col-form-label ">Fecha de nacimiento
                             </label>
-                            <input [(ngModel)]="member.dateOfBirth " formControlName="fecha_nacimiento" class="form-control " type="date " value="2011-08-20 " id="example-month-input " name="input_nacimiento " required>
+                            <div class="input-group-prepend">
+                                <select class="custom-select" id="dia" aria-placeholder="FEcha">
+                                    <option *ngFor="let dia of days">{{dia}}</option>
+                                </select>
+                                <select class="custom-select" id="mes">
+                                    <option *ngFor="let mes of month">{{mes}}</option>
+                                </select>
+                                <select class="custom-select" id="año">
+                                    <option *ngFor="let year of years">{{year}}</option>
+                                </select>
+                            </div>
+                            <!--<input [(ngModel)]="member.dateOfBirth " formControlName="fecha_nacimiento" class="form-control " type="date " value="2011-08-20 " id="example-month-input " name="input_nacimiento " required>
+                            -->
                             <div class="invalid-tooltip ">
                                 Por favor, ingrese una fecha valida
                             </div>

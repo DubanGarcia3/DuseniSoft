@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     background-color: #f1f8e9 !important;
-   
 }
 
 body {
@@ -12,13 +11,11 @@ body {
     font-family: 'Roboto', sans-serif;
     /* create a linear gradient*/
     display: flex;
-    background-image: url("/assets/img/S3.jpeg") ;
-    background-size:100% 100%
-
+    background-image: url("/assets/img/maxresdefault.jpg");
+    background-size: 100% 100%
 }
 
 #form_wrapper {
-    
     width: 340px;
     height: 750px;
     /* this will help us center it*/
@@ -33,29 +30,22 @@ body {
     /* add some padding around */
     padding: 5vh 15px;
     align-content: center;
-   
     align-items: center;
-    
 }
 
 .circular--square {
     border-radius: 25%;
-  }
+}
 
 #form_left {
     /* center the image */
     display: flex;
     justify-content: center;
     align-items: center;
-
-    
-    
-    
 }
 
 #form_left img {
     width: 250px;
-    height: 250px;
 }
 
 #form_right {
@@ -86,7 +76,6 @@ body {
     /* make the borders more round */
     border-radius: 30px;
     width: 100%;
-   
 }
 
 .input_field {
