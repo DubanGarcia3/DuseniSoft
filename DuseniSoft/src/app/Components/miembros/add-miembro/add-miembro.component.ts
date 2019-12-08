@@ -26,7 +26,7 @@ export class AddMiembroComponent implements OnInit {
   asociacionExistente:Association = new Association();
   public days=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
   public months=['enero','febrero'];
-  public years=[2018];
+  public years=[2018,2017];
 
   constructor(private miembrosService: MiembrosService, private CiudadService: CiudadService,private direccionService:DireccionService ,private formBuilder: FormBuilder) { }
 

@@ -66,12 +66,12 @@
                         <div class="col-md-10 mb-3 ">
                             <label for="example-month-input " class=" col-form-label ">Fecha de nacimiento
                             </label>
-                            <div class="input-group-prepend">
+                            <div class="input-group-prepend" role="group">
                                 <select class="custom-select" id="dia" aria-placeholder="FEcha">
                                     <option *ngFor="let dia of days">{{dia}}</option>
                                 </select>
                                 <select class="custom-select" id="mes">
-                                    <option *ngFor="let mes of month">{{mes}}</option>
+                                    <option *ngFor="let mes of months">{{mes}}</option>
                                 </select>
                                 <select class="custom-select" id="año">
                                     <option *ngFor="let year of years">{{year}}</option>
@@ -111,7 +111,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="inputPassword" class="col-form-label input-group-append">Numero
                                 telefónico</label>
-                            <div class="input-group">
+                            <div class="input-group" role="group">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">+57</span>
                                 <input [(ngModel)]="member.phone_number" formControlName="telefono" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="input_telefono" placeholder="Número">
                             </div>
