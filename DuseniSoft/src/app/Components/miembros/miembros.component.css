@@ -19,18 +19,20 @@
     margin-top: 2%;
     text-align: center;
 }
-.botones-sup div{
+
+.botones-sup div {
     margin-top: 2%;
     margin-bottom: 2%;
 }
 
-#divTablaMiembros{
-    border: 2px solid black;
+#divTablaMiembros {
     padding-left: 0px;
     padding-right: 0px;
     margin: 1px 0px;
 }
-#divAgregar, #divBuscador{
+
+#divAgregar,
+#divBuscador {
     margin: 1px 0px;
     padding-left: 0px;
     padding-right: 0px;

@@ -11,90 +11,105 @@
             <div class="modal-body">
                 <form [formGroup]="datos_miembro_formulario" (ngSubmit)="addMember()" class="needs-validation" novalidate>
                     <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label for="validationTooltip01">Nombre</label>
-                            <input [(ngModel)]="member.first_name" formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="Nombres" required>
-                            <div class="valid-tooltip">
+                        <div class="col-md-10 mb-3">
+                            <label for="validationTooltip01">Nombres</label>
+                            <div class="row">
+                                <div class="col-6 izq">
+                                    <input [(ngModel)]=" member.first_name " formControlName="primer-nombre " type="text " class="form-control " id="primer-nombre " placeholder="Primer nombre " required>
+                                </div>
+                                <div class="col-6 der ">
+                                    <input [(ngModel)]="member.second_name " formControlName="segundo-nombre " type="text " class="form-control " id="segundo-nombre " placeholder="Segundo nombre ">
+                                </div>
+                            </div>
+                            <div class="valid-tooltip ">
                                 Looks good!
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationTooltip02">Apellido</label>
-                            <input [(ngModel)]="member.first_last_name" formControlName="apellido" type="text" class="form-control" id="apellido" placeholder="Apellidos" required>
-                            <div class="valid-tooltip">
-                                Looks good!
+                        <div class="col-md-10 mb-3 ">
+                            <label for="validationTooltip02 ">Apellidos</label>
+                            <div class="row ">
+                                <div class="col-6 izq ">
+                                    <input [(ngModel)]="member.first_last_name " formControlName="primer-apellido " type="text " class="form-control " id="primer-apellido " placeholder="Primer apellido " required>
+                                </div>
+                                <div class="col-6 der ">
+                                    <input [(ngModel)]="member.second_last_name " formControlName="primer-apellido " type="text " class="form-control " id="segundo-apellido " placeholder="Segundo apellido ">
+                                </div>
+                                <div class="valid-tooltip ">
+                                    Looks good!
+                                </div>
                             </div>
                         </div>
 
                     </div>
-                    <div class="form-row">
-                        <div class="col-md-10 mb-3">
-                            <div class="">
-                                <label for="inputPassword" class="col-form-label">Numero de documento de identidad</label>
-                                <input [(ngModel)]="member.cedula_member" formControlName="id" type="text" class="form-control" id="input_id" placeholder="Numero de documento" required>
+                    <div class="form-row ">
+                        <div class="col-md-8 mb-3 ">
+                            <div class=" ">
+                                <label for="inputPassword " class="col-form-label ">Numero de documento de
+                                    identidad</label>
+                                <input [(ngModel)]="member.cedula_member " formControlName="id " type="text " class="form-control " id="input_id " placeholder="Numero de documento " required>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationTooltip03">Correo electrónico</label>
-                            <input [(ngModel)]="member.email_member" formControlName="email" type="text" class="form-control" id="input_email" placeholder="correo electronico" required>
-                            <div class="invalid-tooltip">
+                        <div class="col-md-6 mb-3 ">
+                            <label for="validationTooltip03 ">Correo electrónico</label>
+                            <input [(ngModel)]="member.email_member " formControlName="email " type="text " class="form-control " id="input_email " placeholder="correo electronico " required>
+                            <div class="invalid-tooltip ">
                                 los campos de email no son válidos
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationTooltip04">Contraseña</label>
-                            <input [(ngModel)]="member.password_member" formControlName="contrasena" type="text" class="form-control" id="contraseña" placeholder="Contraseña" required>
-                            <div class="invalid-tooltip">
+                        <div class="col-md-6 mb-3 ">
+                            <label for="validationTooltip04 ">Contraseña</label>
+                            <input [(ngModel)]="member.password_member " formControlName="contrasena " type="text " class="form-control " id="contraseña " placeholder="Contraseña " required>
+                            <div class="invalid-tooltip ">
                                 Contraseña no valida
                             </div>
                         </div>
-                        <div class="col-md-10 mb-3">
-                            <label for="example-month-input" class=" col-form-label">Fecha de nacimiento
+                        <div class="col-md-10 mb-3 ">
+                            <label for="example-month-input " class=" col-form-label ">Fecha de nacimiento
                             </label>
-                            <input [(ngModel)]="member.dateOfBirth" formControlName="fecha_nacimiento" class="form-control " type="month" value="2011-08" id="example-month-input" name="input_nacimiento" required>
-                            <div class="invalid-tooltip">
+                            <input [(ngModel)]="member.dateOfBirth " formControlName="fecha_nacimiento " class="form-control " type="date " value="2011-08-20 " id="example-month-input " name="input_nacimiento " required>
+                            <div class="invalid-tooltip ">
                                 Por favor, ingrese una fecha valida
                             </div>
                         </div>
-                        <div class="col-md-8 mb-3">
-                            <label for="example-month-input" class=" col-form-label">Dirección de vivienda</label>
+                        <div class="col-md-8 mb-3 ">
+                            <label for="example-month-input " class=" col-form-label ">Dirección de vivienda</label>
                         </div>
 
-                        <div class="col-md-8 mb-3">
-                            <input [(ngModel)]="direccionNueva.address_description" formControlName="direccion" class="form-control" id="address" required>
-                            <div class="invalid-tooltip">
+                        <div class="col-md-8 mb-3 ">
+                            <input [(ngModel)]="direccionNueva.address_description " formControlName="direccion " class="form-control " id="address " placeholder="Dirección " required>
+                            <div class="invalid-tooltip ">
                                 Por favor, ingrese una direccion correcta
                             </div>
                         </div>
-                        <div class="input-group col-md-4 mb-3">
-                            <select [(ngModel)]="ciudadFromSelect" (change)="getCiudadFromSelect()" formControlName="ciudad" class="custom-select" id="select-ciudades">
-                                <option *ngFor="let ciudad of ciudades">{{ciudad.name_city}}</option>
+                        <div class="input-group col-md-4 mb-3 ">
+                            <select [(ngModel)]="ciudadFromSelect " (change)="getCiudadFromSelect() " formControlName="ciudad " class="custom-select " id="select-ciudades ">
+                                <option *ngFor="let ciudad of ciudades ">{{ciudad.name_city}}</option>
                             </select>
                         </div>
-                        <div class="col-md-10 mb-3">
-                            <div class="">
-                                <label for="inputPassword" class="col-form-label">Género</label>
-                                <select [(ngModel)]="genderFromSelect" (change)="getGenderFromSelect()" formControlName="genero" class="form-control" id="input_genero">
-                                    <option value="1">Masculino</option>
-                                    <option value="2">Femenino</option>
+                        <div class="col-md-10 mb-3 ">
+                            <div class=" ">
+                                <label for="inputPassword " class="col-form-label ">Género</label>
+                                <select [(ngModel)]="genderFromSelect " (change)="getGenderFromSelect() " formControlName="genero " class="form-control " id="input_genero ">
+                                    <option value="1 ">Masculino</option>
+                                    <option value="2 ">Femenino</option>
                                 </select>
                             </div>
                         </div>
 
-                        <div class="col-md-6 mb-3">
-                            <label for="inputPassword" class="col-form-label input-group-append">Numero
+                        <div class="col-md-6 mb-3 ">
+                            <label for="inputPassword " class="col-form-label input-group-append ">Numero
                                 telefónico</label>
-                            <div class="input-group">
-                                <span class="input-group-text" id="inputGroup-sizing-sm">+57</span>
-                                <input [(ngModel)]="member.phone_number" formControlName="telefono" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="input_telefono" placeholder="Número">
+                            <div class="input-group ">
+                                <span class="input-group-text " id="inputGroup-sizing-sm ">+57</span>
+                                <input [(ngModel)]="member.phone_number " formControlName="telefono " type="text " class="form-control " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-sm " id="input_telefono " placeholder="Número ">
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="getTamano()">Cerrar</button>
-                <button (click)="addMember()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+            <div class="modal-footer ">
+                <button type="button " class="btn btn-secondary " data-dismiss="modal " (click)="getTamano() ">Cerrar</button>
+                <button (click)="addMember() " type="button " class="btn btn-success " data-dismiss="modal ">Aceptar</button>
             </div>
         </div>
     </div>
