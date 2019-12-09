@@ -28,6 +28,7 @@ export class AddMiembroComponent implements OnInit {
   public months=['enero','febrero'];
   public years=[2018,2017];
 
+
   constructor(private miembrosService: MiembrosService, private CiudadService: CiudadService,private direccionService:DireccionService ,private formBuilder: FormBuilder) { }
 
 
@@ -57,7 +58,10 @@ export class AddMiembroComponent implements OnInit {
       direccion: ['', Validators.required],
       genero: ['', Validators.required],
       telefono: ['', Validators.required],
-      ciudad: ['', Validators.required]
+      ciudad: ['', Validators.required],
+      dia_fecha_nacimiento: ['', Validators.required],
+      mes_fecha_nacimiento: ['', Validators.required],
+      year_fecha_nacimiento: ['', Validators.required]
     });
   }
 
@@ -80,6 +84,10 @@ export class AddMiembroComponent implements OnInit {
     // }else{
     //   this.member.gender = "F";
     // }
+  }
+
+  getDateOfBirthFromForm(){
+    console.log("VALORES --> " + this.datos_miembro_formulario.get('year_fecha_nacimiento').value);
   }
 
   addMember() {    
@@ -111,7 +119,7 @@ export class AddMiembroComponent implements OnInit {
 
     this.member.address = this.direccionNueva;
     this.member.association = this.asociacionExistente;
-
+        
     this.member.dateOfBirth = new Date("2019-01-10");
     // console.log("Esto retorna la dirección ---> " + this.member.dateOfBirth.getDay);
     this.direccionService.guardarDireccion(this.direccionNueva).subscribe(
