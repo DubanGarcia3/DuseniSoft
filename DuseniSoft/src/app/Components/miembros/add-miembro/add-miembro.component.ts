@@ -24,12 +24,14 @@ export class AddMiembroComponent implements OnInit {
   genderFromSelect: number;
   ciudadExistente: City = new City();
   asociacionExistente:Association = new Association();
-  public days=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
-  public months=['enero','febrero'];
-  public years=[2018,2017];
+  fecha_nacimiento: String;
 
 
-  constructor(private miembrosService: MiembrosService, private CiudadService: CiudadService,private direccionService:DireccionService ,private formBuilder: FormBuilder) { }
+  constructor(private miembrosService: MiembrosService,
+    private CiudadService: CiudadService,
+    private direccionService:DireccionService,
+    private formBuilder: FormBuilder) { }
+
 
 
   ngOnInit() {
@@ -47,27 +49,25 @@ export class AddMiembroComponent implements OnInit {
         */
 
     this.datos_miembro_formulario = this.formBuilder.group({
-      id: ['', Validators.required],
+      //[Valor inicial del campo, ]
+      cedula: ['', Validators.required],
       primer_nombre: ['', Validators.required],
       segundo_nombre: ['', Validators.required],
       primer_apellido: ['', Validators.required],
       segundo_apellido: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       contrasena: ['', Validators.required],
       fecha_nacimiento: ['', Validators.required],
       direccion: ['', Validators.required],
       genero: ['', Validators.required],
       telefono: ['', Validators.required],
-      ciudad: ['', Validators.required],
-      dia_fecha_nacimiento: ['', Validators.required],
-      mes_fecha_nacimiento: ['', Validators.required],
-      year_fecha_nacimiento: ['', Validators.required]
+      ciudad: ['', Validators.required]
     });
   }
 
-  get f() { return this.datos_miembro_formulario.controls; }
-
-
+  get formulario(){
+    return this.datos_miembro_formulario.controls; 
+  }
   getCiudadFromSelect(){ 
     this.ciudades.forEach(ciudadActual => {
       if (ciudadActual.name_city == this.ciudadFromSelect) {
@@ -86,11 +86,18 @@ export class AddMiembroComponent implements OnInit {
     // }
   }
 
+  getFechaNacimiento(){
+    //TO-DO
+    //Hay que coger fecha_nacimiento y hacerle split 
+    //para meter cada valor en el objeto Date de this.member.dateOfBirth = new Date("2019-01-10");
+  }
+
   getDateOfBirthFromForm(){
     console.log("VALORES --> " + this.datos_miembro_formulario.get('year_fecha_nacimiento').value);
   }
 
-  addMember() {    
+  addMember() {   
+    console.log("VALORES DEL FORMULARIO -->" + this.datos_miembro_formulario.value);
     // console.log("CIUDAD DEL FORM --> " + this.ciudadExistente.id_city );
     // console.log("GENERO DEL FORM --> " + this.member.gender);
     // // CREO EL MIEMBRO
@@ -119,7 +126,7 @@ export class AddMiembroComponent implements OnInit {
 
     this.member.address = this.direccionNueva;
     this.member.association = this.asociacionExistente;
-        
+
     this.member.dateOfBirth = new Date("2019-01-10");
     // console.log("Esto retorna la dirección ---> " + this.member.dateOfBirth.getDay);
     this.direccionService.guardarDireccion(this.direccionNueva).subscribe(
@@ -142,12 +149,25 @@ export class AddMiembroComponent implements OnInit {
     );
   }
 
-  getTamano() {
-    let length = this.ciudades.length;
-    for (var i = 0; i < length; i++) {
-      console.log(this.ciudades[i]);
-    }
-  }
+ vaciarCampos(){
+   this.datos_miembro_formulario.patchValue({
+    cedula: '',
+    primer_nombre: '',
+    segundo_nombre: '',
+    primer_apellido: '',
+    segundo_apellido: '',
+    email: '',
+    contrasena: '',
+    fecha_nacimiento: '',
+    direccion: '',
+    genero: '',
+    telefono: '',
+    ciudad: '',
+    dia_fecha_nacimiento: '',
+    mes_fecha_nacimiento: '',
+    year_fecha_nacimiento: ''
+   });
+ }
 
   llenarDias(){
     for (var i = 0; i < length; i++) {
@@ -156,3 +176,4 @@ export class AddMiembroComponent implements OnInit {
   }
 
 }
+  
