@@ -135,7 +135,7 @@
                             type="text"
                             class="form-control" 
                             id="fecha_nacimiento" 
-                            placeholder="Direccion en formato dd/mm/aaaa"
+                            placeholder="Fecha en formato dd/mm/aaaa"
                             pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
                             <div *ngIf="formulario.fecha_nacimiento.invalid && (formulario.fecha_nacimiento.dirty || formulario.fecha_nacimiento.touched)">
                                 <div *ngIf="formulario.fecha_nacimiento.errors.required" class="alert alert-danger">
@@ -153,25 +153,20 @@
                             type="text"
                             class="form-control" 
                             id="address" 
-                            placeholder="Ej: Calle 12 # 12- 45"
-                            pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
+                            placeholder="Ej: Calle 12 # 12- 45">
                             <div *ngIf="formulario.direccion.invalid && (formulario.direccion.dirty || formulario.direccion.touched)">
                                 <div *ngIf="formulario.direccion.errors.required" class="alert alert-danger">
                                     Debe introducir una dirección
-                                </div>
-                                <div *ngIf="formulario.direccion.errors?.pattern" class="alert alert-warning">
-                                    Debe ingresa una fecha con el siguiente formato (Ej: dd/mm/aaaa)
                                 </div>
                             </div>                         
                         </div>
                         <div class="col-md-8 mb-3">
                             <label class="col-form-label">Ciudad</label>
-                            <select [(ngModel)]="ciudadFromSelect" 
+                            <select [(ngModel)]="ciudadExistente.id_city" 
                             formControlName="ciudad" 
-                            (change)="getCiudadFromSelect()" 
                             class="custom-select" 
                             id="select-ciudades">
-                                <option *ngFor="let ciudad of ciudades">{{ciudad.name_city}}</option>
+                                <option *ngFor="let ciudad of ciudadesForSelect" [value]="ciudad.id_city">{{ciudad.name_city}}</option>
                             </select>
                             <div *ngIf="formulario.ciudad.invalid && (formulario.ciudad.dirty || formulario.ciudad.touched)">
                                 <div *ngIf="formulario.ciudad.errors.required" class="alert alert-danger">
@@ -227,7 +222,7 @@
                     </div>                    
                     <div class="modal-footer">
                         <button (click)="vaciarCampos()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" [disabled]="datos_miembro_formulario.invalid" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                        <button (click)="addMember()" type="submit" [disabled]="datos_miembro_formulario.invalid" class="btn btn-success" data-dismiss="modal">Aceptar</button>
                     </div>
                 </form>
             </div>

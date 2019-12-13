@@ -15,7 +15,7 @@ export class AppComponent {
   }
 
   welcome(){
-    this.router.navigate(["app-miembros"]);
+    this.router.navigate(["app-welcome"]);
   }
 
   login(){
