@@ -1,75 +1,70 @@
 <app-icon-bar></app-icon-bar>
 <div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" id="divArbolNavegacion">
-                <app-tree-nav></app-tree-nav>
-                <app-log-out></app-log-out>
-            </div>
-            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-                <div class="container">
-                    <div class="row" id="divAgregaryBuscador">
-                        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6" id="divAgregar">
-                            <button class="btn btn-outline-success" type="submit" data-toggle="modal" data-target="#Modal">Agregar miembro
+    <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" id="divArbolNavegacion">
+            <app-tree-nav></app-tree-nav>
+            <app-log-out></app-log-out>
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+            <div class="container">
+                <div class="row" id="divAgregaryBuscador">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6" id="divAgregar">
+                        <button class="btn btn-outline-success" type="submit" data-toggle="modal" data-target="#Modal">Agregar miembro
                             </button>
-                        </div>
-                        <div class="col-lg-10 col-md-8 col-sm-6 col-xs-6" id="divBuscador">
-                            <div class="input-group-append">
-                                <div class="input-group">
-                                    <input
-                                    [(ngModel)]="buscarMiembroFiltro"
-                                    type="text" 
-                                    class="form-control"
-                                    placeholder="Buscar miembros por cédula, nombre, apellido, correo o teléfono">
-                                    <!-- <div class="input-group-append"
+                    </div>
+                    <div class="col-lg-10 col-md-8 col-sm-6 col-xs-6" id="divBuscador">
+                        <div class="input-group-append">
+                            <div class="input-group">
+                                <input [(ngModel)]="buscarMiembroFiltro" type="text" class="form-control" placeholder="Buscar miembros por cédula, nombre, apellido, correo o teléfono">
+                                <!-- <div class="input-group-append"
                                         <button class="btn btn-outline-success" type="button">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div> -->
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <app-add-miembro></app-add-miembro>
-                <div class="lista border border-secondary" id="divTablaMiembros">
-                    <div class="">
-                        <div class="table-responsive">
-                            <table class="table table-hover table-sm row-border hover" id="tablaMiembros">
-                                <thead class="text-center fondo">
-                                    <tr class="">
-                                        <th>Cédula</th>
-                                        <th>Nombre</th>
-                                        <th>Apellido</th>
-                                        <th>Correo electrónico</th>
-                                        <th>Teléfono</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let miembro of miembros | filter: buscarMiembroFiltro"
-                                        class="text-center">
-                                        <td class="text-center">{{miembro.cedula_member}}</td>
-                                        <td class="text-center">{{miembro.first_name}}</td>
-                                        <td class="text-center">{{miembro.first_last_name}}</td>
-                                        <td class="text-center">{{miembro.email_member}}</td>
-                                        <td class="text-center">{{miembro.phone_number}}</td>
-                                        <td class="text-center">
-                                            <div class="btn-group" role="group">
-                                                <button (click)="verInfoProducto(producto.codigoProducto)" class="btn btn-outline-success" data-toggle="Modal" data-target="#Modal">Ver
+            </div>
+            <app-add-miembro></app-add-miembro>
+            <div class="lista border border-secondary" id="divTablaMiembros">
+                <div class="">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-sm row-border hover" id="tablaMiembros">
+                            <thead class="text-center fondo">
+                                <tr class="">
+                                    <th>Cédula</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Correo electrónico</th>
+                                    <th>Teléfono</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let miembro of miembros | filter: buscarMiembroFiltro" class="text-center">
+                                    <td class="text-center">{{miembro.cedula_member}}</td>
+                                    <td class="text-center">{{miembro.first_name}}</td>
+                                    <td class="text-center">{{miembro.first_last_name}}</td>
+                                    <td class="text-center">{{miembro.email_member}}</td>
+                                    <td class="text-center">{{miembro.phone_number}}</td>
+                                    <td class="text-center">
+                                        <div class="btn-group" role="group">
+                                            <button (click)="verInfoProducto(producto.codigoProducto)" class="btn btn-outline-success" data-toggle="Modal" data-target="#Modal">Ver
                                                 </button>
-                                                <button (click)="editarProducto(producto)" class="btn btn-outline-dark">Editar
+                                            <button (click)="editarProducto(producto)" class="btn btn-outline-dark">Editar
                                                 </button>
-                                                <button (click)="eliminarMiembro(miembro.cedula_member)" class="btn btn-outline-danger">Eliminar
+                                            <button class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-modal">Eliminar
                                                 </button>
-                                            </div>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                        </div>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+<app-delete-miembro></app-delete-miembro>

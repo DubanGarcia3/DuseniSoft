@@ -2,7 +2,9 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { MiembrosService } from 'src/app/Servicios/miembros.service';
 import { Router } from '@angular/router';
 import { Member } from 'src/app/Modelo/Member';
+import { DeleteMiembroComponent } from 'src/app/Components/miembros/delete-miembro/delete-miembro.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-miembros',
   templateUrl: './miembros.component.html',
@@ -22,7 +24,7 @@ export class MiembrosComponent implements OnInit {
     this.recargarTabla();
   }
 
-  recargarTabla(){
+  public recargarTabla(){
     this.service.getMiembros().subscribe(data => { this.miembros = data; });
   }
 

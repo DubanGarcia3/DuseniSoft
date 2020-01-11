@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
     .subscribe(
       (data)=> {
         console.log("Estos son los datos que se ingresaron para el login admin",  data)
+        this.router.navigate(["app-inicio"]);
           if(data != "[]" ){
-            this.router.navigate(["app-inicio"]);
           }else{
             console.log("validar que los datos esten correctos");
           }

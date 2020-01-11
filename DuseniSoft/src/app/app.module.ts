@@ -21,6 +21,7 @@ import { TreeNavComponent } from './Components/tree-nav/tree-nav.component';
 import { LogOutComponent } from './Components/login/log-out/log-out.component';
 import { IconBarComponent } from './Components/inicio/icon-bar/icon-bar.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DeleteMiembroComponent } from './Components/miembros/delete-miembro/delete-miembro.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AddMiembroComponent,
     TreeNavComponent,
     LogOutComponent,
-    IconBarComponent
+    IconBarComponent,
+    DeleteMiembroComponent
   ],
   imports: [
     BrowserModule,

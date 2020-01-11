@@ -1,11 +1,11 @@
-.cabecera {
-    padding: 0px;
-    background-color: #f1f8e9;
-    font-weight: 600;
+* {
+    margin: 0%;
+    padding: 0%;
 }
 
-.fondo {
-    background-color: #f1f8e9;
+.cabecera {
+    padding: 0px;
+    font-weight: 600;
 }
 
 .centrado {
@@ -30,8 +30,43 @@
     padding: 0%;
 }
 
-.dropdown-divider {
-    background: gray;
+.linea-final {
     margin-left: 1%;
     margin-right: 1%;
+}
+
+.linea {
+    background-color: black;
+}
+
+.morado-1 {
+    background: #a55fc1;
+}
+
+.morado-2 {
+    background: #8a25b1;
+}
+
+.morado-3 {
+    background: #42075b;
+}
+
+.verde-logo {
+    background: #74d14c;
+}
+
+.verde-1 {
+    background: #9fc001;
+}
+
+.verde-2 {
+    background: #99d578;
+}
+
+.verde-3 {
+    background: #71cc49;
+}
+
+.verde-4 {
+    background: #207b25;
 }

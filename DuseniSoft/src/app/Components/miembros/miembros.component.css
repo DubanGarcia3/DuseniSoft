@@ -11,29 +11,13 @@
 }
 
 .lista {
+    margin-top: 2%;
     margin-left: 2%;
     margin-right: 2%;
 }
 
 .botones-sup {
     margin-top: 2%;
-    text-align: center;
-}
-
-.botones-sup div {
-    margin-top: 2%;
     margin-bottom: 2%;
-}
-
-#divTablaMiembros {
-    padding-left: 0px;
-    padding-right: 0px;
-    margin: 1px 0px;
-}
-
-#divAgregar,
-#divBuscador {
-    margin: 1px 0px;
-    padding-left: 0px;
-    padding-right: 0px;
+    text-align: center;
 }
