@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TreeNavComponent } from './Components/tree-nav/tree-nav.component';
 import { LogOutComponent } from './Components/login/log-out/log-out.component';
 import { IconBarComponent } from './Components/inicio/icon-bar/icon-bar.component';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -44,7 +44,8 @@ import { IconBarComponent } from './Components/inicio/icon-bar/icon-bar.componen
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     LoginService

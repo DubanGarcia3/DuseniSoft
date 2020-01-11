@@ -11,7 +11,7 @@ export class AppComponent {
 
   constructor(private router:Router){
     //this.welcome();
-    this.welcome();
+    this.inicio();
   }
 
   welcome(){

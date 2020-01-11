@@ -16,12 +16,16 @@
                         <div class="col-lg-10 col-md-8 col-sm-6 col-xs-6" id="divBuscador">
                             <div class="input-group-append">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Buscar miembros">
-                                    <div class="input-group-append">
+                                    <input
+                                    [(ngModel)]="buscarMiembroFiltro"
+                                    type="text" 
+                                    class="form-control"
+                                    placeholder="Buscar miembros por cédula, nombre, apellido, correo o teléfono">
+                                    <!-- <div class="input-group-append"
                                         <button class="btn btn-outline-success" type="button">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -31,7 +35,7 @@
                 <div class="lista border border-secondary" id="divTablaMiembros">
                     <div class="">
                         <div class="table-responsive">
-                            <table class="table table-hover table-sm row-border hover" id="tableProductos">
+                            <table mdbTable class="table table-hover table-sm row-border hover" id="tablaMiembros">
                                 <thead class="text-center fondo">
                                     <tr class="">
                                         <th>Cédula</th>
@@ -43,7 +47,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let miembro of miembros" class="text-center">
+                                    <tr *ngFor="let miembro of miembros | filter: buscarMiembroFiltro"
+                                        class="text-center">
                                         <td class="text-center">{{miembro.cedula_member}}</td>
                                         <td class="text-center">{{miembro.first_name}}</td>
                                         <td class="text-center">{{miembro.first_last_name}}</td>
