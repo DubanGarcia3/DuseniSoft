@@ -11,17 +11,29 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 export class MiembrosComponent implements OnInit {
 
   constructor(private service: MiembrosService, private router: Router) { 
-    
+    this.recargarTabla();
   }
   dtOption: any = {};
   miembros: Member[];
   buscarMiembroFiltro;
   
   ngOnInit() {
-    this.service.getMiembros().subscribe(data => { this.miembros = data; });
-    this.loadDataTable();
+    // this.service.getMiembros().subscribe(data => { this.miembros = data; });
+    this.recargarTabla();
   }
-  loadDataTable() {
-    
+
+  recargarTabla(){
+    this.service.getMiembros().subscribe(data => { this.miembros = data; });
+  }
+
+  eliminarMiembro(cedula: number){
+    if(confirm("¿Está seguro que desear eliminar el miembro?")) {
+      this.service.deleteMiembro(cedula).subscribe(
+        (data)=> {
+          console.log("Lo que retorna el server tras borrar el miembro",  data)
+          this.recargarTabla();
+        },
+        error => console.log(error));
+    }
   }
 }

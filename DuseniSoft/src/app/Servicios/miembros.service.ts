@@ -26,10 +26,10 @@ export class MiembrosService {
   }
 
   updateMiembro(miembro:Member){
-    return this.http.put<Member>(this.Url+"/editMember"+miembro.cedula_member,miembro);
+    return this.http.put<Member>(this.Url+"editMember"+miembro.cedula_member,miembro);
   }
 
-  Miembro(miembro:Member){
-    return this.http.delete<Member>(this.Url+"/"+miembro.cedula_member);
+  deleteMiembro(cedula_member:number){
+    return this.http.delete<Member>(this.Url+"removeMember/"+cedula_member);
   }
 }
