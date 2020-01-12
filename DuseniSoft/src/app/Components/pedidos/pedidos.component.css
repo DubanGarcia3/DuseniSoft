@@ -1,8 +1,6 @@
 .card-deck {
-    margin-top: 50px;
+    margin-bottom: 50px;
     width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
     align-content: center;
 }
 

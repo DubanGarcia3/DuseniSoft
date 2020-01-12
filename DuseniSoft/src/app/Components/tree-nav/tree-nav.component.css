@@ -2,10 +2,7 @@
     text-align: left;
 }
 
-a:hover {
-    background-color: #28a745;
-}
-
 button:hover {
-    background-color: #28a745;
+    background: #a55fc1;
+    color: white;
 }

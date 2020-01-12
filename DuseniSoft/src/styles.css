@@ -35,6 +35,18 @@
     margin-right: 1%;
 }
 
+.boton-morado {
+    color: #8a25b1;
+    background: white;
+    border-color: #8a25b1;
+}
+
+.boton-morado:hover {
+    color: white;
+    background: #8a25b1;
+    border-color: #8a25b1;
+}
+
 .linea {
     background-color: black;
 }
