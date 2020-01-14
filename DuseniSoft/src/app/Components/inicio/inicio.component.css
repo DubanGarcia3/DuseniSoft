@@ -1,9 +1,17 @@
 .card-deck {
-    margin-top: 50px;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    align-content: center;
+    margin-top: 2% !important;
+    margin: 0em;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.border-secondary {
+    border-color: #42075b 1px solid !important;
+    background-color: white !important;
+}
+
+.border-secondary:hover {
+    background-color: #ecd4ff !important;
 }
 
 .final {
@@ -12,4 +20,8 @@
 
 .navmenu {
     float: left;
+}
+
+img {
+    padding: 5%;
 }

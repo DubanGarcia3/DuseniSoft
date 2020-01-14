@@ -1,26 +1,26 @@
 <app-icon-bar></app-icon-bar>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row row-cols-1 row-cols-md-3">
         <div class="col col-12">
-            <div class="card-deck">
-                <div class="card border-success bg-light text-center">
-                    <img src="assets/img/checklist.png" class="card-img-top" alt="pedidos" (click)='irPedidos()'>
+            <div class="container-fluid card-deck">
+                <div class="card border-secondary bg-light text-center  mb-4">
+                    <img src="assets/img/pedido2.png" class="card-img-top img-fluid" alt="pedidos" (click)='irPedidos()'>
                     <div class="card-body">
                         <h5 class="card-title">Pedidos</h5>
                         <p class="card-text">Listado de los pedidos que se han creado.</p>
                         <button class="btn btn-success" (click)='irPedidos()'> Ver </button>
                     </div>
                 </div>
-                <div class="card border-success bg-light text-center">
-                    <img src="assets/img/miembros.png" class="card-img-top" alt="miembros" (click)='irMiembros()'>
+                <div class="card border-secondary bg-light text-center  mb-4">
+                    <img src="assets/img/member.png" class="card-img-top img-fluid" alt="miembros" (click)='irMiembros()'>
                     <div class="card-body">
                         <h5 class="card-title">Miembros</h5>
                         <p class="card-text">Listado completo de los miembros activos de la asociación.</p>
                         <button class="btn btn-success" (click)='irMiembros()'> Ver </button>
                     </div>
                 </div>
-                <div class="card border-success bg-light text-center">
-                    <img src="assets/img/analytics.png" class="card-img-top" alt="estadisticas" (click)='irEstadisticas()'>
+                <div class="card border-secondary bg-light text-center  mb-4">
+                    <img src="assets/img/estadistica.png" class="card-img-top img-fluid" alt="estadisticas" (click)='irEstadisticas()'>
                     <div class="card-body">
                         <h5 class="card-title">Estadísticas</h5>
                         <p class="card-text">Generación de los reportes básicos de la asociación.</p>

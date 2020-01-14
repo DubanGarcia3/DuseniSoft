@@ -6,3 +6,7 @@ button:hover {
     background: #a55fc1;
     color: white;
 }
+
+.borde-derecha {
+    border-right: #e9ecef 1px solid;
+}
