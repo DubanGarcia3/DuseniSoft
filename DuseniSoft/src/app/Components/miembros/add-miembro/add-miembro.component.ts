@@ -7,6 +7,7 @@ import { City } from 'src/app/Modelo/City';
 import { Address } from 'src/app/Modelo/Address';
 import { Association } from 'src/app/Modelo/Association';
 import { DireccionService } from 'src/app/Servicios/direccion.service';
+import { MiembrosComponent } from '../miembros.component';
 
 @Component({
   selector: 'app-add-miembro',
@@ -35,6 +36,11 @@ export class AddMiembroComponent implements OnInit {
 
 
   ngOnInit() {
+    // if(this.miembrosComponent.auxMiembroAEditar!=null){
+    //   console.log("El miembro desde el componente NO está NULL");
+    // }else{
+    //   console.log("El miembro desde el componente está NULL");
+    // }
     //carga las ciudadesForSelect
     this.CiudadService.getCiudades().subscribe(data => { this.ciudadesForSelect = data; });
     /*
@@ -135,6 +141,7 @@ export class AddMiembroComponent implements OnInit {
           }
       }
     );
+    this.vaciarCampos();
   }
 
  vaciarCampos(){
@@ -153,5 +160,6 @@ export class AddMiembroComponent implements OnInit {
     ciudad: ''
    });
  }
+
 }
   

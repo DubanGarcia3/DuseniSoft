@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalAddMember">Formulario de registro de miembro</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" (click)="vaciarCampos()" caria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -19,7 +19,7 @@
                                     formControlName="primer_nombre" 
                                     type="text" 
                                     class="form-control" 
-                                    placeholder="Primer nombre">
+                                    placeholder="Primer nombre">                                 
                                     <div *ngIf="formulario.primer_nombre.invalid && (formulario.primer_nombre.dirty || formulario.primer_nombre.touched)" 
                                     class="alert alert-danger">
                                         <div *ngIf="formulario.primer_nombre.errors.required">

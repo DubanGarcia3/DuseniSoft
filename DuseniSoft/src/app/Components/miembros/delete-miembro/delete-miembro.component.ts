@@ -14,6 +14,7 @@ export class DeleteMiembroComponent implements OnInit {
   constructor(private service: MiembrosService, private router: Router, private miembro: MiembrosComponent) { }
   
   ngOnInit() {
+    console.log("ARRANCÓ EL DE BORRAR");
   }
   
   

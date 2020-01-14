@@ -24,7 +24,7 @@ const routes: Routes = [
   {path:'app-add-miembro', component: AddMiembroComponent},
   {path: 'app-tree-nav', component: TreeNavComponent},
   {path: 'app-log-out', component: LogOutComponent},
-  {path: 'app-icon-bar', component: IconBarComponent}
+  {path: 'app-icon-bar', component: IconBarComponent},
 ];
 
 @NgModule({
