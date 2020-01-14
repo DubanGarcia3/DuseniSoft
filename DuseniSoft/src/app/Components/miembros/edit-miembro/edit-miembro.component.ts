@@ -12,16 +12,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class EditMiembroComponent implements OnInit {
 
-  miembroAux:Member = new Member();
-  memb:FormGroup;
+  auxMiembro:Member = new Member();
+  //memb:FormGroup;
   submitted = false;  
-  datos_miembro_formulario_edit: FormGroup;
+  //datos_miembro_formulario_edit: FormGroup;
 
   constructor(private service: MiembrosService, private router: Router,private formBuilder: FormBuilder, 
     private miembro: MiembrosComponent) {  }
 
   ngOnInit() {
-
+/*
     this.datos_miembro_formulario_edit = this.formBuilder.group({
       //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
       cedula: ['', Validators.required],
@@ -37,16 +37,19 @@ export class EditMiembroComponent implements OnInit {
       telefono: ['', Validators.required],
       ciudad: ['', Validators.required]
     });
+    */
   }
 
+
   editarMiembro(){
-    let cedula_member = this.miembro.auxCedula;
-    this.service.getMiembroId(cedula_member)
+    console.log('editarMiembro');
+    this.auxMiembro = this.miembro.sendMiembro(this.miembro.auxCedula)
+    this.service.getMiembroId(this.miembro.auxCedula)
     .subscribe(data=>{
-      this.miembroAux= data; 
+      this.auxMiembro= data; 
     })
   }
-  
+  /*
   actualizarProducto(member:Member){
     this.submitted = true;
     if (this.memb.invalid) {
@@ -59,5 +62,5 @@ export class EditMiembroComponent implements OnInit {
       this.router.navigate(["app-miembros"]);
   });
   }
-
+*/
 }

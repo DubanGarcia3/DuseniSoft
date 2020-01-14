@@ -4,33 +4,34 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalEditMember">Formulario de registro de miembro</h5>
-                <button type="button" class="close" data-dismiss="modal" (click)="vaciarCampos()" caria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" caria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="datos_miembro_formulario_edit" (ngSubmit)="editMember()">
+                <form>
                     <div class="form-row">
                         <div class="col-md-10 mb-3">
                             <label>Nombres</label>
                             <div class="row">
                                 <div class="col-6 izq">
-                                    <input [(ngModel)]="member.first_name" formControlName="primer_nombre" type="text" class="form-control" placeholder="">
-                                    <div *ngIf="formulario.primer_nombre.invalid && (formulario.primer_nombre.dirty || formulario.primer_nombre.touched)" class="alert alert-danger">
-                                        <div *ngIf="formulario.primer_nombre.errors.required">
+                                    <input type="text" class="form-control" value="{{miembro.first_name}}">
+                                    <div class="alert alert-danger">
+                                        <div>
                                             Debe introducir un primer nombre
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6 der">
-                                    <input [(ngModel)]="member.second_name" formControlName="segundo_nombre" type="text" class="form-control" placeholder="Segundo nombre">
-                                    <div *ngIf="formulario.segundo_nombre.invalid && (formulario.segundo_nombre.dirty || formulario.segundo_nombre.touched)">
-                                        <div *ngIf="formulario.segundo_nombre.errors.required" class="alert alert-danger">
+                                    <input type="text" class="form-control" placeholder="Segundo nombre">
+                                    <div>
+                                        <div class="alert alert-danger">
                                             Debe introducir un segundo nombre
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!--
                         </div>
                         <div class="col-md-10 mb-3 ">
                             <label>Apellidos</label>
@@ -162,6 +163,8 @@
                     <div class="modal-footer">
                         <button (click)="vaciarCampos()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         <button (click)="addMember()" type="submit" [disabled]="datos_miembro_formulario.invalid" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                    -->
+                        </div>
                     </div>
                 </form>
             </div>

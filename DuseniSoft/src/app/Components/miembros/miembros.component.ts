@@ -17,6 +17,7 @@ constructor(private service: MiembrosService, private router: Router) {
   dtOption: any = {};
   miembros: Member[];
   buscarMiembroFiltro;
+  miembroAux:Member = new Member();
   
   ngOnInit() {
     // this.service.getMiembros().subscribe(data => { this.miembros = data; });
@@ -27,9 +28,19 @@ constructor(private service: MiembrosService, private router: Router) {
     this.service.getMiembros().subscribe(data => { this.miembros = data; });
   }
 
-  auxCedula:number;
+  auxCedula:number =0;
   enviarCedula(cedula: number){
     this.auxCedula = cedula;
+    console.log(this.auxCedula);
+  }
+
+  sendMiembro(cedula:number): Member{
+    this.auxCedula = cedula;
+    this.service.getMiembroId(cedula).subscribe(data=>{
+      this.miembroAux= data; 
+    })
+    console.log('miembro enviado con id ', this.miembroAux.cedula_member, this.auxCedula);
+    return this.miembroAux;
   }
 
 /*
