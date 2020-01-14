@@ -34,13 +34,12 @@ constructor(private service: MiembrosService, private router: Router) {
     console.log(this.auxCedula);
   }
 
-  sendMiembro(cedula:number): Member{
-    this.auxCedula = cedula;
+  sendMiembro(cedula:number){
+    this.enviarCedula(cedula);      
     this.service.getMiembroId(cedula).subscribe(data=>{
-      this.miembroAux= data; 
+      localStorage.setItem("miembro", JSON.stringify(data));
     })
-    console.log('miembro enviado con id ', this.miembroAux.cedula_member, this.auxCedula);
-    return this.miembroAux;
+    this.miembroAux = JSON.parse(localStorage.getItem("miembro"));
   }
 
 /*

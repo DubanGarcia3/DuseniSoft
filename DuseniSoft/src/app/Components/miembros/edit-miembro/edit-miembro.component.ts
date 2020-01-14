@@ -18,7 +18,7 @@ export class EditMiembroComponent implements OnInit {
   //datos_miembro_formulario_edit: FormGroup;
 
   constructor(private service: MiembrosService, private router: Router,private formBuilder: FormBuilder, 
-    private miembro: MiembrosComponent) {  }
+    private miembrocomp: MiembrosComponent) {  }
 
   ngOnInit() {
 /*
@@ -38,16 +38,15 @@ export class EditMiembroComponent implements OnInit {
       ciudad: ['', Validators.required]
     });
     */
+   this.loadMember();
   }
 
 
-  editarMiembro(){
+  loadMember(){
     console.log('editarMiembro');
-    this.auxMiembro = this.miembro.sendMiembro(this.miembro.auxCedula)
-    this.service.getMiembroId(this.miembro.auxCedula)
-    .subscribe(data=>{
-      this.auxMiembro= data; 
-    })
+    this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
+    JSON.parse(localStorage.getItem("miembro"));
+
   }
   /*
   actualizarProducto(member:Member){
@@ -63,4 +62,6 @@ export class EditMiembroComponent implements OnInit {
   });
   }
 */
+
+
 }
