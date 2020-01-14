@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Member } from 'src/app/Modelo/Member';
 import { MiembrosService } from 'src/app/Servicios/miembros.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { MiembrosComponent } from '../miembros.component';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-miembro',
@@ -15,10 +15,28 @@ export class EditMiembroComponent implements OnInit {
   miembroAux:Member = new Member();
   memb:FormGroup;
   submitted = false;  
+  datos_miembro_formulario_edit: FormGroup;
 
-  constructor(private service: MiembrosService, private router: Router,private formBuilder: FormBuilder, private miembro: MiembrosComponent) {  }
+  constructor(private service: MiembrosService, private router: Router,private formBuilder: FormBuilder, 
+    private miembro: MiembrosComponent) {  }
 
   ngOnInit() {
+
+    this.datos_miembro_formulario_edit = this.formBuilder.group({
+      //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
+      cedula: ['', Validators.required],
+      primer_nombre: ['', Validators.required],
+      segundo_nombre: ['', Validators.required],
+      primer_apellido: ['', Validators.required],
+      segundo_apellido: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      contrasena: ['', Validators.required],
+      fecha_nacimiento: ['', Validators.required],
+      direccion: ['', Validators.required],
+      genero: ['', Validators.required],
+      telefono: ['', Validators.required],
+      ciudad: ['', Validators.required]
+    });
   }
 
   editarMiembro(){
