@@ -32,9 +32,6 @@ constructor(private service: MiembrosService, private router: Router) {
     this.auxCedula = cedula;
   }
 
-  editarMiembro(id: Member){
-    //NO SE COMO DIABLOS IMPLEMENTARLO
-  }
 /*
   eliminarMiembro(cedula: number){
     if(confirm("¿Está seguro que desear eliminar el miembro?")) {

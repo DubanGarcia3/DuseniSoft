@@ -8,7 +8,7 @@
         <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
             <div class="container">
                 <div class="row" id="divAgregaryBuscador">
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6" id="divAgregar">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" id="divAgregar">
                         <button class="btn btn-outline-success" type="submit" data-toggle="modal" data-target="#Modal">Agregar miembro
                             </button>
                     </div>
@@ -52,7 +52,7 @@
                                         <div class="btn-group" role="group">
                                             <button (click)="verInfoProducto(producto.codigoProducto)" class="btn btn-outline-success" data-toggle="Modal" data-target="#Modal">Ver
                                                 </button>
-                                            <button (click)="editarMiembro(miembro)" class="btn btn-outline-dark" data-toggle="modal" data-target="#Modal">Editar
+                                            <button class="btn btn-outline-dark" (click)="enviarCedula(miembro.cedula_member)" data-toggle="modal" data-target="#modal-edit-member">Editar
                                                 </button>
                                             <button class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-modal" (click)="enviarCedula(miembro.cedula_member)">Eliminar
                                                 </button>
@@ -68,3 +68,4 @@
 
 </div>
 <app-delete-miembro></app-delete-miembro>
+<app-edit-miembro></app-edit-miembro>
