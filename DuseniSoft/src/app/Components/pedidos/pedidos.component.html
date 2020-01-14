@@ -2,20 +2,19 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-            <app-tree-nav>
-            </app-tree-nav>
+            <app-tree-nav></app-tree-nav>
             <app-log-out></app-log-out>
         </div>
-        <div class="col-10">
+        <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
             <form class="container ">
-                <div class="row botones-sup form-row" id="divAgregaryBuscador">
+                <div class="row botones-sup" id="divAgregaryBuscador">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" id="divAgregar">
                         <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#exampleModal">Agregar nuevo pedido</button>
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-6 col-xs-6" id="divBuscador">
                         <div class="input-group-append">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Buscar pedidos">
+                                <input [(ngModel)]="filtroBuscarPedidos" type="text" class="form-control" placeholder="Buscar pedidos" name="buscarPedidos">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-success" type="button">
                                                     <i class="fa fa-search"></i>
@@ -26,11 +25,10 @@
                     </div>
                 </div>
             </form>
-
             <div class="album">
                 <div class="container">
                     <div class="row">
-                        <div class="col-4 mb-4" *ngFor="let pedido of pedidos">
+                        <div class="col-4 mb-4" *ngFor="let pedido of pedidos | filter: filtroBuscarPedidos">
                             <div class="card border-secondary">
                                 <img src="{{pedido.product.producto_image}}" class="card-img-top" alt="{{pedido.product.producto_image}}">
                                 <div class="card-body">
