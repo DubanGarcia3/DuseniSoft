@@ -4,6 +4,8 @@ import { MiembrosService } from 'src/app/Servicios/miembros.service';
 import { Router } from '@angular/router';
 import { MiembrosComponent } from '../miembros.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CiudadService } from 'src/app/Servicios/ciudad.service';
+import { City } from 'src/app/Modelo/City';
 
 @Component({
   selector: 'app-edit-miembro',
@@ -15,13 +17,16 @@ export class EditMiembroComponent implements OnInit {
   auxMiembro:Member = new Member();
   //memb:FormGroup;
   submitted = false;  
-  //datos_miembro_formulario_edit: FormGroup;
+  datos_miembro_formulario_edit: FormGroup;
+  ciudadesForSelect: City[];
+  genderFromSelect: number;
 
   constructor(private service: MiembrosService, private router: Router,private formBuilder: FormBuilder, 
-    private miembrocomp: MiembrosComponent) {  }
+    private miembrocomp: MiembrosComponent, private CiudadService: CiudadService) {  }
 
   ngOnInit() {
-/*
+
+    this.CiudadService.getCiudades().subscribe(data => { this.ciudadesForSelect = data; });
     this.datos_miembro_formulario_edit = this.formBuilder.group({
       //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
       cedula: ['', Validators.required],
@@ -37,16 +42,19 @@ export class EditMiembroComponent implements OnInit {
       telefono: ['', Validators.required],
       ciudad: ['', Validators.required]
     });
-    */
+    
    this.loadMember();
   }
 
 
+  get formulario(){
+    return this.datos_miembro_formulario_edit.controls; 
+  }
+
   loadMember(){
     console.log('editarMiembro');
     this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
-    JSON.parse(localStorage.getItem("miembro"));
-
+    this.vaciarCampos();
   }
   /*
   actualizarProducto(member:Member){
@@ -63,5 +71,21 @@ export class EditMiembroComponent implements OnInit {
   }
 */
 
+vaciarCampos(){
+  this.datos_miembro_formulario_edit.patchValue({
+   cedula: '',
+   primer_nombre: '',
+   segundo_nombre:'',
+   primer_apellido: '',
+   segundo_apellido: '',
+   email:'',
+   contrasena: '',
+   fecha_nacimiento:'',
+   direccion: '',
+   genero: '',
+   telefono: '',
+   ciudad: ''
+  });
+}
 
 }
