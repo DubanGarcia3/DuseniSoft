@@ -46,30 +46,24 @@ export class EditMiembroComponent implements OnInit {
    this.loadMember();
   }
 
-
   get formulario(){
     return this.datos_miembro_formulario_edit.controls; 
   }
 
   loadMember(){
-    console.log('editarMiembro');
     this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
-    // this.vaciarCampos();
+    console.log('editarMiembro', this.auxMiembro);
   }
-  /*
-  actualizarProducto(member:Member){
+  
+  actualizarMiembro(member:Member){
     this.submitted = true;
-    if (this.memb.invalid) {
-       return;
-   }
     this.service.updateMiembro(member)
     .subscribe(data=>{
-      this.miembroAux = data;
+      this.auxMiembro = data;
       alert("Se actualizo el miembro");
       this.router.navigate(["app-miembros"]);
   });
   }
-*/
 
 vaciarCampos(){
   this.datos_miembro_formulario_edit.patchValue({

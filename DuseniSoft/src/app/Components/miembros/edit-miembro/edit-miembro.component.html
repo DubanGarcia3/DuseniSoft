@@ -3,8 +3,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditMember">Formulario de registro de miembro</h5>
-                <button type="button" class="close" data-dismiss="modal" caria-label="Close">
+                <h5 class="modal-title" id="modalEditMember">Formulario para modificación de miembro</h5>
+                <button type="button" class="close" data-dismiss="modal" caria-label="Close" (click)="vaciarCampos()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -162,7 +162,7 @@
                     </div>
                     <div class="modal-footer">
                         <button (click)="vaciarCampos()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button (click)="addMember()" type="submit" [disabled]="datos_miembro_formulario.invalid" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                        <button (click)="addMember()" (click)="vaciarCampos()" type="submit" [disabled]="datos_miembro_formulario.invalid" class="btn btn-success" data-dismiss="modal">Aceptar</button>
 
                     </div>
                 </form>
