@@ -34,7 +34,7 @@
                             <label>Nombres</label>
                             <div class="row ">
                                 <div class="col-6 izq ">
-                                    <input [(ngModel)]="auxMiembro.first_name " formControlName="primer_nombre " type="text " class="form-control " placeholder="Primer nombre ">
+                                    <input [(ngModel)]="auxMiembro.first_name " formControlName="primer_nombre " type="text " class="form-control " placeholder="Primer nombre " value="{{auxMiembro.first_last_name}}">
                                     <div *ngIf="formulario.primer_nombre.invalid && (formulario.primer_nombre.dirty || formulario.primer_nombre.touched) " class="alert alert-danger ">
                                         <div *ngIf="formulario.primer_nombre.errors.required ">
                                             Debe introducir un primer nombre
