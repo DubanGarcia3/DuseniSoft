@@ -40,6 +40,11 @@ constructor(private service: MiembrosService, private router: Router) {
       localStorage.setItem("miembro", JSON.stringify(data));
     })
     this.miembroAux = JSON.parse(localStorage.getItem("miembro"));
+    console.log('el que se envia al editar', this.miembroAux)
+  }
+
+  getMiembroAux(): Member{
+    return this.miembroAux; 
   }
 
 /*

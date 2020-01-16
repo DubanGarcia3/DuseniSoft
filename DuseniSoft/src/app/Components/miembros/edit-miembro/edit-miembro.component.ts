@@ -15,7 +15,6 @@ import { City } from 'src/app/Modelo/City';
 export class EditMiembroComponent implements OnInit {
 
   auxMiembro:Member = new Member();
-  //memb:FormGroup;
   submitted = false;  
   datos_miembro_formulario_edit: FormGroup;
   ciudadesForSelect: City[];
@@ -43,7 +42,6 @@ export class EditMiembroComponent implements OnInit {
       ciudad: ['', Validators.required]
     });
     
-   this.loadMember();
   }
 
   get formulario(){
@@ -51,8 +49,9 @@ export class EditMiembroComponent implements OnInit {
   }
 
   loadMember(){
-    this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
-    console.log('editarMiembro', this.auxMiembro);
+    //this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
+     this.auxMiembro = this.miembrocomp.getMiembroAux();
+    console.log('loadMember, abre el modal', this.auxMiembro);
   }
   
   actualizarMiembro(member:Member){
@@ -64,7 +63,7 @@ export class EditMiembroComponent implements OnInit {
       this.router.navigate(["app-miembros"]);
   });
   }
-
+/*
 vaciarCampos(){
   this.datos_miembro_formulario_edit.patchValue({
    cedula: '',
@@ -80,6 +79,6 @@ vaciarCampos(){
    telefono: '',
    ciudad: ''
   });
-}
+}*/
 
 }
