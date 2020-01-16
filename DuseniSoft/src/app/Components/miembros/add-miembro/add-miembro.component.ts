@@ -142,6 +142,7 @@ export class AddMiembroComponent implements OnInit {
       }
     );
     this.vaciarCampos();
+    
   }
 
  vaciarCampos(){

@@ -54,7 +54,7 @@ export class EditMiembroComponent implements OnInit {
   loadMember(){
     console.log('editarMiembro');
     this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
-    this.vaciarCampos();
+    // this.vaciarCampos();
   }
   /*
   actualizarProducto(member:Member){
