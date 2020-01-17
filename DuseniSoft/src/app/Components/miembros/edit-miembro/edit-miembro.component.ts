@@ -6,6 +6,7 @@ import { MiembrosComponent } from '../miembros.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CiudadService } from 'src/app/Servicios/ciudad.service';
 import { City } from 'src/app/Modelo/City';
+import { Address } from 'src/app/Modelo/Address';
 
 @Component({
   selector: 'app-edit-miembro',
@@ -19,6 +20,8 @@ export class EditMiembroComponent implements OnInit {
   datos_miembro_formulario_edit: FormGroup;
   ciudadesForSelect: City[];
   genderFromSelect: number;
+  direccionNueva:Address = new Address();
+  ciudadExistente: City = new City()
 
   constructor(private service: MiembrosService, private router: Router,private formBuilder: FormBuilder, 
     private miembrocomp: MiembrosComponent, private CiudadService: CiudadService) {  }
@@ -51,6 +54,8 @@ export class EditMiembroComponent implements OnInit {
   loadMember(){
     //this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
      this.auxMiembro = this.miembrocomp.getMiembroAux();
+     this.direccionNueva.city = this.ciudadExistente;
+     this.auxMiembro.address = this.direccionNueva;
     console.log('loadMember, abre el modal', this.auxMiembro);
   }
   
@@ -63,7 +68,7 @@ export class EditMiembroComponent implements OnInit {
       this.router.navigate(["app-miembros"]);
   });
   }
-/*
+
 vaciarCampos(){
   this.datos_miembro_formulario_edit.patchValue({
    cedula: '',
@@ -79,6 +84,6 @@ vaciarCampos(){
    telefono: '',
    ciudad: ''
   });
-}*/
+}
 
 }

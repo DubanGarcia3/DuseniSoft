@@ -23,7 +23,7 @@
         <div class="modal-content ">
             <div class="modal-header ">
                 <h5 class="modal-title " id="modalEditMember ">Formulario para modificación de miembro</h5>
-                <button type="button " class="close " data-dismiss="modal " caria-label="Close " (click)="vaciarCampos() ">
+                <button type="button " class="close " data-dismiss="modal " caria-label="Close " (click)="vaciarCampos()">
                     <span aria-hidden="true ">&times;</span>
                 </button>
             </div>
@@ -34,7 +34,7 @@
                             <label>Nombres</label>
                             <div class="row ">
                                 <div class="col-6 izq ">
-                                    <input [(ngModel)]="auxMiembro.first_name " formControlName="primer_nombre " type="text " class="form-control " placeholder="Primer nombre " value="{{auxMiembro.first_last_name}}">
+                                    <input [(ngModel)]="auxMiembro.first_name" formControlName="primer_nombre" type="text " class="form-control " placeholder="Primer nombre " value="{{auxMiembro.first_last_name}}">
                                     <div *ngIf="formulario.primer_nombre.invalid && (formulario.primer_nombre.dirty || formulario.primer_nombre.touched) " class="alert alert-danger ">
                                         <div *ngIf="formulario.primer_nombre.errors.required ">
                                             Debe introducir un primer nombre
@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 der ">
-                                    <input [(ngModel)]="auxMiembro.second_name " formControlName="segundo_nombre " type="text " class="form-control " placeholder="Segundo nombre ">
+                                    <input [(ngModel)]="auxMiembro.second_name" formControlName="segundo_nombre" type="text " class="form-control " placeholder="Segundo nombre ">
                                     <div *ngIf="formulario.segundo_nombre.invalid && (formulario.segundo_nombre.dirty || formulario.segundo_nombre.touched) ">
                                         <div *ngIf="formulario.segundo_nombre.errors.required " class="alert alert-danger ">
                                             Debe introducir un segundo nombre
@@ -55,7 +55,7 @@
                             <label>Apellidos</label>
                             <div class="row ">
                                 <div class="col-6 izq ">
-                                    <input [(ngModel)]="auxMiembro.first_last_name " formControlName="primer_apellido " type="text " class="form-control " placeholder="Primer apellido ">
+                                    <input [(ngModel)]="auxMiembro.first_last_name" formControlName="primer_apellido" type="text " class="form-control " placeholder="Primer apellido ">
                                     <div *ngIf="formulario.primer_apellido.invalid && (formulario.primer_apellido.dirty || formulario.primer_apellido.touched) ">
                                         <div *ngIf="formulario.primer_apellido.errors.required " class="alert alert-danger ">
                                             Debe introducir un primer apellido
@@ -63,7 +63,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 der ">
-                                    <input [(ngModel)]="auxMiembro.second_last_name " formControlName="segundo_apellido " type="text " class="form-control " placeholder="Segundo apellido ">
+                                    <input [(ngModel)]="auxMiembro.second_last_name" formControlName="segundo_apellido" type="text " class="form-control " placeholder="Segundo apellido ">
                                     <div *ngIf="formulario.segundo_apellido.invalid && (formulario.segundo_apellido.dirty || formulario.segundo_apellido.touched) ">
                                         <div *ngIf="formulario.segundo_apellido.errors.required " class="alert alert-danger ">
                                             Debe introducir un segundo apellido
@@ -76,7 +76,7 @@
                     <div class="form-row form-group ">
                         <div class="col-md-8 mb-3 ">
                             <label class="col-form-label ">Documento de identidad</label>
-                            <input [(ngModel)]="auxMiembro.cedula_member " formControlName="cedula " type="text " class="form-control " id="input_id " placeholder="Numero de documento " pattern="^[0-9]+$ " minlength="8 ">
+                            <input [(ngModel)]="auxMiembro.cedula_member" formControlName="cedula" type="text " class="form-control " id="input_id " placeholder="Numero de documento " pattern="^[0-9]+$ " minlength="8 ">
                             <div *ngIf="formulario.cedula.invalid && (formulario.cedula.dirty || formulario.cedula.touched) ">
                                 <div *ngIf="formulario.cedula.errors.required " class="alert alert-danger ">
                                     Debe introducir un número de documento
@@ -91,7 +91,7 @@
                         </div>
                         <div class="col-md-6 mb-3 ">
                             <label>Correo electrónico</label>
-                            <input [(ngModel)]="auxMiembro.email_member " formControlName="email " type="text " class="form-control " id="input_email " placeholder="Ej: micorreo@email.com ">
+                            <input [(ngModel)]="auxMiembro.email_member" formControlName="email" type="text " class="form-control " id="input_email " placeholder="Ej: micorreo@email.com ">
                             <div *ngIf="formulario.email.invalid && (formulario.email.dirty || formulario.email.touched) ">
                                 <div *ngIf="formulario.email.errors.required " class="alert alert-danger ">
                                     Debe introducir un correo
@@ -103,19 +103,19 @@
                         </div>
                         <div class="col-md-6 mb-3 ">
                             <label>Contraseña</label>
-                            <input [(ngModel)]="auxMiembro.password_member " formControlName="contrasena " type="text " class="form-control " id="cedula_member " placeholder="Asigne contraseña al miembro ">
+                            <input [(ngModel)]="auxMiembro.password_member" formControlName="contrasena" type="text " class="form-control " id="cedula_member " placeholder="Asigne contraseña al miembro ">
                             <div *ngIf="formulario.contrasena.invalid && (formulario.contrasena.dirty || formulario.contrasena.touched) ">
                                 <div *ngIf="formulario.contrasena.errors.required " class="alert alert-danger ">
                                     Debe introducir una contraseña
                                 </div>
-                                <div *ngIf="formulario.contrasena.errors.minlength " class="alert alert-warning ">
+                                <div *ngIf="formulario.contrasena.errors.minlength" class="alert alert-warning ">
                                     La contraseña debe tener al menos 6 caracteres
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-10 mb-3 ">
                             <label class="col-form-label ">Fecha de nacimiento</label>
-                            <input [(ngModel)]="auxMiembro.dateOfBirth " formControlName="fecha_nacimiento " type="text " class="form-control " id="fecha_nacimiento " placeholder="Fecha en formato dd/mm/aaaa " pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$ ">
+                            <input [(ngModel)]="auxMiembro.dateOfBirth" formControlName="fecha_nacimiento" type="text " class="form-control " id="fecha_nacimiento " placeholder="Fecha en formato dd/mm/aaaa " pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$ ">
                             <div *ngIf="formulario.fecha_nacimiento.invalid && (formulario.fecha_nacimiento.dirty || formulario.fecha_nacimiento.touched) ">
                                 <div *ngIf="formulario.fecha_nacimiento.errors.required " class="alert alert-danger ">
                                     Debe introducir una fecha
@@ -127,7 +127,7 @@
                         </div>
                         <div class="col-md-8 mb-3 ">
                             <label class="col-form-label ">Dirección de vivienda</label>
-                            <input [(ngModel)]="auxMiembro.address.address_description " formControlName="direccion " type="text " class="form-control " id="address " placeholder="Ej: Calle 12 # 12- 45 ">
+                            <input [(ngModel)]="direccionNueva.address_description" formControlName="direccion" type="text " class="form-control " id="address " placeholder="Ej: Calle 12 # 12- 45 ">
                             <div *ngIf="formulario.direccion.invalid && (formulario.direccion.dirty || formulario.direccion.touched) ">
                                 <div *ngIf="formulario.direccion.errors.required " class="alert alert-danger ">
                                     Debe introducir una dirección
@@ -136,7 +136,7 @@
                         </div>
                         <div class="col-md-8 mb-3 ">
                             <label class="col-form-label ">Ciudad</label>
-                            <select [(ngModel)]="auxMiembro.address.city.name_city " formControlName="ciudad " class="custom-select " id="select-ciudades ">
+                            <select [(ngModel)]="ciudadExistente.id_city" formControlName="ciudad" class="custom-select " id="select-ciudades ">
                                 <option *ngFor="let ciudad of ciudadesForSelect " [value]="ciudad.id_city ">{{ciudad.name_city}}</option>
                             </select>
                             <div *ngIf="formulario.ciudad.invalid && (formulario.ciudad.dirty || formulario.ciudad.touched) ">
@@ -147,8 +147,8 @@
                         </div>
                         <div class="col-md-10 mb-3 ">
                             <div class=" ">
-                                <label for="inputPassword " class="col-form-label ">Género</label>
-                                <select [(ngModel)]="auxMiembro.gender " (change)="getGenderFromSelect() " formControlName="genero " class="custom-select " id="input_genero ">
+                                <label for="inputPassword" class="col-form-label">Género</label>
+                                <select [(ngModel)]="auxMiembro.gender " (change)="getGenderFromSelect() " formControlName="genero" class="custom-select " id="input_genero ">
                                     <option value="1 ">Masculino</option>
                                     <option value="2 ">Femenino</option>
                                 </select>
@@ -160,10 +160,10 @@
                             </div>
                         </div>
                         <div class="col-md-6 mb-6 ">
-                            <label class="col-form-label input-group-append ">Numero telefónico</label>
+                            <label class="col-form-label input-group-append">Numero telefónico</label>
                             <div class="input-group " role="group ">
                                 <span class="input-group-text " id="inputGroup-sizing-sm ">+57</span>
-                                <input [(ngModel)]="auxMiembro.phone_number " formControlName="telefono " type="text " class="form-control " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-sm " id="input_telefono
+                                <input [(ngModel)]="auxMiembro.phone_number " formControlName="telefono" type="text " class="form-control " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-sm " id="input_telefono
                                 " placeholder="Número de teléfono " pattern="^[0-9]+$ " minlength="10 ">
                                 <div *ngIf="formulario.telefono.invalid && (formulario.telefono.dirty || formulario.telefono.touched) ">
                                     <div *ngIf="formulario.telefono.errors.required " class="alert alert-danger ">
@@ -180,8 +180,8 @@
                         </div>
                     </div>
                     <div class="modal-footer ">
-                        <button type="button " class="btn btn-secondary " data-dismiss="modal ">Cerrar</button>
-                        <button (click)="addMember() " type="submit " [disabled]="datos_miembro_formulario.invalid " class="btn btn-success " data-dismiss="modal ">Aceptar</button>
+                        <button type="button " class="btn btn-secondary" data-dismiss="modal ">Cerrar</button>
+                        <button (click)="addMember() " type="submit " [disabled]="datos_miembro_formulario_edit.invalid" class="btn btn-success " data-dismiss="modal ">Aceptar</button>
 
                     </div>
                 </form>
