@@ -1,25 +1,28 @@
-<div class="modal fade" id="modal-confirm-edit-member" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modificar miembro seleccionado</h5>
-            </div>
-            <div class="modal-body">
-                <p>¿Editar el miembro? </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" (click)="loadMember()" data-toggle="modal" data-target="#editMember" data-dismiss="modal">Modificar</button>
-                <button type="button " class="btn btn-secondary " data-dismiss="modal">Cancelar</button>
-            </div>
+<div>
+    <div class="modal fade" id="modal-confirm-edit-member" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modificar miembro seleccionado</h5>
+                </div>
+                <div class="modal-body">
+                    <p>¿Editar el miembro? </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="loadMember()" data-toggle="modal" data-target="#editMember" data-dismiss="modal">Modificar</button>
+                    <button type="button " class="btn btn-secondary " data-dismiss="modal">Cancelar</button>
+                </div>
 
+            </div>
         </div>
     </div>
 </div>
+
 <!-- 
     Modal de edicion
  -->
-<div class="modal fade" id="editMember" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog " role="document ">
+<div class="modal fade bd-example-modal-lg" style="overflow-y: scroll;" id="editMember" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document ">
         <div class="modal-content ">
             <div class="modal-header ">
                 <h5 class="modal-title " id="modalEditMember ">Formulario para modificación de miembro</h5>
@@ -74,7 +77,7 @@
                         </div>
                     </div>
                     <div class="form-row form-group ">
-                        <div class="col-md-8 mb-3 ">
+                        <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Documento de identidad</label>
                             <input [(ngModel)]="auxMiembro.cedula_member" formControlName="cedula" type="text " class="form-control " id="input_id " placeholder="Numero de documento " pattern="^[0-9]+$ " minlength="8 ">
                             <div *ngIf="formulario.cedula.invalid && (formulario.cedula.dirty || formulario.cedula.touched) ">
@@ -86,6 +89,18 @@
                                 </div>
                                 <div *ngIf="formulario.cedula.errors.minlength " class="alert alert-warning ">
                                     Debe ingresar al menos 8 caracteres
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3 ">
+                            <label class="col-form-label ">Fecha de nacimiento</label>
+                            <input [(ngModel)]="auxMiembro.dateOfBirth" formControlName="fecha_nacimiento" type="text " class="form-control " id="fecha_nacimiento " placeholder="Fecha en formato dd/mm/aaaa " pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$ ">
+                            <div *ngIf="formulario.fecha_nacimiento.invalid && (formulario.fecha_nacimiento.dirty || formulario.fecha_nacimiento.touched) ">
+                                <div *ngIf="formulario.fecha_nacimiento.errors.required " class="alert alert-danger ">
+                                    Debe introducir una fecha
+                                </div>
+                                <div *ngIf="formulario.fecha_nacimiento.errors?.pattern " class="alert alert-warning ">
+                                    Debe ingresa una fecha con el siguiente formato (Ej: dd/mm/aaaa)
                                 </div>
                             </div>
                         </div>
@@ -113,19 +128,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-10 mb-3 ">
-                            <label class="col-form-label ">Fecha de nacimiento</label>
-                            <input [(ngModel)]="auxMiembro.dateOfBirth" formControlName="fecha_nacimiento" type="text " class="form-control " id="fecha_nacimiento " placeholder="Fecha en formato dd/mm/aaaa " pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$ ">
-                            <div *ngIf="formulario.fecha_nacimiento.invalid && (formulario.fecha_nacimiento.dirty || formulario.fecha_nacimiento.touched) ">
-                                <div *ngIf="formulario.fecha_nacimiento.errors.required " class="alert alert-danger ">
-                                    Debe introducir una fecha
-                                </div>
-                                <div *ngIf="formulario.fecha_nacimiento.errors?.pattern " class="alert alert-warning ">
-                                    Debe ingresa una fecha con el siguiente formato (Ej: dd/mm/aaaa)
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8 mb-3 ">
+
+                        <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Dirección de vivienda</label>
                             <input [(ngModel)]="direccionNueva.address_description" formControlName="direccion" type="text " class="form-control " id="address " placeholder="Ej: Calle 12 # 12- 45 ">
                             <div *ngIf="formulario.direccion.invalid && (formulario.direccion.dirty || formulario.direccion.touched) ">
@@ -134,7 +138,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8 mb-3 ">
+                        <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Ciudad</label>
                             <select [(ngModel)]="ciudadExistente.id_city" formControlName="ciudad" class="custom-select " id="select-ciudades ">
                                 <option *ngFor="let ciudad of ciudadesForSelect " [value]="ciudad.id_city ">{{ciudad.name_city}}</option>
@@ -145,7 +149,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-10 mb-3 ">
+                        <div class="col-md-6 mb-3 ">
                             <div class=" ">
                                 <label for="inputPassword" class="col-form-label">Género</label>
                                 <select [(ngModel)]="auxMiembro.gender " (change)="getGenderFromSelect() " formControlName="genero" class="custom-select " id="input_genero ">
@@ -159,7 +163,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-6 ">
+                        <div class="col-md-5 mb-6 ">
                             <label class="col-form-label input-group-append">Numero telefónico</label>
                             <div class="input-group " role="group ">
                                 <span class="input-group-text " id="inputGroup-sizing-sm ">+57</span>
