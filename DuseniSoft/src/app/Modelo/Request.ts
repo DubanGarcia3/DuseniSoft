@@ -7,7 +7,7 @@ export class Request{
     creation_date_request:Date;
     limit_date_request:Date;
     required_quantity:number;
-    // quantity: number;
+    quantity: number;
     product:Product;
     is_active:boolean;
     price_per_unit_to_pay:number;
