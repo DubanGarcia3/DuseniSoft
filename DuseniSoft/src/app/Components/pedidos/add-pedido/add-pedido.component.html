@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Nuevo Pedido</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button (click)="vaciarCampos()" type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div> 
@@ -46,8 +46,7 @@
                             <!-- PRODUCTO SELECT -->
                             <div class="col-6 form-group">
                                 <label class="col-form-label">Producto</label>
-                                <select [(ngModel)]="productoFromSelect.id_product" 
-                                (change)="getProductFromSelect()"
+                                <select [(ngModel)]="idProductoFromSelect"
                                 formControlName="producto" 
                                 class="custom-select" 
                                 id="select-productos">
@@ -62,7 +61,7 @@
                             <!-- CANTIDAD INPUT -->
                             <div class="col-6 form-group">
                                 <label class="col-form-label">Cantidad requerida</label>
-                                <input [(ngModel)]="pedidoAAgregar.quantity"
+                                <input [(ngModel)]="pedidoAAgregar.required_quantity"
                                 formControlName="cantidad"
                                 type="text"
                                 class="form-control" 
@@ -90,30 +89,24 @@
                         </div>
                         <!-- DIRECCIÓN DE ENTREGA -->
                         <div class="form-group">
-                            <label class="text-muted">Se requiere en: association.address.address_description</label>                    
+                            <label class="text-muted">Se requiere en: {{direccionEntrega}}</label>                    
                         </div>
                         <!-- PRECIO POR UNIDAD A PAGAR -->
-                        <div class="col-md-12 mb-12">
+                        <div class="col-md-12 mb-12 form-group">
                             <label class="col-form-label">Precio por unidad a pagar</label>
                             <div class="input-group" role="group">
                                 <input [(ngModel)]="pedidoAAgregar.price_per_unit_to_pay" 
                                 formControlName="precio" 
                                 type="text" 
                                 class="form-control"
-                                aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-sm" 
                                 placeholder="Ej: 3000 por kilo"
-                                pattern="^[0-9]+$"
-                                minlength="10">
+                                pattern="^[0-9]+$">
                                 <div *ngIf="formulario.precio.invalid && (formulario.precio.dirty || formulario.precio.touched)">
                                     <div *ngIf="formulario.precio.errors.required" class="alert alert-danger">
                                         Debe ingresar un número de telefono
                                     </div>
                                 <div *ngIf="formulario.precio.errors?.pattern" class="alert alert-warning">
                                     Debe ingresar únicamente números, sin puntos ni comas
-                                </div>
-                                <div *ngIf="formulario.precio.errors.minlength" class="alert alert-warning">
-                                    Debe ingresar al menos 10 caracteres
                                 </div>
                             </div>
                         </div>

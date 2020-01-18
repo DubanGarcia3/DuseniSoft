@@ -4,6 +4,8 @@ import { PedidosService } from 'src/app/Servicios/pedidos.service';
 import { Product } from 'src/app/Modelo/Product';
 import { ProductosService } from 'src/app/Servicios/productos.service';
 import { Request } from 'src/app/Modelo/Request';
+import { AsociacionesService } from 'src/app/Servicios/asociaciones.service';
+import { Address } from 'src/app/Modelo/Address';
 
 @Component({
   selector: 'app-add-pedido',
@@ -14,19 +16,24 @@ export class AddPedidoComponent implements OnInit {
 
   datos_pedido_formulario: FormGroup;
   pedidoAAgregar: Request = new Request();
-  productoFromSelect: Product = new Product();
+  idProductoFromSelect: number;
   productosForSelect: Product[];
   cantidad: number;
+  direccionEntrega: String;
 
   constructor(private pedidosService: PedidosService,
-    //TO-DO Servicio de productos
     private productosService: ProductosService,
+    private asociacionesService: AsociacionesService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    //TO-DO Cargar los productos al select
     this.productosService.getProductos().subscribe(data => { this.productosForSelect = data; });
-
+    //Aqui ponga la direccion de la asociacion por defecto como direccion del pedido
+    this.asociacionesService.getAsociacionId(1).subscribe(data => {
+      this.pedidoAAgregar.address_request =  new Address();
+      this.pedidoAAgregar.address_request = data.address;
+      this.direccionEntrega = data.address.address_description;
+    });
     this.datos_pedido_formulario = this.formBuilder.group({
       //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
       producto: ['', Validators.required],
@@ -40,12 +47,22 @@ export class AddPedidoComponent implements OnInit {
     return this.datos_pedido_formulario.controls; 
   }
 
-  getProductFromSelect(){
-    console.log("PRODUCTO " + this.productoFromSelect.name_product);
-  }
-
   addPedido(){
+    this.pedidoAAgregar.creation_date_request = new Date();
+    this.pedidoAAgregar.limit_date_request = new Date();
+    this.pedidoAAgregar.product = new Product();
+    this.pedidoAAgregar.product.id_product =  this.idProductoFromSelect;
+    this.pedidoAAgregar.is_active = true;
     
+    this.pedidosService.guardarPedido(this.pedidoAAgregar).subscribe(
+      (data)=> {console.log("Lo que retorna el server tras agregar el pedido",  data)
+          if(data != null){
+            console.log("OK MIEMBRO " + data);
+          }else{
+            console.log("validar que los datos esten correctos " + data);
+          }
+      }
+    );
   }
 
   vaciarCampos(){
