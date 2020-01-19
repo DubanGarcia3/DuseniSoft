@@ -43,6 +43,8 @@
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-success">Ver</button>
                                             <button type="button" class="btn btn-sm boton-morado">Editar</button>
+                                            <button type="button" class="btn btn-outline-danger" (click)="borrarPedido(pedido.id_request)" data-toggle="modal" data-target="#delete-pedido-modal">Eliminar
+                                            </button>
                                         </div>      
                                     </div>
                                 </div>
@@ -50,8 +52,8 @@
                         </div>
                     </div>
 
-                    <app-add-pedido>
-                    </app-add-pedido>
+                    <app-add-pedido></app-add-pedido>
+                    <app-delete-pedido></app-delete-pedido>
                     <app-log-out></app-log-out>
                 </div>
             </div>

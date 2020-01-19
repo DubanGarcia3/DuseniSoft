@@ -19,17 +19,20 @@ export class PedidosComponent implements OnInit {
    dtOption: any = {};
    pedidos: Request[];
    filtroBuscarPedidos;
+   idPedidoAEliminar: number;
 
   ngOnInit() {
+    // this.service.getPedidos().subscribe(data => { this.pedidos  = data; });
+    // console.log(this.pedidos);
+    this.recargarPedidos();
+  }
+
+  recargarPedidos() {
     this.service.getPedidos().subscribe(data => { this.pedidos  = data; });
-    console.log(this.pedidos);
-    this.loadDataTable();
   }
 
-
-  loadDataTable() {
-    
+  borrarPedido(id_request: number){
+    this.idPedidoAEliminar = id_request;
   }
-
   
 }

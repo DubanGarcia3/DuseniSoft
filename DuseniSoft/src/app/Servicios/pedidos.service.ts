@@ -23,14 +23,14 @@ guardarPedido(pedido:Request){
 }
 
 getPedidoId(idPedido:number){
-  return this.http.get<Request>(this.Url+"/"+ idPedido);
+  return this.http.get<Request>(this.Url+"request/"+idPedido);
 }
 
 updatePedido(pedido:Request){
-  return this.http.put<Request>(this.Url+"/"+pedido.id_request,pedido);
+  return this.http.put<Request>(this.Url+"editRequest",pedido);
 }
 
-deletePedido(pedido:Request){
-  return this.http.delete<Request>(this.Url+"/"+pedido.id_request);
+deletePedido(id_request:number){
+  return this.http.delete<Request>(this.Url+"removeRequest/"+id_request);
 }
 }

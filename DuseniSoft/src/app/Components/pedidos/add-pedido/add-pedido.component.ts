@@ -48,8 +48,10 @@ export class AddPedidoComponent implements OnInit {
   }
 
   addPedido(){
+    //TO-DO Arreglar éstas dos fechas
     this.pedidoAAgregar.creation_date_request = new Date();
     this.pedidoAAgregar.limit_date_request = new Date();
+    //
     this.pedidoAAgregar.product = new Product();
     this.pedidoAAgregar.product.id_product =  this.idProductoFromSelect;
     this.pedidoAAgregar.is_active = true;

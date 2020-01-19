@@ -23,6 +23,7 @@ import { IconBarComponent } from './Components/inicio/icon-bar/icon-bar.componen
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DeleteMiembroComponent } from './Components/miembros/delete-miembro/delete-miembro.component';
 import { EditMiembroComponent } from './Components/miembros/edit-miembro/edit-miembro.component';
+import { DeletePedidoComponent } from './Components/pedidos/delete-pedido/delete-pedido.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { EditMiembroComponent } from './Components/miembros/edit-miembro/edit-mi
     LogOutComponent,
     IconBarComponent,
     DeleteMiembroComponent,
-    EditMiembroComponent
+    EditMiembroComponent,
+    DeletePedidoComponent
   ],
   imports: [
     BrowserModule,
