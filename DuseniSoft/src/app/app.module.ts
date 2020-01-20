@@ -25,6 +25,7 @@ import { DeleteMiembroComponent } from './Components/miembros/delete-miembro/del
 import { EditMiembroComponent } from './Components/miembros/edit-miembro/edit-miembro.component';
 import { DeletePedidoComponent } from './Components/pedidos/delete-pedido/delete-pedido.component';
 import { EditPedidoComponent } from './Components/pedidos/edit-pedido/edit-pedido.component';
+import { VerMiembroComponent } from './Components/miembros/ver-miembro/ver-miembro.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { EditPedidoComponent } from './Components/pedidos/edit-pedido/edit-pedid
     DeleteMiembroComponent,
     EditMiembroComponent,
     DeletePedidoComponent,
-    EditPedidoComponent
+    EditPedidoComponent,
+    VerMiembroComponent
   ],
   imports: [
     BrowserModule,
