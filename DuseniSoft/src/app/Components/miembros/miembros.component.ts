@@ -1,6 +1,6 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { MiembrosService } from 'src/app/Servicios/miembros.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { Member } from 'src/app/Modelo/Member';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { from } from 'rxjs';
@@ -18,6 +18,7 @@ constructor(private service: MiembrosService, private router: Router) {
   miembros: Member[];
   buscarMiembroFiltro;
   miembroAux:Member = new Member();
+  miembroSeleccionado: Member = new Member();;
   
   ngOnInit() {
     // this.service.getMiembros().subscribe(data => { this.miembros = data; });
@@ -45,6 +46,15 @@ constructor(private service: MiembrosService, private router: Router) {
 
   getMiembroAux(): Member{
     return this.miembroAux; 
+  }
+
+  verInfoMiembro(miembro: Member){
+    this.miembroSeleccionado = miembro;
+    console.log("ESTE ES EL MIEMBRO:" + miembro.first_name);
+
+    const navigationExtras: NavigationExtras = {state: {example:miembro}};
+  
+    this.router.navigate(['./ver-miembro/app-ver-miembro'], navigationExtras);
   }
 
 /*
