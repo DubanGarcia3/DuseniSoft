@@ -25,8 +25,8 @@
     <div class="modal-dialog modal-lg" role="document ">
         <div class="modal-content ">
             <div class="modal-header ">
-                <h5 class="modal-title " id="modalEditMember ">Formulario para modificación de miembro</h5>
-                <button type="button " class="close " data-dismiss="modal " caria-label="Close " (click)="vaciarCampos()">
+                <h5 class="modal-title " id="modalEditMember">Formulario para modificación de miembro</h5>
+                <button type="button " class="close" data-dismiss="modal" caria-label="Close " (click)="vaciarCampos()">
                     <span aria-hidden="true ">&times;</span>
                 </button>
             </div>
@@ -170,13 +170,13 @@
                                 <input [(ngModel)]="auxMiembro.phone_number " formControlName="telefono" type="text " class="form-control " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-sm " id="input_telefono
                                 " placeholder="Número de teléfono " pattern="^[0-9]+$ " minlength="10 ">
                                 <div *ngIf="formulario.telefono.invalid && (formulario.telefono.dirty || formulario.telefono.touched) ">
-                                    <div *ngIf="formulario.telefono.errors.required " class="alert alert-danger ">
+                                    <div *ngIf="formulario.telefono.errors.required" class="alert alert-danger">
                                         Debe ingresar un número de telefono
                                     </div>
-                                    <div *ngIf="formulario.telefono.errors?.pattern " class="alert alert-warning ">
+                                    <div *ngIf="formulario.telefono.errors?.pattern" class="alert alert-warning">
                                         Debe ingresar únicamente números, sin puntos ni comas
                                     </div>
-                                    <div *ngIf="formulario.telefono.errors.minlength " class="alert alert-warning ">
+                                    <div *ngIf="formulario.telefono.errors.minlength" class="alert alert-warning">
                                         Debe ingresar al menos 10 caracteres
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@
                         </div>
                     </div>
                     <div class="modal-footer ">
-                        <button type="button " class="btn btn-secondary" data-dismiss="modal ">Cerrar</button>
+                        <button (click)="vaciarCampos()" type="button " class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         <button (click)="addMember() " type="submit " [disabled]="datos_miembro_formulario_edit.invalid" class="btn btn-success " data-dismiss="modal ">Aceptar</button>
 
                     </div>

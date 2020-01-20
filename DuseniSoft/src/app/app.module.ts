@@ -24,6 +24,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DeleteMiembroComponent } from './Components/miembros/delete-miembro/delete-miembro.component';
 import { EditMiembroComponent } from './Components/miembros/edit-miembro/edit-miembro.component';
 import { DeletePedidoComponent } from './Components/pedidos/delete-pedido/delete-pedido.component';
+import { EditPedidoComponent } from './Components/pedidos/edit-pedido/edit-pedido.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { DeletePedidoComponent } from './Components/pedidos/delete-pedido/delete
     IconBarComponent,
     DeleteMiembroComponent,
     EditMiembroComponent,
-    DeletePedidoComponent
+    DeletePedidoComponent,
+    EditPedidoComponent
   ],
   imports: [
     BrowserModule,
