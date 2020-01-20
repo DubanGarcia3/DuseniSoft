@@ -50,7 +50,7 @@
                                     <td class="text-center">{{miembro.phone_number}}</td>
                                     <td class="text-center">
                                         <div class="btn-group" role="group">
-                                            <button (click)="verInfoProducto(producto.codigoProducto)" class="btn btn-outline-success" data-toggle="Modal" data-target="#Modal">Ver
+                                            <button (click)="verInfoProducto(producto.codigoProducto)" class="btn btn-outline-success" data-toggle="modal" data-target="#modalVer">Ver
                                                 </button>
                                             <button class="btn boton-morado" (click)="sendMiembro(miembro.cedula_member)" data-toggle="modal" data-target="#modal-confirm-edit-member">Editar
                                                 </button>
@@ -70,3 +70,4 @@
 </div>
 <app-delete-miembro></app-delete-miembro>
 <app-edit-miembro></app-edit-miembro>
+<app-ver-miembro></app-ver-miembro>
