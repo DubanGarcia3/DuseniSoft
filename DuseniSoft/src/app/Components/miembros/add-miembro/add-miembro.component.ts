@@ -56,7 +56,7 @@ export class AddMiembroComponent implements OnInit {
 
     this.datos_miembro_formulario = this.formBuilder.group({
       //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
-      cedula: ['', Validators.required],
+      cedula: ['', Validators.required, Validators.pattern, Validators.minLength],
       primer_nombre: ['', Validators.required],
       segundo_nombre: ['', Validators.required],
       primer_apellido: ['', Validators.required],
@@ -136,18 +136,18 @@ export class AddMiembroComponent implements OnInit {
       (data)=> {console.log("Lo que retorna el server tras agregar el miembro",  data)
           if(data != null){
             // console.log("OK MIEMBRO");
+            this.vaciarCampos(); 
           }else{
             // console.log("validar que los datos esten correctos");
+            this.vaciarCampos(); 
           }
       }
     );
-    this.vaciarCampos();
     
   }
-
  vaciarCampos(){
    this.datos_miembro_formulario.patchValue({
-    cedula: '',
+    cedula: ['', Validators.required, Validators.pattern, Validators.minLength],
     primer_nombre: '',
     segundo_nombre:'',
     primer_apellido: '',
@@ -156,7 +156,7 @@ export class AddMiembroComponent implements OnInit {
     contrasena: '',
     fecha_nacimiento:'',
     direccion: '',
-    genero: '',
+    genero:  ['', Validators.required],
     telefono: '',
     ciudad: ''
    });

@@ -81,7 +81,7 @@
                             id="input_id" 
                             placeholder="Numero de documento"
                             pattern="^[0-9]+$"
-                            minlength="8">
+                            minlength="7">
                             <div *ngIf="formulario.cedula.invalid && (formulario.cedula.dirty || formulario.cedula.touched)">
                                 <div *ngIf="formulario.cedula.errors.required" class="alert alert-danger">
                                     Debe introducir un número de documento
