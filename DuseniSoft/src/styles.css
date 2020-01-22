@@ -48,6 +48,10 @@
     border-color: #8a25b1;
 }
 
+.divArbolNavegacion {
+    border-right: #e9ecef 1px solid;
+}
+
 .linea {
     background-color: black;
 }

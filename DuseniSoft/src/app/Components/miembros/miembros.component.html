@@ -1,7 +1,7 @@
 <app-icon-bar></app-icon-bar>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" id="divArbolNavegacion">
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 divArbolNavegacion" id="divArbolNavegacion">
             <app-tree-nav></app-tree-nav>
             <app-log-out></app-log-out>
         </div>
@@ -10,7 +10,7 @@
                 <div class="row" id="divAgregaryBuscador">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" id="divAgregar">
                         <button class="btn btn-outline-success" type="submit" data-toggle="modal" data-target="#Modal">Agregar miembro
-                            </button>
+                        </button>
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-6 col-xs-6" id="divBuscador">
                         <div class="input-group-append">
@@ -50,13 +50,13 @@
                                     <td class="text-center">{{miembro.phone_number}}</td>
                                     <td class="text-center">
                                         <div class="btn-group" role="group">
-                                            <button (click)="enviarCedula(miembro.cedula_member)" class="btn btn-outline-success" data-toggle="modal" data-target="#modalVer">Ver
-                                                </button>
+                                            <button class="btn btn-outline-success" (click)="sendMiembro(miembro.cedula_member)" data-toggle="modal" data-target="#modalVer">Ver
+                                            </button>
                                             <button class="btn boton-morado" (click)="sendMiembro(miembro.cedula_member)" data-toggle="modal" data-target="#modal-confirm-edit-member">Editar
-                                                </button>
+                                            </button>
 
                                             <button class="btn btn-outline-danger" (click)="enviarCedula(miembro.cedula_member)" data-toggle="modal" data-target="#delete-modal">Eliminar
-                                                </button>
+                                            </button>
                                         </div>
                                 </tr>
                             </tbody>
@@ -66,8 +66,73 @@
             </div>
         </div>
     </div>
-
+    <!--Empieza la seccion de ver el miembro-->
 </div>
 <app-delete-miembro></app-delete-miembro>
 <app-edit-miembro></app-edit-miembro>
-<app-ver-miembro [cedula]="auxCedula"></app-ver-miembro>
+<div class="modal fade" id="modalVer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Datos de miembro: </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 row" role="group">
+                        <h5 class="col-auto">Nombre(s): </h5>
+                        <p class="col-auto">{{miembroAux.first_name}} {{miembroAux.second_name}}</p>
+                    </div>
+                    <div class="col-12 row">
+                        <h5 class="col-auto">Apellido(s): </h5>
+                        <p class="col-auto">{{miembroAux.first_last_name}} {{miembroAux.second_last_name}}</p>
+                    </div>
+
+                    <div class="col-12 row">
+                        <h5 class="col-auto">Documento de identidad: </h5>
+                        <p class="col-auto">{{miembroAux.cedula_member}}</p>
+                    </div>
+
+                    <div class="col-12 row">
+                        <h5 class="col-auto">Correo electrónico: </h5>
+                        <p class="col-auto">{{miembroAux.password_member}}</p>
+                    </div>
+
+                    <div class="col-12 row">
+                        <h5 class="col-auto">Género: </h5>
+                        <p class="col-auto">{{miembroAux.gender}}</p>
+                    </div>
+
+                    <div class="col-12 row">
+                        <h5 class="col-auto">Estado de miembro: </h5>
+                        <p class="col-auto">{{miembroAux.is_active_user}}</p>
+                    </div>
+
+                    <div class="col-12 row">
+                        <h5 class="col-auto">Numero de teléfono: </h5>
+                        <p class="col-auto">{{miembroAux.phone_number}}</p>
+                    </div>
+
+                    <div class="col-12 row">
+                        <h5 class="col-auto">Fecha de nacimiento: </h5>
+                        <p class="col-auto">{{miembroAux.dateOfBirth}}</p>
+                    </div>
+
+                    <div class="col-12 row">
+                        <h5 class="col-auto">Dirección: </h5>
+                        <p class="col-auto">{{miembroAux.address}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn boton-morado" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+    <app-ver-miembro [cedula]="auxCedula"></app-ver-miembro>
+-->
