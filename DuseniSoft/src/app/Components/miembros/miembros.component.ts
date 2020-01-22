@@ -18,6 +18,7 @@ constructor(private service: MiembrosService, private router: Router) {
   miembros: Member[];
   buscarMiembroFiltro;
   miembroAux:Member = new Member();
+  auxCedula:number = 10454284;
   
   ngOnInit() {
     // this.service.getMiembros().subscribe(data => { this.miembros = data; });
@@ -28,7 +29,6 @@ constructor(private service: MiembrosService, private router: Router) {
     this.service.getMiembros().subscribe(data => { this.miembros = data; });
   }
 
-  auxCedula:number =0;
   enviarCedula(cedula: number){
     this.auxCedula = cedula;
     console.log(this.auxCedula);
@@ -40,14 +40,24 @@ constructor(private service: MiembrosService, private router: Router) {
       localStorage.setItem("miembro", JSON.stringify(data));
     })
     this.miembroAux = JSON.parse(localStorage.getItem("miembro"));
-    console.log('el que se envia al editar', this.miembroAux)
+    console.log('el que se envia desde miembro-comp:', this.miembroAux)
   }
 
   getMiembroAux(): Member{
     return this.miembroAux; 
   }
 
+  info = [];
+  sendInfo(){
+    this.info = [this.miembroAux.cedula_member, this.miembroAux.first_name, this.miembroAux.second_name,
+      this.miembroAux.first_last_name, this.miembroAux.second_last_name, this.miembroAux.email_member, 
+      this.miembroAux.password_member, this.miembroAux.image_profile_member,
+      this.miembroAux.gender, this.miembroAux.is_active_user, this.miembroAux.phone_number,
+      this.miembroAux.dateOfBirth, this.miembroAux.address, this.miembroAux.association ];
+  }
+
   verInfoMiembro(miembro: Member){
+
     console.log("ESTE ES EL MIEMBRO:" + miembro.first_name);
   }
 
