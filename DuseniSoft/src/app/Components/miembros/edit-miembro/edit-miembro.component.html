@@ -141,7 +141,8 @@
                         <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Ciudad</label>
                             <select [(ngModel)]="ciudadExistente.id_city" formControlName="ciudad" class="custom-select " id="select-ciudades ">
-                                <option *ngFor="let ciudad of ciudadesForSelect " [value]="ciudad.id_city ">{{ciudad.name_city}}</option>
+                                <option *ngFor="let ciudad of ciudadesForSelect " [value]="ciudad.id_city ">
+                                    {{ciudad.name_city}}</option>
                             </select>
                             <div *ngIf="formulario.ciudad.invalid && (formulario.ciudad.dirty || formulario.ciudad.touched) ">
                                 <div *ngIf="formulario.ciudad.errors.required " class="alert alert-danger ">
