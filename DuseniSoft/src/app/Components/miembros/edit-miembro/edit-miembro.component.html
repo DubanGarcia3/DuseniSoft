@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="col-6 der ">
                                     <input [(ngModel)]="auxMiembro.second_name" formControlName="segundo_nombre" type="text " class="form-control " placeholder="Segundo nombre ">
-                                    <div *ngIf="formulario.segundo_nombre.invalid && (formulario.segundo_nombre.dirty || formulario.segundo_nombre.touched) ">
+                                    <div *ngIf="formulario.segundo_nombre.invalid">
                                         <div *ngIf="formulario.segundo_nombre.errors.required " class="alert alert-danger ">
                                             Debe introducir un segundo nombre
                                         </div>
@@ -59,7 +59,7 @@
                             <div class="row ">
                                 <div class="col-6 izq ">
                                     <input [(ngModel)]="auxMiembro.first_last_name" formControlName="primer_apellido" type="text " class="form-control " placeholder="Primer apellido ">
-                                    <div *ngIf="formulario.primer_apellido.invalid && (formulario.primer_apellido.dirty || formulario.primer_apellido.touched) ">
+                                    <div *ngIf="formulario.primer_apellido.invalid">
                                         <div *ngIf="formulario.primer_apellido.errors.required " class="alert alert-danger ">
                                             Debe introducir un primer apellido
                                         </div>
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="col-6 der ">
                                     <input [(ngModel)]="auxMiembro.second_last_name" formControlName="segundo_apellido" type="text " class="form-control " placeholder="Segundo apellido ">
-                                    <div *ngIf="formulario.segundo_apellido.invalid && (formulario.segundo_apellido.dirty || formulario.segundo_apellido.touched) ">
+                                    <div *ngIf="formulario.segundo_apellido.invalid">
                                         <div *ngIf="formulario.segundo_apellido.errors.required " class="alert alert-danger ">
                                             Debe introducir un segundo apellido
                                         </div>
@@ -79,14 +79,14 @@
                     <div class="form-row form-group ">
                         <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Documento de identidad</label>
-                            <input [(ngModel)]="auxMiembro.cedula_member" formControlName="cedula" type="text" class="form-control " id="input_id " placeholder="Numero de documento " pattern="^[0-9]+$ " minlength="8 ">
-                            <div *ngIf="formulario.cedula.invalid && (formulario.cedula.dirty || formulario.cedula.touched) ">
+                            <input disabled     [(ngModel)]="auxMiembro.cedula_member" formControlName="cedula" type="text" class="form-control " id="input_id " placeholder="Numero de documento " pattern="^[0-9]+$ " minlength="8 ">
+                            <div *ngIf="formulario.cedula.invalid ">
                                 <div *ngIf="formulario.cedula.errors.required " class="alert alert-danger ">
                                     Debe introducir un número de documento
                                 </div>
-                                <div *ngIf="formulario.cedula.errors?.pattern" class="alert alert-warning ">
+                               <!---- <div *ngIf="formulario.cedula.errors?.pattern" class="alert alert-warning ">
                                     Debe ingresar únicamente números, sin puntos ni comas
-                                </div>
+                                </div> -->
                                 <div *ngIf="formulario.cedula.errors.minlength>=8" class="alert alert-warning ">
                                     Debe ingresar al menos 8 caracteres
                                 </div>
@@ -99,27 +99,27 @@
                                 <div *ngIf="formulario.fecha_nacimiento.errors.required " class="alert alert-danger ">
                                     Debe introducir una fecha
                                 </div>
-                                <div *ngIf="formulario.fecha_nacimiento.errors?.pattern " class="alert alert-warning ">
-                                    Debe ingresa una fecha con el siguiente formato (Ej: dd/mm/aaaa)
-                                </div>
+                                <!-- <div *ngIf="formulario.fecha_nacimiento.errors?.pattern " class="alert alert-warning "> -->
+                                    <!-- Debe ingresa una fecha con el siguiente formato (Ej: dd/mm/aaaa) -->
+                                <!-- </div> -->
                             </div>
                         </div>
                         <div class="col-md-6 mb-3 ">
                             <label>Correo electrónico</label>
                             <input [(ngModel)]="auxMiembro.email_member" formControlName="email" type="text " class="form-control " id="input_email " placeholder="Ej: micorreo@email.com ">
-                            <div *ngIf="formulario.email.invalid && (formulario.email.dirty || formulario.email.touched) ">
+                            <div *ngIf="formulario.email.invalid">
                                 <div *ngIf="formulario.email.errors.required " class="alert alert-danger ">
                                     Debe introducir un correo
                                 </div>
-                                <div *ngIf="formulario.email.errors.email " class="alert alert-warning ">
+                                <!--<div *ngIf="formulario.email.errors.email " class="alert alert-warning ">
                                     Debe introducir un correo válido (Ej: micorreo@email.com)
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-md-6 mb-3 ">
                             <label>Contraseña</label>
                             <input [(ngModel)]="auxMiembro.password_member" formControlName="contrasena" type="text " class="form-control " id="cedula_member " placeholder="Asigne contraseña al miembro ">
-                            <div *ngIf="formulario.contrasena.invalid && (formulario.contrasena.dirty || formulario.contrasena.touched) ">
+                            <div *ngIf="formulario.contrasena.invalid ">
                                 <div *ngIf="formulario.contrasena.errors.required " class="alert alert-danger ">
                                     Debe introducir una contraseña
                                 </div>
@@ -132,7 +132,7 @@
                         <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Dirección de vivienda</label>
                             <input [(ngModel)]="auxMiembro.address.address_description" formControlName="direccion" type="text " class="form-control " id="address " placeholder="Ej: Calle 12 # 12- 45 " value="auxMiembro.address.address_description">
-                            <div *ngIf="formulario.direccion.invalid && (formulario.direccion.dirty || formulario.direccion.touched) ">
+                            <div *ngIf="formulario.direccion.invalid ">
                                 <div *ngIf="formulario.direccion.errors.required " class="alert alert-danger ">
                                     Debe introducir una dirección
                                 </div>
@@ -140,11 +140,11 @@
                         </div>
                         <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Ciudad</label>
-                            <select [(ngModel)]="auxMiembro.address.city" formControlName="ciudad" class="custom-select " id="select-ciudades ">
-                                <option selected *ngFor="let ciudad of ciudadesForSelect ">
+                            <select [compareWith]="compararCiudades" [(ngModel)]="auxMiembro.address.city" formControlName="ciudad" class="custom-select " id="select-ciudades ">
+                                <option [ngValue]="ciudad" selected *ngFor="let ciudad of ciudadesForSelect ">
                                     {{ciudad.name_city}}</option>
                             </select>
-                            <div *ngIf="formulario.ciudad.invalid && (formulario.ciudad.dirty || formulario.ciudad.touched) ">
+                            <div *ngIf="formulario.ciudad.invalid">
                                 <div *ngIf="formulario.ciudad.errors.required " class="alert alert-danger ">
                                     Debe seleccionar una opción
                                 </div>
@@ -153,11 +153,12 @@
                         <div class="col-md-6 mb-3 ">
                             <div class=" ">
                                 <label for="inputPassword" class="col-form-label">Género</label>
-                                <select [(ngModel)]="auxMiembro.gender " (change)="getGenderFromSelect() " formControlName="genero" class="custom-select " id="input_genero ">
-                                    <option value="1 ">Masculino</option>
-                                    <option value="2 ">Femenino</option>
+                                <select [compareWith]="compararGeneros" [(ngModel)]="generoSeleccionado" formControlName="genero" class="custom-select " id="input_genero ">
+                                    <option [ngValue]="genero" selected *ngFor="let genero of generosForSelect">{{genero}}</option>
+                                    <!-- <option value="M ">Masculino</option> -->
+                                    <!-- <option value="F ">Femenino</option> -->
                                 </select>
-                                <div *ngIf="formulario.genero.invalid && (formulario.genero.dirty || formulario.genero.touched) ">
+                                <div *ngIf="formulario.genero.invalid">
                                     <div *ngIf="formulario.genero.errors.required " class="alert alert-danger ">
                                         Debe seleccionar una opción
                                     </div>
@@ -170,13 +171,13 @@
                                 <span class="input-group-text " id="inputGroup-sizing-sm ">+57</span>
                                 <input [(ngModel)]="auxMiembro.phone_number " formControlName="telefono" type="text " class="form-control " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-sm " id="input_telefono
                                 " placeholder="Número de teléfono " pattern="^[0-9]+$ " minlength="10 ">
-                                <div *ngIf="formulario.telefono.invalid && (formulario.telefono.dirty || formulario.telefono.touched) ">
+                                <div *ngIf="formulario.telefono.invalid ">
                                     <div *ngIf="formulario.telefono.errors.required" class="alert alert-danger">
                                         Debe ingresar un número de telefono
                                     </div>
-                                    <div *ngIf="formulario.telefono.errors?.pattern" class="alert alert-warning">
+                                    <!-- <div *ngIf="formulario.telefono.errors?.pattern" class="alert alert-warning">
                                         Debe ingresar únicamente números, sin puntos ni comas
-                                    </div>
+                                    </div> -->
                                     <div *ngIf="formulario.telefono.errors.minlength" class="alert alert-warning">
                                         Debe ingresar al menos 10 caracteres
                                     </div>
@@ -186,7 +187,9 @@
                     </div>
                     <div class="modal-footer ">
                         <button (click)="vaciarCampos()" type="button " class="btn boton-morado" data-dismiss="modal">Cerrar</button>
-                        <button (click)="actualizarMiembro() " type="submit " [disabled]="datos_miembro_formulario_edit.invalid" class="btn btn-outline-success " data-dismiss="modal ">Aceptar</button>
+                        <button (click)="actualizarMiembro() " type="submit " 
+                        [disabled]="datos_miembro_formulario_edit.invalid"
+                        class="btn btn-outline-success " data-dismiss="modal ">Aceptar</button>
                     </div>
                 </form>
             </div>

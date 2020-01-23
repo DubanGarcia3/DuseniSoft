@@ -19,9 +19,10 @@ export class EditMiembroComponent implements OnInit {
   submitted = false;  
   datos_miembro_formulario_edit: FormGroup;
   ciudadesForSelect: City[];
+  generosForSelect: String[]=["Masculino","Femenino"];
   genderFromSelect: number;
   direccionNueva:Address = new Address();
-  ciudadExistente: City = new City()
+  generoSeleccionado: String = "M";
 
   constructor(private service: MiembrosService, private router: Router,private formBuilder: FormBuilder, 
     private miembrocomp: MiembrosComponent, private CiudadService: CiudadService) {  }
@@ -36,7 +37,7 @@ export class EditMiembroComponent implements OnInit {
       segundo_nombre: ['', Validators.required],
       primer_apellido: ['', Validators.required],
       segundo_apellido: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', Validators.required],
       contrasena: ['', Validators.required],
       fecha_nacimiento: ['', Validators.required],
       direccion: ['', Validators.required],
@@ -54,6 +55,8 @@ export class EditMiembroComponent implements OnInit {
   loadMember(){
     //this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
      this.auxMiembro = this.miembrocomp.getMiembroAux();
+     this.generoSeleccionado = this.auxMiembro.gender=="M" ? "Masculino" : "Femenino";
+     console.log("GENERO SELECCIONADO: " + this.generoSeleccionado);
     //  this.direccionNueva.city = this.ciudadExistente;
     //  this.auxMiembro.address = this.direccionNueva;
     console.log('loadMember, abre el modal', this.auxMiembro);
@@ -62,16 +65,18 @@ export class EditMiembroComponent implements OnInit {
   
   actualizarMiembro(){
     this.submitted = true;
-    this.service.updateMiembro(this.auxMiembro)
-    .subscribe(data=>{
-      this.auxMiembro = data;
-      alert("Se actualizo el miembro");
-      this.router.navigate(["app-miembros"]);
-  });
+    this.auxMiembro.gender = this.generoSeleccionado == "Masculino" ? "M" : "F";
+    console.log("MIEMBRO ACTUALIZADO: " + this.auxMiembro.dateOfBirth);
+  //   this.service.updateMiembro(this.auxMiembro)
+  //   .subscribe(data=>{
+  //     this.auxMiembro = data;
+  //     alert("Se actualizo el miembro");
+  //     this.router.navigate(["app-miembros"]);
+  // });
   }
 
 vaciarCampos(){
-  this.datos_miembro_formulario_edit.setValue({
+  this.datos_miembro_formulario_edit.patchValue({
    cedula: '',
    primer_nombre: '',
    segundo_nombre:'',
@@ -87,4 +92,18 @@ vaciarCampos(){
   });
 }
 
+  compararCiudades(ciudad1: City, ciudad2: City){
+    if (ciudad1==null || ciudad2==null) {
+      return false;
+    }
+    return ciudad1.name_city===ciudad2.name_city;
+  }
+
+  compararGeneros(genero1: String, genero2: String){
+    console.log("Genero1: " + genero1 + " || Genero2: " + genero2);
+    if (genero1==null || genero2==null) {
+      return false;
+    }
+    return genero1===genero2;
+  }
 }
