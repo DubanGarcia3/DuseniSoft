@@ -39,7 +39,7 @@
                                     <div class="d-flex justify-content-between align-items-center ">
                                         <div class="btn-group ">
                                             <!-- <button type="button " class="btn btn-sm btn-outline-success ">Ver</button>-->
-                                            <button type="button" class="btn btn-sm boton-morado">Editar</button>
+                                            <button type="button" class="btn btn-sm boton-morado" (click)="getIdPedido(pedido.id_request)" data-toggle="modal" data-target="#modalEditPedido">Editar</button>
                                             <button type="button" class="btn btn-outline-danger" (click)="getIdPedido(pedido.id_request)" data-toggle="modal" data-target="#delete-pedido-modal">Eliminar
                                                     </button>
                                         </div>
@@ -53,6 +53,41 @@
                     <app-delete-pedido></app-delete-pedido>
                     <app-log-out></app-log-out>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+    editar pedido
+-->
+<div class="modal fade bd-example-modal-lg" id="modalEditPedido" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Pedido</h5>
+                <button (click)="vaciarCampos()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="datos_pedido_formulario_editar">
+                    <div class="form-row">
+                        <div class="row form-inline">
+                            <div class="col-6 form-group">
+                                <label class="col-form-label">Producto</label>
+                                <select [(ngModel)]="idProductoFromSelect" formControlName="producto" class="custom-select" id="select-productos">
+                                    <option *ngFor="let producto of productosForSelect">{{producto.name_product}}</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button (click)="vaciarCampos()" type="button" class="btn boton-morado" data-dismiss="modal">Cancelar</button>
+                            <button (click)="editPedido()" type="submit" class="btn btn-outline-success" data-dismiss="modal">Aceptar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

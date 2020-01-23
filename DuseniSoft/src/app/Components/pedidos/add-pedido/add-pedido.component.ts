@@ -16,8 +16,8 @@ export class AddPedidoComponent implements OnInit {
 
   datos_pedido_formulario: FormGroup;
   pedidoAAgregar: Request = new Request();
-  idProductoFromSelect: number;
   productosForSelect: Product[];
+  idProductoFromSelect: number;
   cantidad: number;
   direccionEntrega: String;
 
