@@ -37,7 +37,7 @@
                             <label>Nombres</label>
                             <div class="row ">
                                 <div class="col-6 izq ">
-                                    <input [(ngModel)]="auxMiembro.first_name" formControlName="primer_nombre" type="text " class="form-control " placeholder="Primer nombre ">
+                                    <input [(ngModel)]="auxMiembro.first_name" formControlName="primer_nombre" type="text " class="form-control " placeholder="Primer nombre " value="auxMiembro.first_name">
                                     <div *ngIf="formulario.primer_nombre.invalid" class="alert alert-danger">
                                         <div *ngIf="formulario.primer_nombre.errors.required ">
                                             Debe introducir un primer nombre
@@ -79,15 +79,15 @@
                     <div class="form-row form-group ">
                         <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Documento de identidad</label>
-                            <input [(ngModel)]="auxMiembro.cedula_member" formControlName="cedula" type="text " class="form-control " id="input_id " placeholder="Numero de documento " pattern="^[0-9]+$ " minlength="8 ">
+                            <input [(ngModel)]="auxMiembro.cedula_member" formControlName="cedula" type="text" class="form-control " id="input_id " placeholder="Numero de documento " pattern="^[0-9]+$ " minlength="8 ">
                             <div *ngIf="formulario.cedula.invalid && (formulario.cedula.dirty || formulario.cedula.touched) ">
                                 <div *ngIf="formulario.cedula.errors.required " class="alert alert-danger ">
                                     Debe introducir un número de documento
                                 </div>
-                                <div *ngIf="formulario.cedula.errors?.pattern " class="alert alert-warning ">
+                                <div *ngIf="formulario.cedula.errors?.pattern" class="alert alert-warning ">
                                     Debe ingresar únicamente números, sin puntos ni comas
                                 </div>
-                                <div *ngIf="formulario.cedula.errors.minlength " class="alert alert-warning ">
+                                <div *ngIf="formulario.cedula.errors.minlength>=8" class="alert alert-warning ">
                                     Debe ingresar al menos 8 caracteres
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
 
                         <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Dirección de vivienda</label>
-                            <input [(ngModel)]="direccionNueva.address_description" formControlName="direccion" type="text " class="form-control " id="address " placeholder="Ej: Calle 12 # 12- 45 ">
+                            <input [(ngModel)]="auxMiembro.address.address_description" formControlName="direccion" type="text " class="form-control " id="address " placeholder="Ej: Calle 12 # 12- 45 " value="auxMiembro.address.address_description">
                             <div *ngIf="formulario.direccion.invalid && (formulario.direccion.dirty || formulario.direccion.touched) ">
                                 <div *ngIf="formulario.direccion.errors.required " class="alert alert-danger ">
                                     Debe introducir una dirección
@@ -140,8 +140,8 @@
                         </div>
                         <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Ciudad</label>
-                            <select [(ngModel)]="ciudadExistente.id_city" formControlName="ciudad" class="custom-select " id="select-ciudades ">
-                                <option [selected]="auxMiembro.cedula_member" *ngFor="let ciudad of ciudadesForSelect " [value]="ciudad.id_city">
+                            <select [(ngModel)]="auxMiembro.address.city" formControlName="ciudad" class="custom-select " id="select-ciudades ">
+                                <option selected *ngFor="let ciudad of ciudadesForSelect ">
                                     {{ciudad.name_city}}</option>
                             </select>
                             <div *ngIf="formulario.ciudad.invalid && (formulario.ciudad.dirty || formulario.ciudad.touched) ">

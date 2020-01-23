@@ -54,9 +54,10 @@ export class EditMiembroComponent implements OnInit {
   loadMember(){
     //this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
      this.auxMiembro = this.miembrocomp.getMiembroAux();
-     this.direccionNueva.city = this.ciudadExistente;
-     this.auxMiembro.address = this.direccionNueva;
+    //  this.direccionNueva.city = this.ciudadExistente;
+    //  this.auxMiembro.address = this.direccionNueva;
     console.log('loadMember, abre el modal', this.auxMiembro);
+    console.log('PRUEBAA' + this.auxMiembro.address.city.name_city);
   }
   
   actualizarMiembro(){
@@ -70,7 +71,7 @@ export class EditMiembroComponent implements OnInit {
   }
 
 vaciarCampos(){
-  this.datos_miembro_formulario_edit.patchValue({
+  this.datos_miembro_formulario_edit.setValue({
    cedula: '',
    primer_nombre: '',
    segundo_nombre:'',

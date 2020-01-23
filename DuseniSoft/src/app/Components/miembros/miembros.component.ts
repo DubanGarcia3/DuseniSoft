@@ -38,7 +38,8 @@ constructor(private service: MiembrosService, private router: Router) {
     this.enviarCedula(cedula);      
     this.service.getMiembroId(cedula).subscribe(data=>{
       //localStorage.setItem("miembro", JSON.stringify(data));
-      this.miembroAux =data;
+      console.log("DATAAAA" + data.address.city.id_city)
+      this.miembroAux = data;
     })
     //this.miembroAux = JSON.parse(localStorage.getItem("miembro"));
     console.log('el que se envia desde miembro-comp:', this.miembroAux)
