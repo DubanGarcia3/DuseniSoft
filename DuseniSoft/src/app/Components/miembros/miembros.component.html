@@ -82,6 +82,10 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12 row" role="group">
+                        <h5 class="col-auto">Foto: </h5>
+                        <img [src]="miembroAux.image_profile_member">
+                    </div>
+                    <div class="col-12 row" role="group">
                         <h5 class="col-auto">Nombre(s): </h5>
                         <p class="col-auto">{{miembroAux.first_name}} {{miembroAux.second_name}}</p>
                     </div>
@@ -122,7 +126,7 @@
 
                     <div class="col-12 row">
                         <h5 class="col-auto">Dirección: </h5>
-                        <p class="col-auto">{{miembroAux.address}}</p>
+                        <p class="col-auto">{{miembroAux.address.address_description}} {{miembroAux.address.city.name_city}}</p>
                     </div>
                 </div>
             </div>
