@@ -18,7 +18,7 @@ export class DeletePedidoComponent implements OnInit {
   }
 
   eliminarPedido() {
-    this.pedidosService.deletePedido(this.pedidosComponent.idPedidoAEliminar).subscribe(
+    this.pedidosService.deletePedido(this.pedidosComponent.idPedido).subscribe(
       (data) => {
         console.log("Lo que retorna el server tras borrar el pedido", data)
         this.pedidosComponent.recargarPedidos();

@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-4 mb-4" *ngFor="let pedido of pedidos | filter: filtroBuscarPedidos">
                             <div class="card border-secondary">
-                                <img [src]="pedido.product.product_image" class=" card-img-top " alt="{{pedido.product.producto_image}} ">
+                                <img [src]="pedido.product.product_image" class=" card-img-top " alt="{{pedido.product.producto_image}}">
 
                                 <div class="card-body ">
                                     <h5 class="card-title ">Pedido de: {{pedido.product.name_product}} </h5>
@@ -39,8 +39,8 @@
                                     <div class="d-flex justify-content-between align-items-center ">
                                         <div class="btn-group ">
                                             <!-- <button type="button " class="btn btn-sm btn-outline-success ">Ver</button>-->
-                                            <button type="button " class="btn btn-sm boton-morado ">Editar</button>
-                                            <button type="button " class="btn btn-outline-danger " (click)="borrarPedido(pedido.id_request) " data-toggle="modal " data-target="#delete-pedido-modal ">Eliminar
+                                            <button type="button" class="btn btn-sm boton-morado">Editar</button>
+                                            <button type="button" class="btn btn-outline-danger" (click)="getIdPedido(pedido.id_request)" data-toggle="modal" data-target="#delete-pedido-modal">Eliminar
                                                     </button>
                                         </div>
                                     </div>

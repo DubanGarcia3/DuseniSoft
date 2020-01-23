@@ -33,11 +33,6 @@ export class VerMiembroComponent implements OnInit {
       this.miembro = data;
     })
     console.log(this.miembro);
-    if(!document.getElementById("s").hidden){
-      console.log('no esta escondido');
-    }else{
-      console.log('si esta escondido');
-    }
   }
   
 

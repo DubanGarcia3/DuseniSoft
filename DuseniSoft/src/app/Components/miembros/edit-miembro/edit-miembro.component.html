@@ -9,8 +9,8 @@
                     <p>¿Editar el miembro? </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" (click)="loadMember()" data-toggle="modal" data-target="#editMember" data-dismiss="modal">Modificar</button>
-                    <button type="button " class="btn btn-secondary " data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-outline-success" (click)="loadMember()" data-toggle="modal" data-target="#editMember" data-dismiss="modal">Modificar</button>
+                    <button type="button " class="btn boton-morado " data-dismiss="modal">Cancelar</button>
                 </div>
 
             </div>
@@ -37,8 +37,8 @@
                             <label>Nombres</label>
                             <div class="row ">
                                 <div class="col-6 izq ">
-                                    <input [(ngModel)]="auxMiembro.first_name" formControlName="primer_nombre" type="text " class="form-control " placeholder="Primer nombre " value="{{auxMiembro.first_last_name}}">
-                                    <div *ngIf="formulario.primer_nombre.invalid && (formulario.primer_nombre.dirty || formulario.primer_nombre.touched) " class="alert alert-danger ">
+                                    <input [(ngModel)]="auxMiembro.first_name" formControlName="primer_nombre" type="text " class="form-control " placeholder="Primer nombre ">
+                                    <div *ngIf="formulario.primer_nombre.invalid" class="alert alert-danger">
                                         <div *ngIf="formulario.primer_nombre.errors.required ">
                                             Debe introducir un primer nombre
                                         </div>
@@ -141,7 +141,7 @@
                         <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Ciudad</label>
                             <select [(ngModel)]="ciudadExistente.id_city" formControlName="ciudad" class="custom-select " id="select-ciudades ">
-                                <option *ngFor="let ciudad of ciudadesForSelect " [value]="ciudad.id_city ">
+                                <option [selected]="auxMiembro.cedula_member" *ngFor="let ciudad of ciudadesForSelect " [value]="ciudad.id_city">
                                     {{ciudad.name_city}}</option>
                             </select>
                             <div *ngIf="formulario.ciudad.invalid && (formulario.ciudad.dirty || formulario.ciudad.touched) ">
@@ -185,9 +185,8 @@
                         </div>
                     </div>
                     <div class="modal-footer ">
-                        <button (click)="vaciarCampos()" type="button " class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button (click)="addMember() " type="submit " [disabled]="datos_miembro_formulario_edit.invalid" class="btn btn-success " data-dismiss="modal ">Aceptar</button>
-
+                        <button (click)="vaciarCampos()" type="button " class="btn boton-morado" data-dismiss="modal">Cerrar</button>
+                        <button (click)="actualizarMiembro() " type="submit " [disabled]="datos_miembro_formulario_edit.invalid" class="btn btn-outline-success " data-dismiss="modal ">Aceptar</button>
                     </div>
                 </form>
             </div>

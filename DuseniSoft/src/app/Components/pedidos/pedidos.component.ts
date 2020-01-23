@@ -11,28 +11,25 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 })
 export class PedidosComponent implements OnInit {
 
+  dtOption: any = {};
+  pedidos: Request[];
+  filtroBuscarPedidos;
 
+  idPedido: number;
 
-  constructor(private service:PedidosService, private router: Router) {
+  constructor(private service: PedidosService, private router: Router) {
 
-   }
-   dtOption: any = {};
-   pedidos: Request[];
-   filtroBuscarPedidos;
-   idPedidoAEliminar: number;
+  }
 
   ngOnInit() {
-    // this.service.getPedidos().subscribe(data => { this.pedidos  = data; });
-    // console.log(this.pedidos);
     this.recargarPedidos();
   }
 
   recargarPedidos() {
-    this.service.getPedidos().subscribe(data => { this.pedidos  = data; });
+    this.service.getPedidos().subscribe(data => { this.pedidos = data; });
   }
 
-  borrarPedido(id_request: number){
-    this.idPedidoAEliminar = id_request;
+  getIdPedido(id_request: number) {
+    this.idPedido = id_request;
   }
-  
 }

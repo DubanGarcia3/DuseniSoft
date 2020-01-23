@@ -59,9 +59,9 @@ export class EditMiembroComponent implements OnInit {
     console.log('loadMember, abre el modal', this.auxMiembro);
   }
   
-  actualizarMiembro(member:Member){
+  actualizarMiembro(){
     this.submitted = true;
-    this.service.updateMiembro(member)
+    this.service.updateMiembro(this.auxMiembro)
     .subscribe(data=>{
       this.auxMiembro = data;
       alert("Se actualizo el miembro");
