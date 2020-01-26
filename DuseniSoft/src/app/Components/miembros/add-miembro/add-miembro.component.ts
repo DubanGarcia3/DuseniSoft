@@ -30,7 +30,8 @@ export class AddMiembroComponent implements OnInit {
 
   constructor(private miembrosService: MiembrosService,
     private CiudadService: CiudadService,
-    private direccionService:DireccionService,
+    private direccionService: DireccionService,
+    private miembrosComponent: MiembrosComponent,
     private formBuilder: FormBuilder) { }
 
 
@@ -137,9 +138,11 @@ export class AddMiembroComponent implements OnInit {
           if(data != null){
             // console.log("OK MIEMBRO");
             this.vaciarCampos(); 
+            this.miembrosComponent.recargarTabla();
           }else{
             // console.log("validar que los datos esten correctos");
             this.vaciarCampos(); 
+            this.miembrosComponent.recargarTabla();
           }
       }
     );

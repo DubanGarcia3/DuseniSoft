@@ -22,7 +22,8 @@ export class EditMiembroComponent implements OnInit {
   generosForSelect: String[]=["Masculino","Femenino"];
   genderFromSelect: number;
   direccionNueva:Address = new Address();
-  generoSeleccionado: String = "M";
+  generoSeleccionado: String;
+  fecha_nacimiento: String;
 
   constructor(private service: MiembrosService, private router: Router,private formBuilder: FormBuilder, 
     private miembrocomp: MiembrosComponent, private CiudadService: CiudadService) {  }
@@ -55,6 +56,7 @@ export class EditMiembroComponent implements OnInit {
   loadMember(){
     //this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
      this.auxMiembro = this.miembrocomp.getMiembroAux();
+     this.fecha_nacimiento = this.auxMiembro.dateOfBirth.toString();
      this.generoSeleccionado = this.auxMiembro.gender=="M" ? "Masculino" : "Femenino";
      console.log("GENERO SELECCIONADO: " + this.generoSeleccionado);
     //  this.direccionNueva.city = this.ciudadExistente;
@@ -62,17 +64,31 @@ export class EditMiembroComponent implements OnInit {
     console.log('loadMember, abre el modal', this.auxMiembro);
     console.log('PRUEBAA' + this.auxMiembro.address.city.name_city);
   }
-  
+
   actualizarMiembro(){
     this.submitted = true;
+
+    var fecha_partida = this.fecha_nacimiento.split("/", 3);
+    var fecha_nueva = new Date();  
+    // console.log("FECHA EN POSICION [1] --> " + (Number)(fecha_partida[1]));
+    fecha_nueva.setDate((Number)(fecha_partida[0])-1);
+    fecha_nueva.setMonth((Number)(fecha_partida[1])-1);
+    fecha_nueva.setFullYear((Number)(fecha_partida[2]));
+    this.auxMiembro.dateOfBirth = fecha_nueva;
+    // this.miembroPrueba.gender = "M";
+    this.auxMiembro.is_active_user = true;
+    this.auxMiembro.image_profile_member = "image_url_prueba";
     this.auxMiembro.gender = this.generoSeleccionado == "Masculino" ? "M" : "F";
-    console.log("MIEMBRO ACTUALIZADO: " + this.auxMiembro.dateOfBirth);
-  //   this.service.updateMiembro(this.auxMiembro)
-  //   .subscribe(data=>{
-  //     this.auxMiembro = data;
-  //     alert("Se actualizo el miembro");
-  //     this.router.navigate(["app-miembros"]);
-  // });
+    // console.log("MIEMBRO ACTUALIZADO: " + this.auxMiembro.dateOfBirth);
+    this.service.updateMiembro(this.auxMiembro)
+    .subscribe(data=>{
+      this.auxMiembro = data;
+      alert("Se actualizo el miembro");
+      // this.router.navigate(["app-miembros"]);
+      this.miembrocomp.recargarTabla();
+  });
+  // this.vaciarCampos();
+  // this.datos_miembro_formulario_edit.reset();
   }
 
 vaciarCampos(){

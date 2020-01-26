@@ -26,7 +26,7 @@ export class MiembrosService {
   }
 
   updateMiembro(miembro:Member){
-    return this.http.put<Member>(this.Url+"editMember"+miembro.cedula_member,miembro);
+    return this.http.put<Member>(this.Url+"editMember",miembro);
   }
 
   deleteMiembro(cedula_member:number){

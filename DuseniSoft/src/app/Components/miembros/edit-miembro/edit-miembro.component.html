@@ -79,14 +79,14 @@
                     <div class="form-row form-group ">
                         <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Documento de identidad</label>
-                            <input disabled     [(ngModel)]="auxMiembro.cedula_member" formControlName="cedula" type="text" class="form-control " id="input_id " placeholder="Numero de documento " pattern="^[0-9]+$ " minlength="8 ">
+                            <input disabled [(ngModel)]="auxMiembro.cedula_member" formControlName="cedula" type="text" class="form-control " id="input_id " placeholder="Numero de documento " pattern="^[0-9]+$" minlength="8 ">
                             <div *ngIf="formulario.cedula.invalid ">
                                 <div *ngIf="formulario.cedula.errors.required " class="alert alert-danger ">
                                     Debe introducir un número de documento
                                 </div>
-                               <!---- <div *ngIf="formulario.cedula.errors?.pattern" class="alert alert-warning ">
+                               <div *ngIf="formulario.cedula.errors?.pattern" class="alert alert-warning ">
                                     Debe ingresar únicamente números, sin puntos ni comas
-                                </div> -->
+                                </div>
                                 <div *ngIf="formulario.cedula.errors.minlength>=8" class="alert alert-warning ">
                                     Debe ingresar al menos 8 caracteres
                                 </div>
@@ -94,14 +94,14 @@
                         </div>
                         <div class="col-md-6 mb-3 ">
                             <label class="col-form-label ">Fecha de nacimiento</label>
-                            <input [(ngModel)]="auxMiembro.dateOfBirth" formControlName="fecha_nacimiento" type="text " class="form-control " id="fecha_nacimiento " placeholder="Fecha en formato dd/mm/aaaa " pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$ ">
+                            <input value="auxMiembro.dateOfBirth" [(ngModel)]="fecha_nacimiento" formControlName="fecha_nacimiento" type="text " class="form-control " id="fecha_nacimiento " placeholder="Fecha en formato dd/mm/aaaa " pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
                             <div *ngIf="formulario.fecha_nacimiento.invalid && (formulario.fecha_nacimiento.dirty || formulario.fecha_nacimiento.touched) ">
                                 <div *ngIf="formulario.fecha_nacimiento.errors.required " class="alert alert-danger ">
                                     Debe introducir una fecha
                                 </div>
-                                <!-- <div *ngIf="formulario.fecha_nacimiento.errors?.pattern " class="alert alert-warning "> -->
-                                    <!-- Debe ingresa una fecha con el siguiente formato (Ej: dd/mm/aaaa) -->
-                                <!-- </div> -->
+                                <div *ngIf="formulario.fecha_nacimiento.errors?.pattern " class="alert alert-warning ">
+                                    Debe ingresa una fecha con el siguiente formato (Ej: dd/mm/aaaa)
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3 ">
@@ -111,9 +111,9 @@
                                 <div *ngIf="formulario.email.errors.required " class="alert alert-danger ">
                                     Debe introducir un correo
                                 </div>
-                                <!--<div *ngIf="formulario.email.errors.email " class="alert alert-warning ">
+                                <div *ngIf="formulario.email.errors.email " class="alert alert-warning ">
                                     Debe introducir un correo válido (Ej: micorreo@email.com)
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3 ">
@@ -170,14 +170,14 @@
                             <div class="input-group " role="group ">
                                 <span class="input-group-text " id="inputGroup-sizing-sm ">+57</span>
                                 <input [(ngModel)]="auxMiembro.phone_number " formControlName="telefono" type="text " class="form-control " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-sm " id="input_telefono
-                                " placeholder="Número de teléfono " pattern="^[0-9]+$ " minlength="10 ">
+                                " placeholder="Número de teléfono " pattern="^[0-9]+$" minlength="10 ">
                                 <div *ngIf="formulario.telefono.invalid ">
                                     <div *ngIf="formulario.telefono.errors.required" class="alert alert-danger">
                                         Debe ingresar un número de telefono
                                     </div>
-                                    <!-- <div *ngIf="formulario.telefono.errors?.pattern" class="alert alert-warning">
+                                    <div *ngIf="formulario.telefono.errors.pattern" class="alert alert-warning">
                                         Debe ingresar únicamente números, sin puntos ni comas
-                                    </div> -->
+                                    </div>
                                     <div *ngIf="formulario.telefono.errors.minlength" class="alert alert-warning">
                                         Debe ingresar al menos 10 caracteres
                                     </div>
@@ -186,10 +186,10 @@
                         </div>
                     </div>
                     <div class="modal-footer ">
-                        <button (click)="vaciarCampos()" type="button " class="btn boton-morado" data-dismiss="modal">Cerrar</button>
+                        <button type="button " class="btn boton-morado" data-dismiss="modal">Cerrar</button>
                         <button (click)="actualizarMiembro() " type="submit " 
                         [disabled]="datos_miembro_formulario_edit.invalid"
-                        class="btn btn-outline-success " data-dismiss="modal ">Aceptar</button>
+                        class="btn btn-outline-success " data-dismiss="modal">Aceptar</button>
                     </div>
                 </form>
             </div>
