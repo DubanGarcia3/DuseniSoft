@@ -1,6 +1,6 @@
 <app-icon-bar></app-icon-bar>
 <div class="container-fluid">
-    <div class="row row-cols-1 row-cols-md-3">
+    <div class="row row-cols-1 ">
         <div class="col col-12">
             <div class="container-fluid card-deck">
                 <div class="card border-secondary bg-light text-center  mb-4">
@@ -8,7 +8,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Pedidos</h5>
                         <p class="card-text">Listado de los pedidos que se han creado.</p>
-                        <button class="btn btn-success" (click)='irPedidos()'> Ver </button>
+                        <button class="btn boton-verde-full" (click)='irPedidos()'> Ver </button>
                     </div>
                 </div>
                 <div class="card border-secondary bg-light text-center  mb-4">
@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Miembros</h5>
                         <p class="card-text">Listado completo de los miembros activos de la asociación.</p>
-                        <button class="btn btn-success" (click)='irMiembros()'> Ver </button>
+                        <button class="btn boton-verde-full" (click)='irMiembros()'> Ver </button>
                     </div>
                 </div>
                 <div class="card border-secondary bg-light text-center  mb-4">
@@ -24,11 +24,11 @@
                     <div class="card-body">
                         <h5 class="card-title">Estadísticas</h5>
                         <p class="card-text">Generación de los reportes básicos de la asociación.</p>
-                        <button class="btn btn-success" (click)='irEstadisticas()'> Ver estadisticas</button>
+                        <button class="btn boton-verde-full" (click)='irEstadisticas()'> Ver estadisticas</button>
                     </div>
                 </div>
             </div>
         </div>
-        <app-log-out></app-log-out>
     </div>
 </div>
+<app-log-out></app-log-out>

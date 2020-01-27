@@ -6,7 +6,7 @@
             <app-log-out></app-log-out>
         </div>
         <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-            <form class="container ">
+            <form class="container">
                 <div class="row botones-sup" id="divAgregaryBuscador">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" id="divAgregar">
                         <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#exampleModal">Agregar nuevo pedido</button>
@@ -15,7 +15,6 @@
                         <div class="input-group-append">
                             <div class="input-group">
                                 <input [(ngModel)]="filtroBuscarPedidos" type="text" class="form-control" placeholder="Buscar pedidos" name="buscarPedidos">
-
                             </div>
                         </div>
                     </div>
@@ -26,19 +25,19 @@
                     <div class="row">
                         <div class="col-4 mb-4" *ngFor="let pedido of pedidos | filter: filtroBuscarPedidos">
                             <div class="card border-secondary">
-                                <img [src]="pedido.product.product_image" class=" card-img-top " alt="{{pedido.product.producto_image}}">
+                                <img [src]="pedido.product.product_image" class=" card-img-top" alt="{{pedido.product.producto_image}}">
 
-                                <div class="card-body ">
-                                    <h5 class="card-title ">Pedido de: {{pedido.product.name_product}} </h5>
-                                    <p class="card-text ">{{pedido.description}}</p>
+                                <div class="card-body">
+                                    <h5 class="card-title">Pedido de: {{pedido.product.name_product}} </h5>
+                                    <p class="card-text">{{pedido.description}}</p>
                                     <p>Dirección de entrega: {{pedido.address_request.address_description}}</p>
                                     <p>ESTADO: {{pedido.is_active}}</p>
                                     <p>Cantidad requerida: {{pedido.required_quantity}}</p>
                                     <p>Cantidad recolectada: {{pedido.quantity}}</p>
-                                    <small class="text-muted ">Fecha límite: {{pedido.limit_date_request}}</small>
-                                    <div class="d-flex justify-content-between align-items-center ">
-                                        <div class="btn-group ">
-                                            <!-- <button type="button " class="btn btn-sm btn-outline-success ">Ver</button>-->
+                                    <small class="text-muted">Fecha límite: {{pedido.limit_date_request}}</small>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-success">Ver</button>-->
                                             <button type="button" class="btn btn-sm boton-morado" (click)="getIdPedido(pedido.id_request)" data-toggle="modal" data-target="#modalEditPedido">Editar</button>
                                             <button type="button" class="btn btn-outline-danger" (click)="getIdPedido(pedido.id_request)" data-toggle="modal" data-target="#delete-pedido-modal">Eliminar
                                                     </button>
