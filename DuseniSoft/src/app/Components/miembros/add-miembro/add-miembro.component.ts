@@ -163,7 +163,21 @@ export class AddMiembroComponent implements OnInit {
     telefono: '',
     ciudad: ''
    });
-   this.datos_miembro_formulario.clearValidators;
+   this.datos_miembro_formulario = this.formBuilder.group({
+    //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
+    cedula: ['', Validators.required],
+    primer_nombre: ['', Validators.required],
+    segundo_nombre: ['', Validators.required],
+    primer_apellido: ['', Validators.required],
+    segundo_apellido: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    contrasena: ['', Validators.required],
+    fecha_nacimiento: ['', Validators.required],
+    direccion: ['', Validators.required],
+    genero: ['', Validators.required],
+    telefono: ['', Validators.required],
+    ciudad: ['', Validators.required]
+  });
  }
 
 }
