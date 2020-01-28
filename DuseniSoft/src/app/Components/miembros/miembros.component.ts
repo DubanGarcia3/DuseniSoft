@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Member } from 'src/app/Modelo/Member';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { from } from 'rxjs';
+import { Address } from 'src/app/Modelo/Address';
+import { City } from 'src/app/Modelo/City';
 @Component({
   selector: 'app-miembros',
   templateUrl: './miembros.component.html',
@@ -22,6 +24,9 @@ constructor(private service: MiembrosService, private router: Router) {
   
   ngOnInit() {
     // this.service.getMiembros().subscribe(data => { this.miembros = data; });
+    this.miembroAux.address = new Address();
+    this.miembroAux.address.address_description = "Prueba";
+    this.miembroAux.address.city = new City();
     this.recargarTabla();
   }
 
@@ -47,11 +52,6 @@ constructor(private service: MiembrosService, private router: Router) {
 
   getMiembroAux(): Member{
     return this.miembroAux; 
-  }
-
-  verInfoMiembro(miembro: Member){
-
-    console.log("ESTE ES EL MIEMBRO:" + miembro.first_name);
   }
 
 /*

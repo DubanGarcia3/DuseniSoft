@@ -29,7 +29,9 @@ export class EditMiembroComponent implements OnInit {
     private miembrocomp: MiembrosComponent, private CiudadService: CiudadService) {  }
 
   ngOnInit() {
-
+    this.auxMiembro.address = new Address();
+    this.auxMiembro.address.address_description = "Prueba";
+    this.auxMiembro.address.city = new City();
     this.CiudadService.getCiudades().subscribe(data => { this.ciudadesForSelect = data; });
     this.datos_miembro_formulario_edit = this.formBuilder.group({
       //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]

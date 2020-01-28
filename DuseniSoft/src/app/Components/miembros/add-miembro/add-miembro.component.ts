@@ -57,7 +57,7 @@ export class AddMiembroComponent implements OnInit {
 
     this.datos_miembro_formulario = this.formBuilder.group({
       //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
-      cedula: ['', Validators.required, Validators.pattern, Validators.minLength],
+      cedula: ['', Validators.required],
       primer_nombre: ['', Validators.required],
       segundo_nombre: ['', Validators.required],
       primer_apellido: ['', Validators.required],
@@ -150,7 +150,7 @@ export class AddMiembroComponent implements OnInit {
   }
  vaciarCampos(){
    this.datos_miembro_formulario.patchValue({
-    cedula: ['', Validators.required, Validators.pattern, Validators.minLength],
+    cedula: '',
     primer_nombre: '',
     segundo_nombre:'',
     primer_apellido: '',
@@ -159,10 +159,11 @@ export class AddMiembroComponent implements OnInit {
     contrasena: '',
     fecha_nacimiento:'',
     direccion: '',
-    genero:  ['', Validators.required],
+    genero: '',
     telefono: '',
     ciudad: ''
    });
+   this.datos_miembro_formulario.clearValidators;
  }
 
 }
