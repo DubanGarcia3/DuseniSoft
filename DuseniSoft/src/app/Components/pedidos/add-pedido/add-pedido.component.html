@@ -7,14 +7,20 @@
                 <button (click)="vaciarCampos()" type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div> 
+            </div>
             <div class="modal-body">
-                <!-- <form class="needs-validation" novalidate>
+                <!--
+                <form class="needs-validation" novalidate>
                     <div class="form-row">
-                        <div class="form-group col-12">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Producto</label>
+                            <input type="text" class="form-control" id="inputDesc">
+                        </div>
+                        <div class="form-group col-6">
                             <label for="example-month-input" class=" col-form-label">Fecha límite pedido
                             </label>
-                            <input class="form-control " type="month" value="2011-08" id="example-month-input" required>
+                            <input [(ngModel)]="fecha" class="form-control" type="date" value="20/01/2020"
+                                min="20/01/2020">
                         </div>
                         <div class="invalid-tooltip">
                             Por favor, ingrese una fecha valida
@@ -26,9 +32,9 @@
                         <div class="form-group col-md-4">
                             <label for="inputState">Ciudad</label>
                             <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                        </select>
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
                         </div>
                         <div class="form-group col-md-10">
                             <div class="">
@@ -37,80 +43,77 @@
                             </div>
                         </div>
                     </div>
-                </form> -->
-                
+                </form>
+            -->
                 <form [formGroup]="datos_pedido_formulario" (ngSubmit)="addPedido()">
                     <div class="form-row">
-                        <!-- PRODUCTO SELECT +  CANTIDAD INPUT -->
-                        <div class="row form-inline">
-                            <!-- PRODUCTO SELECT -->
-                            <div class="col-6 form-group">
-                                <label class="col-form-label">Producto</label>
-                                <select [(ngModel)]="idProductoFromSelect"
-                                formControlName="producto" 
-                                class="custom-select" 
-                                id="select-productos">
-                                    <option *ngFor="let producto of productosForSelect" [value]="producto.id_product">{{producto.name_product}}</option>
+                        <div class="form-group col-6">
+                            <label for="inputCity" class="col-form-label">Producto</label>
+                            <select [(ngModel)]="idProductoFromSelect" formControlName="producto" class="custom-select" id="select-productos">
+                                    <option *ngFor="let producto of productosForSelect" [value]="producto.id_product">
+                                        {{producto.name_product}}
+                                    </option>
                                 </select>
-                                <div *ngIf="formulario.producto.invalid && (formulario.producto.dirty || formulario.producto.touched)">
-                                    <div *ngIf="formulario.producto.errors.required" class="alert alert-danger">
-                                        Debe seleccionar una opción
-                                    </div>
+                            <div *ngIf="formulario.producto.invalid && (formulario.producto.dirty || formulario.producto.touched)">
+                                <div *ngIf="formulario.producto.errors.required" class="alert alert-danger">
+                                    Debe seleccionar una opción
                                 </div>
                             </div>
-                            <!-- CANTIDAD INPUT -->
-                            <div class="col-6 form-group">
-                                <label class="col-form-label">Cantidad requerida</label>
-                                <input [(ngModel)]="pedidoAAgregar.required_quantity"
-                                formControlName="cantidad"
-                                type="text"
-                                class="form-control" 
-                                placeholder="Ingrese la cantidad requerida de producto">
+                        </div>
+
+
+                        <!-- CANTIDAD INPUT -->
+                        <div class="col-6 form-group ">
+                            <label class="col-form-label">Cantidad requerida</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="pedidoAAgregar.required_quantity" formControlName="cantidad" type="text" class="form-control col-9" placeholder="Ingrese la cantidad requerida de producto">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Kg</span>
+                                </div>
                                 <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
                                     <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger">
                                         Debe un ingresar un valor
                                     </div>
-                                </div>                         
+                                </div>
+                            </div>
+                        </div>
+                        <!--fecha limite-->
+
+                        <div class="form-group col-6">
+                            <label for="example-month-input" class="col-form-label">Fecha límite pedido
+                                </label>
+                            <input [(ngModel)]="fecha" class="form-control" type="date" value="20/01/2020" min="20/01/2020">
+                        </div>
+                        <!-- PRECIO POR UNIDAD A PAGAR -->
+                        <div class="col-6 form-group">
+                            <label class="col-form-label">Precio por unidad a pagar</label>
+                            <div class="input-group" role="group">
+                                <input [(ngModel)]="pedidoAAgregar.price_per_unit_to_pay" formControlName="precio" type="text" class="form-control" placeholder="Ej: 3000 por kilo" pattern="^[0-9]+$">
+                                <div *ngIf="formulario.precio.invalid && (formulario.precio.dirty || formulario.precio.touched)">
+                                    <div *ngIf="formulario.precio.errors.required" class="alert alert-danger">
+                                        Debe ingresar un número de telefono
+                                    </div>
+                                    <div *ngIf="formulario.precio.errors?.pattern" class="alert alert-warning">
+                                        Debe ingresar únicamente números, sin puntos ni comas
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- DESCRIPCION SELECT -->
                         <div class="col-md-12 mb-3 form-group">
                             <label>Descripción del pedido</label>
-                            <textarea [(ngModel)]="pedidoAAgregar.description"
-                            formControlName="descripcion"
-                            type="text"
-                            class="form-control" 
-                            placeholder="Ingrese la descripcion del pedido" rows="3"></textarea>
+                            <textarea [(ngModel)]="pedidoAAgregar.description" formControlName="descripcion" type="text" class="form-control" placeholder="Ingrese la descripcion del pedido" rows="3"></textarea>
                             <div *ngIf="formulario.descripcion.invalid && (formulario.descripcion.dirty || formulario.descripcion.touched)">
                                 <div *ngIf="formulario.descripcion.errors.required" class="alert alert-danger">
                                     Debe ingresar una descripcion para el pedido
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                         <!-- DIRECCIÓN DE ENTREGA -->
                         <div class="form-group">
-                            <label class="text-muted">Se requiere en: {{direccionEntrega}}</label>                    
+                            <label class="text-muted">Se requiere en: {{direccionEntrega}}</label>
                         </div>
-                        <!-- PRECIO POR UNIDAD A PAGAR -->
-                        <div class="col-md-12 mb-12 form-group">
-                            <label class="col-form-label">Precio por unidad a pagar</label>
-                            <div class="input-group" role="group">
-                                <input [(ngModel)]="pedidoAAgregar.price_per_unit_to_pay" 
-                                formControlName="precio" 
-                                type="text" 
-                                class="form-control"
-                                placeholder="Ej: 3000 por kilo"
-                                pattern="^[0-9]+$">
-                                <div *ngIf="formulario.precio.invalid && (formulario.precio.dirty || formulario.precio.touched)">
-                                    <div *ngIf="formulario.precio.errors.required" class="alert alert-danger">
-                                        Debe ingresar un número de telefono
-                                    </div>
-                                <div *ngIf="formulario.precio.errors?.pattern" class="alert alert-warning">
-                                    Debe ingresar únicamente números, sin puntos ni comas
-                                </div>
-                            </div>
-                        </div>
-                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button (click)="vaciarCampos()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

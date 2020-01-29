@@ -58,16 +58,21 @@ export class AddPedidoComponent implements OnInit {
     
     this.pedidosService.guardarPedido(this.pedidoAAgregar).subscribe(
       (data)=> {console.log("Lo que retorna el server tras agregar el pedido",  data)
-          if(data != null){
-            console.log("OK MIEMBRO " + data);
+      if(data != null){
+        console.log("OK MIEMBRO " + data);
           }else{
             console.log("validar que los datos esten correctos " + data);
           }
       }
     );
   }
-
+  
+  
+  
+  
+  fecha:Date = new Date();
   vaciarCampos(){
+    console.log(this.fecha);
     this.datos_pedido_formulario.patchValue({
       producto: '',
       cantidad: '',
@@ -75,5 +80,7 @@ export class AddPedidoComponent implements OnInit {
       precio: ''
     });
   }
+
+
 
 }
