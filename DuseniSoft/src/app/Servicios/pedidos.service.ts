@@ -11,7 +11,8 @@ constructor(private http: HttpClient) {
   
 }
 
-Url = 'http://localhost:8081/';
+// Url = 'http://localhost:8081/';
+Url = 'http://3.14.74.92:8081/';
 
 
 getPedidos() {

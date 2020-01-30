@@ -6,7 +6,8 @@ import { Association } from '../Modelo/Association';
   providedIn: 'root'
 })
 export class AsociacionesService {
-  Url = 'http://localhost:8081/';
+  // Url = 'http://localhost:8081/';
+  Url = 'http://3.14.74.92:8081/';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
   constructor(private http:HttpClient) { }

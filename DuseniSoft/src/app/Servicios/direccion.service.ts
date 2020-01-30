@@ -9,7 +9,8 @@ import { Address } from '../Modelo/Address';
 export class DireccionService {
 
 
-  Url = 'http://localhost:8081/';
+  // Url = 'http://localhost:8081/';
+  Url = 'http://3.14.74.92:8081/';
 
   constructor(private http:HttpClient) { }
 
