@@ -40,7 +40,7 @@ export class PedidosComponent implements OnInit {
     this.recargarPedidos();
   
     //Aqui ponga la direccion de la asociacion por defecto como direccion del pedido
-    this.asociacionesService.getAsociacionId(1).subscribe(data => {
+    this.asociacionesService.getAsociacionId(326533).subscribe(data => {
       this.pedidoAEditar.address_request = new Address();
       this.pedidoAEditar.address_request = data.address;
       this.direccionEntrega = data.address.address_description;

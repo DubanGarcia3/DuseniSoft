@@ -29,7 +29,7 @@ export class AddPedidoComponent implements OnInit {
   ngOnInit() {
     this.productosService.getProductos().subscribe(data => { this.productosForSelect = data; });
     //Aqui ponga la direccion de la asociacion por defecto como direccion del pedido
-    this.asociacionesService.getAsociacionId(1).subscribe(data => {
+    this.asociacionesService.getAsociacionId(326533).subscribe(data => {
       this.pedidoAAgregar.address_request =  new Address();
       this.pedidoAAgregar.address_request = data.address;
       this.direccionEntrega = data.address.address_description;
