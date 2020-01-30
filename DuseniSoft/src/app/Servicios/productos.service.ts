@@ -6,7 +6,8 @@ import { Product } from '../Modelo/Product';
   providedIn: 'root'
 })
 export class ProductosService {
-  Url = 'http://localhost:8081/';
+  // Url = 'http://localhost:8081/';
+  Url = 'http://3.14.74.92:8081/';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
   constructor(private http:HttpClient) { }

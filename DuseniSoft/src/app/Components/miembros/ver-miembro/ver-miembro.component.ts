@@ -13,6 +13,7 @@ export class VerMiembroComponent implements OnInit {
 
   @Input() cedula : number;
   miembro:Member = new Member();
+  fecha_nacimiento: String;
 
   constructor(private router: Router, private miembrosComponent:MiembrosComponent, private service:MiembrosService ) {
     }
@@ -31,6 +32,9 @@ export class VerMiembroComponent implements OnInit {
       */
      this.service.getMiembroId(this.cedula).subscribe(data=>{
       this.miembro = data;
+      this.fecha_nacimiento = this.miembro.dateOfBirth.toString();
+      var fecha_partida = this.miembro.dateOfBirth.toString().split("-", 3);
+      this.fecha_nacimiento = fecha_partida[2]+'/'+fecha_partida[1]+'/'+fecha_partida[0];
     })
     console.log(this.miembro);
   }

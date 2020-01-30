@@ -24,6 +24,7 @@ export class EditMiembroComponent implements OnInit {
   direccionNueva:Address = new Address();
   generoSeleccionado: String;
   fecha_nacimiento: String;
+  fecha_nacimiento_a_pintar: String;
 
   constructor(private service: MiembrosService, private router: Router,private formBuilder: FormBuilder, 
     private miembrocomp: MiembrosComponent, private CiudadService: CiudadService) {  }
@@ -33,6 +34,7 @@ export class EditMiembroComponent implements OnInit {
     this.auxMiembro.address.address_description = "Prueba";
     this.auxMiembro.address.city = new City();
     this.CiudadService.getCiudades().subscribe(data => { this.ciudadesForSelect = data; });
+
     this.datos_miembro_formulario_edit = this.formBuilder.group({
       //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
       cedula: ['', Validators.required],
@@ -59,12 +61,11 @@ export class EditMiembroComponent implements OnInit {
     //this.auxMiembro = JSON.parse(localStorage.getItem("miembro"));
      this.auxMiembro = this.miembrocomp.getMiembroAux();
      this.fecha_nacimiento = this.auxMiembro.dateOfBirth.toString();
+     var fecha_partida = this.auxMiembro.dateOfBirth.toString().split("-", 3);
+     this.fecha_nacimiento = fecha_partida[2]+'/'+fecha_partida[1]+'/'+fecha_partida[0];
      this.generoSeleccionado = this.auxMiembro.gender=="M" ? "Masculino" : "Femenino";
-     console.log("GENERO SELECCIONADO: " + this.generoSeleccionado);
     //  this.direccionNueva.city = this.ciudadExistente;
     //  this.auxMiembro.address = this.direccionNueva;
-    console.log('loadMember, abre el modal', this.auxMiembro);
-    console.log('PRUEBAA' + this.auxMiembro.address.city.name_city);
   }
 
   actualizarMiembro(){

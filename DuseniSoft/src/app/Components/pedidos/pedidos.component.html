@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="col-4 mb-4" *ngFor="let pedido of pedidos | filter: filtroBuscarPedidos">
                             <div class="card border-secondary">
-                                <img [src]="pedido.product.product_image" class=" card-img-top" alt="{{pedido.product.producto_image}}">
+                                <img [src]="pedido.product.product_image" class=" card-img-top" alt="{{pedido.product.product_image}}">
 
                                 <div class="card-body">
                                     <h5 class="card-title">Pedido de: {{pedido.product.name_product}} </h5>
