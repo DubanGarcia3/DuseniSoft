@@ -8,6 +8,7 @@ import { Address } from 'src/app/Modelo/Address';
 import { Association } from 'src/app/Modelo/Association';
 import { DireccionService } from 'src/app/Servicios/direccion.service';
 import { MiembrosComponent } from '../miembros.component';
+import { AsociacionesService } from 'src/app/Servicios/asociaciones.service';
 
 @Component({
   selector: 'app-add-miembro',
@@ -26,12 +27,14 @@ export class AddMiembroComponent implements OnInit {
   ciudadExistente: City = new City();
   asociacionExistente:Association = new Association();
   fecha_nacimiento: String;
+  listaAsociaciones: Association[]; 
 
 
   constructor(private miembrosService: MiembrosService,
     private CiudadService: CiudadService,
     private direccionService: DireccionService,
     private miembrosComponent: MiembrosComponent,
+    private asociacionesService: AsociacionesService,
     private formBuilder: FormBuilder) { }
 
 
@@ -44,6 +47,8 @@ export class AddMiembroComponent implements OnInit {
     // }
     //carga las ciudadesForSelect
     this.CiudadService.getCiudades().subscribe(data => { this.ciudadesForSelect = data; });
+    this.asociacionesService.getAsociaciones().subscribe(data => { this.listaAsociaciones = data; 
+      console.log('DATAAAA --> ' + this.listaAsociaciones.values())});
     /*
         this.CiudadService.getciudadesForSelect()
         .subscribe(data=>{
@@ -118,7 +123,9 @@ export class AddMiembroComponent implements OnInit {
     // this.direccionNueva.address_description = "direccion de prueba";
 
     // //CREO LA ASOCIACION EXISTENTE
-    this.asociacionExistente.id_association = 1;
+    
+    // this.asociacionExistente.id_association = this.listaAsociaciones[1].id_association;
+    this.asociacionExistente.id_association = 326533;
 
     this.member.address = this.direccionNueva;
     this.member.association = this.asociacionExistente;
