@@ -7,6 +7,7 @@ import { Request } from 'src/app/Modelo/Request';
 import { AsociacionesService } from 'src/app/Servicios/asociaciones.service';
 import { Address } from 'src/app/Modelo/Address';
 import { PedidosComponent } from '../pedidos.component';
+import { City } from 'src/app/Modelo/City';
 
 @Component({
   selector: 'app-add-pedido',
@@ -34,7 +35,12 @@ export class AddPedidoComponent implements OnInit {
     //Aqui ponga la direccion de la asociacion por defecto como direccion del pedido
     this.asociacionesService.getAsociacionId(326533).subscribe(data => {
       this.pedidoAAgregar.address_request =  new Address();
-      this.pedidoAAgregar.address_request = data.address;
+      // this.pedidoAAgregar.address_request.id_address = data.address.id_address;
+      this.pedidoAAgregar.address_request.address_description = data.address.address_description;
+      this.pedidoAAgregar.address_request.city = new City();
+      this.pedidoAAgregar.address_request.city.id_city = data.address.city.id_city;
+      // this.pedidoAAgregar.address_request.city = data.address.city;
+      // this.pedidoAAgregar.address_request = data.address;
       this.direccionEntrega = data.address.address_description;
     });
     this.datos_pedido_formulario = this.formBuilder.group({
@@ -80,6 +86,13 @@ export class AddPedidoComponent implements OnInit {
       cantidad: '',
       descripcion:'',
       precio: ''
+    });
+    this.datos_pedido_formulario = this.formBuilder.group({
+      //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
+      producto: ['', Validators.required],
+      cantidad: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      precio: ['', Validators.required]
     });
   }
 

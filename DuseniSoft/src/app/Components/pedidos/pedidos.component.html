@@ -25,13 +25,13 @@
                     <div class="row">
                         <div class="col-4 mb-4" *ngFor="let pedido of pedidos | filter: filtroBuscarPedidos">
                             <div class="card border-secondary">
-                                <img [src]="pedido.product.product_image" class=" card-img-top" alt="{{pedido.product.product_image}}">
+                                <img  src="assets/img/{{pedido.product.product_image}}" class=" card-img-top" alt="{{pedido.product.product_image}}">
 
                                 <div class="card-body">
                                     <h5 class="card-title">Pedido de: {{pedido.product.name_product}} </h5>
                                     <p class="card-text">{{pedido.description}}</p>
                                     <p>Dirección de entrega: {{pedido.address_request.address_description}}</p>
-                                    <p>ESTADO: {{pedido.is_active}}</p>
+                                    <!-- <p>ESTADO: {{pedido.is_active}}</p> -->
                                     <p>Cantidad requerida: {{pedido.required_quantity}}</p>
                                     <p>Cantidad recolectada: {{pedido.quantity}}</p>
                                     <small class="text-muted">Fecha límite: {{pedido.limit_date_request}}</small>
@@ -75,7 +75,7 @@
                         <div class="row form-inline">
                             <div class="col-6 form-group">
                                 <label class="col-form-label">Producto</label>
-                                <select [(ngModel)]="idProductoFromSelect" formControlName="producto" class="custom-select" id="select-productos">
+                                <select formControlName="producto" class="custom-select" id="select-productos">
                                     <option *ngFor="let producto of productosForSelect">{{producto.name_product}}</option>
                                 </select>
                             </div>

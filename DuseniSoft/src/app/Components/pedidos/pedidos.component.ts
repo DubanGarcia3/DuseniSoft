@@ -26,6 +26,7 @@ export class PedidosComponent implements OnInit {
   pedidoAEditar: Request = new Request();
   productosForSelect: Product[];
   direccionEntrega: String;
+  
 
   constructor(private service: PedidosService, private router: Router,
     private pedidosService: PedidosService,
