@@ -1,140 +1,119 @@
-* {
-    padding: 0;
-    margin: 0;
-    background-color: #f1f8e9 !important;
+.cabecera{
+  background-color: #8efd5f2c;
+}
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  html,
+body {
+  height: 100%;
 }
 
 body {
-    /* make the body full height*/
-    height: 100vh;
-    /* set our custom font */
-    font-family: 'Roboto', sans-serif;
-    /* create a linear gradient*/
-    display: flex;
-    background-image: url("/assets/img/maxresdefault.jpg");
-    background-size: 100% 100%
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #8efd5f2c;
 }
 
-#form_wrapper {
-    width: 340px;
-    height: 750px;
-    /* this will help us center it*/
-    margin: auto;
-    border-radius: 25px;
-    /* make it a grid container*/
-    display: grid;
-    /* with two columns of same width*/
-    grid-template-columns: 1fr 1fr;
-    /* with a small gap in between them*/
-    grid-gap: 5vw;
-    /* add some padding around */
-    padding: 5vh 15px;
-    align-content: center;
-    align-items: center;
+.form-signin {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: auto;
 }
 
-.circular--square {
-    border-radius: 25%;
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
 }
 
-#form_left {
-    /* center the image */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.form-label-group > input,
+.form-label-group > label {
+  height: 3.125rem;
+  padding: .75rem;
 }
 
-#form_left img {
-    width: 250px;
+.form-label-group > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0; /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: #495057;
+  pointer-events: none;
+  cursor: text; /* Match the input under the label */
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
 }
 
-#form_right {
-    display: grid;
-    /* single column layout */
-    grid-template-columns: 1fr;
-    /* have some gap in between elements*/
-    grid-gap: 20px;
-    padding: 10% 10%;
-    align-content: center;
+.form-label-group input::-webkit-input-placeholder {
+  color: transparent;
 }
 
-.input_container {
-    background-color: var(--input_bg);
-    /* vertically align icon and text inside the div*/
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
+.form-label-group input:-ms-input-placeholder {
+  color: transparent;
 }
 
-.input_container:hover {
-    background-color: azure
+.form-label-group input::-ms-input-placeholder {
+  color: transparent;
 }
 
-.input_container,
-#input_submit {
-    height: 60px;
-    /* make the borders more round */
-    border-radius: 30px;
-    width: 100%;
+.form-label-group input::-moz-placeholder {
+  color: transparent;
 }
 
-.input_field {
-    /* customize the input tag with lighter font and some padding*/
-    color: var(--icon_color);
-    width: 90%;
-    border: none;
-    font-size: 1.3rem;
-    font-weight: 400;
-    padding-left: 30px;
+.form-label-group input::placeholder {
+  color: transparent;
 }
 
-.input_field:hover,
-.input_field:focus {
-    /* remove the outline */
-    outline: none;
+.form-label-group input:not(:placeholder-shown) {
+  padding-top: 1.25rem;
+  padding-bottom: .25rem;
 }
 
-#input_submit {
-    /* submit button has a different color and different padding */
-    background-color: var(--submit_bg);
-    padding-left: 0;
-    font-weight: bold;
-    color: darkgreen;
-    text-transform: uppercase;
+.form-label-group input:not(:placeholder-shown) ~ label {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: 12px;
+  color: #777;
 }
 
-#input_submit:hover {
-    background-color: var(--submit_hover);
-    /* simple color transition on hover */
-    transition: background-color, 1s;
-    cursor: pointer;
+/* Fallback for Edge
+-------------------------------------------------- */
+@supports (-ms-ime-align: auto) {
+  .form-label-group > label {
+    display: none;
+  }
+  .form-label-group input::-ms-input-placeholder {
+    color: #777;
+  }
 }
 
-h1,
-span {
-    text-align: center;
-}
-
-
-/* shift it a bit lower */
-
-#create_account {
-    display: block;
-    position: relative;
-    top: 30px;
-}
-
-a {
-    /* remove default underline */
-    text-decoration: none;
-    color: var(--submit_bg);
-    font-weight: bold;
-}
-
-a:hover {
-    color: var(--submit_hover);
-}
-
-i {
-    color: var(--icon_color);
+/* Fallback for IE
+-------------------------------------------------- */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .form-label-group > label {
+    display: none;
+  }
+  .form-label-group input:-ms-input-placeholder {
+    color: #777;
+  }
 }

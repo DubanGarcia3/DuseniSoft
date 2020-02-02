@@ -1,18 +1,9 @@
-<head>
-    <title>Ingresar</title>
-    <meta charset="utf-8">\
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-</head>
+<header>
+    <div class="cabecera">
+        <img src="assets/img/logo.png" width="100" alt="logo">
+    </div>
+</header>
 <!--
-    <header>
-        <div class="cabecera">
-            <img src="assets/img/logo.png" width="100" alt="logo">
-        </div>
-    </header>
--->
-
-<body>
     <div id="form_wrapper" class="input_container">
         <div class="container" id="form_right">
             <form action="">
@@ -37,4 +28,39 @@
             </span>
         </div>
     </div>
+-->
+
+<body>
+    <form class="form-signin" id="form_wrapper">
+
+        <div class="text-center mb-4">
+            <img class="mb-4 rounded-circle" src="assets/img/loginMember.jpg" alt="" width="250" height="250">
+            <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
+        </div>
+
+        <div class="form-label-group">
+            <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required=""
+                autofocus="">
+            <label for="inputEmail" type="email" name="Email" id="field_email" [(ngModel)]="email">Correo
+                electrónico</label>
+        </div>
+
+        <div class="form-label-group">
+            <input name="Password" id="field_password" [(ngModel)]="password" type="password" id="inputPassword"
+                class="form-control" placeholder="Contraseña" required="">
+            <label for="inputPassword">Contraseña</label>
+        </div>
+
+        <button class="btn btn-lg btn-block boton-verde-full" type="submit" value="Login" id='input_submit'
+            (click)='login()'>
+            Sign in
+        </button>
+
+        <p class="mt-5 mb-3 text-muted text-center">
+            ha olvidado
+            <a href="#">
+                usuario / contraseña ?
+            </a>
+        </p>
+    </form>
 </body>
