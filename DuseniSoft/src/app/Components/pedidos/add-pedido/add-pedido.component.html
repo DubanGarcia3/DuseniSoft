@@ -47,38 +47,41 @@
             -->
                 <form [formGroup]="datos_pedido_formulario" (ngSubmit)="addPedido()">
                     <div class="form-row">
-                        <div class="form-group col-6">
+                        <div class="form-group col-12">
                             <label for="inputCity" class="col-form-label">Producto</label>
-                            <select [(ngModel)]="idProductoFromSelect" formControlName="producto" class="custom-select" id="select-productos">
-                                    <option *ngFor="let producto of productosForSelect" [value]="producto.id_product">
-                                        {{producto.name_product}}
-                                    </option>
+                            <div class="input-group" role="group">
+
+                                <select [(ngModel)]="idProductoFromSelect" formControlName="producto" class="custom-select" id="select-productos">
+                                        <option *ngFor="let producto of productosForSelect" [value]="producto.id_product">
+                                            {{producto.name_product}}
+                                        </option>
                                 </select>
+                                <button class="btn boton-morado" data-toggle="modal" data-dismiss="modal" data-target="#modalAddProduct">Agregar producto</button>
+
+                            </div>
                             <div *ngIf="formulario.producto.invalid && (formulario.producto.dirty || formulario.producto.touched)">
                                 <div *ngIf="formulario.producto.errors.required" class="alert alert-danger">
                                     Debe seleccionar una opción
                                 </div>
                             </div>
                         </div>
-
-
                         <!-- CANTIDAD INPUT -->
-                        <div class="col-6 form-group ">
+                        <div class="col-12 form-group ">
                             <label class="col-form-label">Cantidad requerida</label>
                             <div class="input-group">
                                 <input [(ngModel)]="pedidoAAgregar.required_quantity" formControlName="cantidad" type="text" class="form-control col-9" placeholder="Ingrese la cantidad requerida de producto">
                                 <div class="input-group-append">
                                     <span class="input-group-text">Bultos</span>
                                 </div>
-                                <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
-                                    <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger">
-                                        Debe un ingresar un valor
-                                    </div>
+                            </div>
+                            <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
+                                <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger">
+                                    Debe un ingresar un valor
                                 </div>
                             </div>
                         </div>
                         <!--FECHA LIMITE-->
-                        <div class="form-group col-6">
+                        <div class="form-group col-12">
                             <label for="example-month-input" class="col-form-label">Fecha límite pedido
                                 </label>
                             <input [(ngModel)]="fecha" class="form-control" type="date" value="20/01/2020" min="20/01/2020">
@@ -115,8 +118,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button (click)="vaciarCampos()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button (click)="addPedido()" type="submit" [disabled]="datos_pedido_formulario.invalid" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                        <button (click)="vaciarCampos()" type="button" class="btn boton-morado" data-dismiss="modal">Cerrar</button>
+                        <button (click)="addPedido()" type="submit" [disabled]="datos_pedido_formulario.invalid" class="btn boton-verde" data-dismiss="modal">Aceptar</button>
                     </div>
                 </form>
             </div>
@@ -127,3 +130,4 @@
         </div>
     </div>
 </div>
+<app-add-producto></app-add-producto>

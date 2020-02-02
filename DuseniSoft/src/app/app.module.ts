@@ -26,6 +26,8 @@ import { EditMiembroComponent } from './Components/miembros/edit-miembro/edit-mi
 import { DeletePedidoComponent } from './Components/pedidos/delete-pedido/delete-pedido.component';
 import { EditPedidoComponent } from './Components/pedidos/edit-pedido/edit-pedido.component';
 import { VerMiembroComponent } from './Components/miembros/ver-miembro/ver-miembro.component';
+import { ProductosComponent } from './Components/productos/productos.component';
+import { AddProductoComponent } from './Components/productos/add-producto/add-producto.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { VerMiembroComponent } from './Components/miembros/ver-miembro/ver-miemb
     EditMiembroComponent,
     DeletePedidoComponent,
     EditPedidoComponent,
-    VerMiembroComponent
+    VerMiembroComponent,
+    ProductosComponent,
+    AddProductoComponent
   ],
   imports: [
     BrowserModule,

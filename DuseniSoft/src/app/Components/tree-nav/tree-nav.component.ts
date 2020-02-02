@@ -40,4 +40,8 @@ export class TreeNavComponent implements OnInit {
   irMiembros(){
     this.router.navigate(["app-miembros"]);
   }
+
+  irProductos(){
+    this.router.navigate(["app-productos"]);
+  }
 }

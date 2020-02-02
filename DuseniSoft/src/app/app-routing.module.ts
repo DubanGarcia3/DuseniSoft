@@ -11,6 +11,7 @@ import { AddMiembroComponent } from './Components/miembros/add-miembro/add-miemb
 import { TreeNavComponent } from './Components/tree-nav/tree-nav.component';
 import { LogOutComponent} from './Components/login/log-out/log-out.component';
 import { IconBarComponent } from './Components/inicio/icon-bar/icon-bar.component';
+import { ProductosComponent } from './Components/productos/productos.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'app-tree-nav', component: TreeNavComponent},
   {path: 'app-log-out', component: LogOutComponent},
   {path: 'app-icon-bar', component: IconBarComponent},
+  {path: 'app-productos', component: ProductosComponent}
 ];
 
 @NgModule({
