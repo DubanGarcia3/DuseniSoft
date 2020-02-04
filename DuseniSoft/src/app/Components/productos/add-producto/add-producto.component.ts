@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/Modelo/Product';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-producto',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProductoComponent implements OnInit {
 
+  productoAAgregar: Product = new Product();
+  datos_producto_formulario: FormGroup;
   constructor() { }
 
   ngOnInit() {

@@ -16,6 +16,6 @@ export class LoginService {
 
 
   getLoginAdmin(email: any, password: any) {
-       return this.http.get(this.configUrl + '/authenticationAdmin/' + email +'/' + password, { responseType: 'text' });
+       return this.http.get(this.configUrl + 'authenticationAdmin/' + email +'/' + password, { responseType: 'text' });
   }
 }
