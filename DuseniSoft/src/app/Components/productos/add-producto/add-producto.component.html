@@ -8,34 +8,34 @@
           </button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="datos_producto_formulario" (ngSubmit)="addProducto()">
+                <form [formGroup]="datos_producto_formulario" (ngSubmit)="addProduct()">
                     <div class="col-12 form-group ">
                         <label class="col-form-label">Nombre del producto</label>
                         <div class="input-group">
                             <input [(ngModel)]="productoAAgregar.name_product" formControlName="nombre_producto" type="text" class="form-control col-9" placeholder="Nombre del producto">
                         </div>
-                        <!-- <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
-                            <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger">
-                                Debe un ingresar un valor
+                        <div *ngIf="formulario.nombre_producto.invalid && (formulario.nombre_producto.dirty || formulario.nombre_producto.touched)">
+                            <div *ngIf="formulario.nombre_producto.errors.required" class="alert alert-danger">
+                                Debe un ingresar un nombre para el producto
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                     <div class="col-12 form-group ">
-                        <label class="col-form-label">Fotografía del producto</label>
+                        <label class="col-form-label">Imagen del producto</label>
                         <div class="input-group border">
-                            <input [(ngModel)]="productoAAgregar.producto_image" formControlName="foto_producto" type="file" class="form-control-file col-9" id="exampleFormControlFile1">
+                            <input [(ngModel)]="productoAAgregar.producto_image" formControlName="foto_producto" type="file" accept="image/png, .jpeg, .jpg, image/gif" class="form-control-file col-9">
                         </div>
-                        <!-- <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
-                            <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger">
-                                Debe un ingresar un valor numerico
+                        <div *ngIf="formulario.foto_producto.invalid && (formulario.foto_producto.dirty || formulario.foto_producto.touched)">
+                            <div *ngIf="formulario.foto_producto.errors.required" class="alert alert-danger">
+                                Debe seleccionar una imagen para el producto
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button (click)="close()" type="button" class="btn boton-morado" data-dismiss="modal">Close</button>
-                <button (click)="addProduct()" type="button" class="btn boton-verde" type="submit" [disabled]="datos_pedido_formulario.invalid" data-dismiss="modal">Agregar</button>
+                <button (click)="vaciarCampos()" type="button" class="btn boton-morado" data-dismiss="modal">Cerrar</button>
+                <button (click)="addProduct()" type="button" class="btn boton-verde" type="submit" [disabled]="datos_producto_formulario.invalid" data-dismiss="modal">Agregar</button>
             </div>
         </div>
     </div>
