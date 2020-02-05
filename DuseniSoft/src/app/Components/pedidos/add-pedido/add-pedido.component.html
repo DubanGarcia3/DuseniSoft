@@ -57,29 +57,33 @@
                                         </option>
                                 </select>
                                 <button class="btn boton-morado" data-toggle="modal" data-dismiss="modal" data-target="#modalAddProduct">Agregar producto</button>
-
-                            </div>
-                            <div *ngIf="formulario.producto.invalid && (formulario.producto.dirty || formulario.producto.touched)">
-                                <div *ngIf="formulario.producto.errors.required" class="alert alert-danger">
-                                    Debe seleccionar una opción
+                                <div *ngIf="formulario.producto.invalid && (formulario.producto.dirty || formulario.producto.touched)">
+                                    <div *ngIf="formulario.producto.errors.required" class="alert alert-danger">
+                                        Debe seleccionar una opción
+                                    </div>
                                 </div>
                             </div>
+                          
                         </div>
                         <!-- CANTIDAD INPUT -->
-                        <div class="col-12 form-group ">
+                        <!-- <div class="col-12 form-group ">
                             <label class="col-form-label">Cantidad requerida</label>
-                            <div class="input-group">
-                                <input [(ngModel)]="pedidoAAgregar.required_quantity" formControlName="cantidad" type="text" class="form-control col-9" placeholder="Ingrese la cantidad requerida de producto">
-                                <div class="input-group-append">
+                            <!-- <div class="input-group"> -->
+                                <!--<input [(ngModel)]="pedidoAAgregar.required_quantity" 
+                                formControlName="cantidad" 
+                                type="text"
+                                class="form-control" 
+                                placeholder="Ingrese la cantidad requerida de producto"> -->
+                                <!-- <div class="input-group-append">
                                     <span class="input-group-text">Bultos</span>
-                                </div>
-                            </div>
-                            <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
-                                <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger">
-                                    Debe un ingresar un valor
-                                </div>
-                            </div>
-                        </div>
+                                </div> -->
+                            <!-- </div>   -->
+                            <!-- <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)"> -->
+                                <!-- <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger"> -->
+                                    <!-- Debe un ingresar un valor -->
+                                <!-- </div> -->
+                            <!-- </div> -->
+                        <!--</div> -->
                         <!--FECHA LIMITE-->
                         <div class="form-group col-12">
                             <label for="example-month-input" class="col-form-label">Fecha límite pedido
