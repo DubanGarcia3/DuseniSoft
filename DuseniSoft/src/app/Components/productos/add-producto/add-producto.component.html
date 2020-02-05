@@ -12,24 +12,24 @@
                     <div class="col-12 form-group ">
                         <label class="col-form-label">Nombre del producto</label>
                         <div class="input-group">
-                            <input [(ngModel)]="productoAAgregar.name_product" formControlName="nombre" type="text" class="form-control col-9" placeholder="Nombre del producto">
+                            <input [(ngModel)]="productoAAgregar.name_product" formControlName="nombre_producto" type="text" class="form-control col-9" placeholder="Nombre del producto">
                         </div>
-                        <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
+                        <!-- <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
                             <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger">
                                 Debe un ingresar un valor
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-12 form-group ">
                         <label class="col-form-label">Fotografía del producto</label>
                         <div class="input-group border">
-                            <input [(ngModel)]="productoAAgregar.producto_image" formControlName="foto" type="file" class="form-control-file col-9" id="exampleFormControlFile1">
+                            <input [(ngModel)]="productoAAgregar.producto_image" formControlName="foto_producto" type="file" class="form-control-file col-9" id="exampleFormControlFile1">
                         </div>
-                        <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
+                        <!-- <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
                             <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger">
                                 Debe un ingresar un valor numerico
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>
