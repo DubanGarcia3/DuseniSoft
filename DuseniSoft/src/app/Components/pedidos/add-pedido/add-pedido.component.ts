@@ -47,8 +47,8 @@ export class AddPedidoComponent implements OnInit {
       //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
       producto: ['', Validators.required],
       cantidad: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      precio: ['', Validators.required]
+      descripcion: ['', Validators.required]
+      // precio: ['', Validators.required]
     });
   }
 
