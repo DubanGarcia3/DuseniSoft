@@ -31,6 +31,7 @@ import { AddProductoComponent } from './Components/productos/add-producto/add-pr
 import { AcercadeComponent } from './Components/acercade/acercade.component';
 import { TotalProductoComponent } from './Components/statistics/total-producto/total-producto.component';
 import { ChartsModule } from 'ng2-charts';
+import { TotalPorMiembroComponent } from './Components/statistics/total-por-miembro/total-por-miembro.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ChartsModule } from 'ng2-charts';
     AddProductoComponent,
     AcercadeComponent,
     TotalProductoComponent,
+    TotalPorMiembroComponent,
     
   ],
   imports: [

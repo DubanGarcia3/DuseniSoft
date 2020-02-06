@@ -24,7 +24,7 @@ export class TotalProductoComponent implements OnInit {
     { data: [45, 67, 800, 500], label: 'Zanahoria' }
   ];
 
-  chartLabels = ['January', 'February', 'Mars', 'April'];
+  chartLabels = ['Noviembre', 'Diciembre', 'Enero', 'Febrero'];
 
   onChartClick(event) {
     console.log(event);
