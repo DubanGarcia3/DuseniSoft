@@ -25,3 +25,11 @@
 .fondo{
     background-color: #8925b167 !important;
 }
+.centar_imagen{
+    width: 33% 33%;
+}
+img{
+    width: 33% 33%;
+    margin: 2%;
+    float: center;
+}

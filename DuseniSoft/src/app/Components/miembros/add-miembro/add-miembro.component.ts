@@ -64,7 +64,7 @@ export class AddMiembroComponent implements OnInit {
       //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
       cedula: ['', Validators.required],
       primer_nombre: ['', Validators.required],
-      segundo_nombre: ['', Validators.required],
+      segundo_nombre: [''],
       primer_apellido: ['', Validators.required],
       segundo_apellido: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -113,7 +113,12 @@ export class AddMiembroComponent implements OnInit {
     this.member.dateOfBirth = fecha_nueva;
     // this.miembroPrueba.gender = "M";
     this.member.is_active_user = true;
-    this.member.image_profile_member = "image_url_prueba";
+    if(this.member.gender == "M"){
+      this.member.image_profile_member = "miembro_hombre.png";
+    }else{
+      this.member.image_profile_member = "miembro_mujer.png";
+    }
+    
     // this.miembroPrueba.dateOfBirth = new Date("2019-01-16");
     // this.miembroPrueba.phone_number = 12345689;
 
@@ -176,7 +181,7 @@ export class AddMiembroComponent implements OnInit {
     //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
     cedula: ['', Validators.required],
     primer_nombre: ['', Validators.required],
-    segundo_nombre: ['', Validators.required],
+    segundo_nombre: [''],
     primer_apellido: ['', Validators.required],
     segundo_apellido: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
