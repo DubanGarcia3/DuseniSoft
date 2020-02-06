@@ -13,6 +13,7 @@ import { LogOutComponent} from './Components/login/log-out/log-out.component';
 import { IconBarComponent } from './Components/inicio/icon-bar/icon-bar.component';
 import { ProductosComponent } from './Components/productos/productos.component';
 import { AcercadeComponent } from './Components/acercade/acercade.component';
+import { TotalProductoComponent } from './Components/statistics/total-producto/total-producto.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'app-log-out', component: LogOutComponent},
   {path: 'app-icon-bar', component: IconBarComponent},
   {path: 'app-productos', component: ProductosComponent},
-  {path: 'app-acercade', component: AcercadeComponent}
+  {path: 'app-acercade', component: AcercadeComponent},
+  {path: 'app-total-producto', component: TotalProductoComponent}
 ];
 
 @NgModule({
