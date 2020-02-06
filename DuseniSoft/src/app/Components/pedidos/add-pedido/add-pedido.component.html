@@ -47,29 +47,6 @@
             -->
                 <form [formGroup]="datos_pedido_formulario" (ngSubmit)="addPedido()">
                     <div class="form-row form-group">
-                        <!-- DOCUEMNTO PRUEBA -->
-                        <div class="col-md-8 mb-3">
-                            <label class="col-form-label">Documento de identidad</label>
-                            <input [(ngModel)]="pedidoAAgregar.description" 
-                            formControlName="descripcion" 
-                            type="text" 
-                            class="form-control" 
-                            id="input_descripcion" 
-                            placeholder="Descripcion"
-                            pattern="^[0-9]+$"
-                            minlength="7">
-                            <div *ngIf="formulario.descripcion.invalid && (formulario.descripcion.dirty || formulario.descripcion.touched)">
-                                <div *ngIf="formulario.descripcion.errors.required" class="alert alert-danger">
-                                    Debe introducir un número de documento
-                                </div>
-                                <div *ngIf="formulario.descripcion.errors?.pattern" class="alert alert-warning">
-                                    Debe ingresar únicamente números, sin puntos ni comas
-                                </div>
-                                <div *ngIf="formulario.descripcion.errors.minlength" class="alert alert-warning">
-                                    Debe ingresar al menos 8 caracteres
-                                </div>
-                            </div>
-                        </div>
                         <!-- SELECT PRODUCTOS Y BOTON AGREGAR PRODUCTO -->
                         <div class="col-lg-12 mb-3">
                             <label class="col-form-label">Producto</label>
@@ -79,8 +56,7 @@
                             class="custom-select col-7"
                             id="select-productos">
                             <option *ngFor="let producto of productosForSelect" [value]="producto.id_product">{{producto.name_product}}</option>
-                            </select>
-                            
+                            </select>                            
                             <button class="btn boton-morado col-5" data-toggle="modal" data-dismiss="modal" data-target="#modalAddProduct">Agregar producto</button>
                             </div>
                             <div *ngIf="formulario.producto.invalid && (formulario.producto.dirty || formulario.producto.touched)">
@@ -90,19 +66,73 @@
                             </div>
                         </div>
                         <!-- CANTIDAD INPUT -->
-                        <div class="col-md-8 mb3">
+                        <div class="col-12 mb-3">
                             <label class="col-form-label">Cantidad requerida</label>
+                            <div class="row col-12">
                             <input [(ngModel)]="pedidoAAgregar.required_quantity"
                             formControlName="cantidad" 
                             type="text" 
-                            class="form-control" 
-                            placeholder="Ingrese la cantidad requerida de producto"> 
+                            class="form-control col-8" 
+                            placeholder="Ingrese la cantidad requerida de producto"
+                            pattern="^[0-9]+$">
+                            <span class="input-group-text col-4">Bultos</span>
+                            </div>
                             <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
                                 <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger">
                                     Debe un ingresar un valor
                                 </div>
+                                <div *ngIf="formulario.cantidad.errors?.pattern" class="alert alert-warning">
+                                    Debe ingresar únicamente números, sin puntos ni comas
+                                </div>
                             </div>
-                        </div>                        
+                        </div> 
+                        <!--FECHA LIMITE-->
+                        <div class="col-12 mb-3">
+                            <label class="col-form-label">Fecha límite del pedido</label>
+                            <input [(ngModel)]="fecha"
+                            formControlName="fecha_limite"
+                            class="form-control" 
+                            type="date" 
+                            value="20/01/2020" 
+                            min="20/01/2020">
+                            <div *ngIf="formulario.fecha_limite.invalid && (formulario.fecha_limite.dirty || formulario.fecha_limite.touched)">
+                                <div *ngIf="formulario.fecha_limite.errors.required" class="alert alert-danger">
+                                    Debe un ingresar una fecha
+                                </div>
+                            </div>
+                        </div>
+                        <!-- PRECIO POR UNIDAD A PAGAR -->
+                        <div class="col-12 mb-3">
+                            <label class="col-form-label">Precio por unidad a pagar</label>
+                            <input [(ngModel)]="pedidoAAgregar.price_per_unit_to_pay"
+                            formControlName="precio"
+                            type="text"
+                            class="form-control"
+                            placeholder="Ej: 3000 por bulto"
+                            pattern="^[0-9]+$">
+                            <div *ngIf="formulario.precio.invalid && (formulario.precio.dirty || formulario.precio.touched)">
+                                <div *ngIf="formulario.precio.errors.required" class="alert alert-danger">
+                                    Debe ingresar un número de telefono
+                                </div>
+                                <div *ngIf="formulario.precio.errors?.pattern" class="alert alert-warning">
+                                    Debe ingresar únicamente números, sin puntos ni comas
+                                </div>
+                            </div>
+                        </div>
+                        <!-- DESCRIPCION -->
+                        <div class="col-12 mb-3">
+                            <label>Descripción del pedido</label>
+                            <textarea [(ngModel)]="pedidoAAgregar.description" formControlName="descripcion" type="text" class="form-control" placeholder="Ingrese la descripcion del pedido" rows="3"></textarea>
+                            <div *ngIf="formulario.descripcion.invalid && (formulario.descripcion.dirty || formulario.descripcion.touched)">
+                                <div *ngIf="formulario.descripcion.errors.required" class="alert alert-danger">
+                                    Debe ingresar una descripcion para el pedido
+                                </div>
+                            </div>
+                        </div>
+                        <!-- DIRECCIÓN DE ENTREGA -->
+                        <div class="col-md-12 mb-3">
+                            <label class="text-muted">Se requiere en: {{direccionEntrega}}</label>
+                        </div>
                     </div> 
                     <div class="modal-footer">
                         <button (click)="vaciarCampos()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

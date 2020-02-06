@@ -23,7 +23,7 @@
                     <div class="col-12 form-group ">
                         <label class="col-form-label">Imagen del producto</label>
                         <div class="input-group border">
-                            <input [(ngModel)]="productoAAgregar.producto_image" formControlName="foto_producto" type="file" accept="image/png, .jpeg, .jpg, image/gif" class="form-control-file col-9">
+                            <input [(ngModel)]="productoAAgregar.product_image" formControlName="foto_producto" type="file" accept="image/png, .jpeg, .jpg, image/gif" class="form-control-file col-9">
                         </div>
                         <div *ngIf="formulario.foto_producto.invalid && (formulario.foto_producto.dirty || formulario.foto_producto.touched)">
                             <div *ngIf="formulario.foto_producto.errors.required" class="alert alert-danger">

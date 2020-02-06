@@ -47,8 +47,9 @@ export class AddPedidoComponent implements OnInit {
       //[Valor inicial del campo, Validadores síncronos, Validadores asíncronos]
       producto: ['', Validators.required],
       cantidad: ['', Validators.required],
-      descripcion: ['', Validators.required]
-      // precio: ['', Validators.required]
+      descripcion: ['', Validators.required],
+      fecha_limite: ['', Validators.required],
+      precio: ['', Validators.required]
     });
   }
 
@@ -92,8 +93,10 @@ export class AddPedidoComponent implements OnInit {
       producto: ['', Validators.required],
       cantidad: ['', Validators.required],
       descripcion: ['', Validators.required],
+      fecha_limite: ['', Validators.required],
       precio: ['', Validators.required]
     });
+    this.productosService.getProductos().subscribe(data => { this.productosForSelect = data; });
   }
 
 

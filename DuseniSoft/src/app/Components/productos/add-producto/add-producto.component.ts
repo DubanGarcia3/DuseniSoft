@@ -35,14 +35,24 @@ export class AddProductoComponent implements OnInit {
   }
 
   addProduct(){
-    console.log('DATOS DEL PRODUCTO CREADO');
-    console.log('ID '+ this.productoAAgregar.id_product);
-    console.log('NOMBRE '+ this.productoAAgregar.name_product);
-    console.log('IMAGEN '+ this.productoAAgregar.producto_image);
+    // console.log('DATOS DEL PRODUCTO CREADO');
+    // console.log('ID '+ this.productoAAgregar.id_product);
+    // console.log('NOMBRE '+ this.productoAAgregar.name_product);
+    // console.log('IMAGEN '+ this.productoAAgregar.product_image);
     //326533 id asociacion
     this.productoAAgregar.association = new Association();
-    this.asociacionesService.getAsociacionId(326533).subscribe(data => {
-      this.productoAAgregar.association = data;
+    this.productoAAgregar.association.id_association = 326533;
+    // this.asociacionesService.getAsociacionId(326533).subscribe(data => {
+    //   this.productoAAgregar.association = data;
+    // });
+    this.productosService.guardarProducto(this.productoAAgregar).subscribe(data =>{
+      if(data != null){
+        alert('Producto guardado con exito');
+        this.vaciarCampos();
+      }else{
+        console.log("validar que los datos esten correctos " + data);
+        this.vaciarCampos();
+      }
     });
     console.log('ASOCIACIÓN ID '+ this.productoAAgregar.association.id_association);
   }
