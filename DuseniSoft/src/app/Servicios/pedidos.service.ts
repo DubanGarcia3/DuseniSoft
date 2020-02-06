@@ -42,4 +42,8 @@ getTotalAportesporMesPorProducto(nombreProducto:any){
   return this.http.get<String[]>(this.Url+"totalAportesporMesPorProducto/"+nombreProducto);
 }
 
+getTotalUnididadesAportadasPorPedido(id_request: number){
+  return this.http.get<number>(this.Url+"totalUnididadesAportadasPorPedido/"+id_request);
+}
+
 }

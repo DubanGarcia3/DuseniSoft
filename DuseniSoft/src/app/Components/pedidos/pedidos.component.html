@@ -36,7 +36,7 @@
                                     <p>Dirección de entrega: {{pedido.address_request.address_description}}</p>
                                     <!-- <p>ESTADO: {{pedido.is_active}}</p> -->
                                     <p>Cantidad requerida: {{pedido.required_quantity}}</p>
-                                    <p>Cantidad recolectada: {{pedido.quantity}}</p>
+                                    <!-- <p>Cantidad recolectada: {{totalRecolectado}}</p> -->
                                     <small class="text-muted">Fecha límite: {{convertirFecha(pedido.limit_date_request)}}</small>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
@@ -50,6 +50,7 @@
                                             </button>
                                             <button type="button" class="btn btn-outline-success"
                                                 (click)="verPedido(pedido.id_request)" data-toggle="modal"
+                                                (click)="totalRequerio(pedido.id_request)" 
                                                 data-target="#modalVerPedido">Ver aportes 
                                             </button>
                                         </div>
@@ -141,7 +142,9 @@
                       
                         
                 </tbody>
+                
             </table>
+            <p>Cantidad recolectada: {{totalRecolectado}}  / {{totalRequerido}}  bultos</p>
         </div>
     </div>
 </div>

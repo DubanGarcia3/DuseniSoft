@@ -27,6 +27,9 @@ export class PedidosComponent implements OnInit {
   productosForSelect: Product[];
   direccionEntrega: String;
 
+  totalRecolectado: Number = 0;
+  totalRequerido: Number;
+
 
   
 
@@ -62,7 +65,8 @@ export class PedidosComponent implements OnInit {
   }
 
   recargarPedidos() {
-    this.service.getPedidos().subscribe(data => { this.pedidos = data; });
+    this.service.getPedidos().subscribe(data => { this.pedidos = data;
+     });
   }
 
   getPedido() :Request{
@@ -103,9 +107,27 @@ export class PedidosComponent implements OnInit {
     //  this.lista_aportes = data;
     console.log(data);
       this.lista_aportes = data;
+      this.pedidosService.getTotalUnididadesAportadasPorPedido(id_pedido).subscribe(data => {
+        this.totalRecolectado =  data;       
+        if(data > 0 ){
+          this.totalRecolectado = data;
+        }else{
+          this.totalRecolectado =  0;   
+        }
+      });
     });
   }
+ 
+  totalRequerio(id_pedido: any){
+    this.pedidosService.getPedidoId(id_pedido).subscribe(
+      data => {
+        this.totalRequerido =  data.required_quantity; 
+      }
 
+    );
+    }
+
+  
   vaciarCampos(){
     this.datos_pedido_formulario_editar.patchValue({
       producto: '',
