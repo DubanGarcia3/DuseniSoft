@@ -25,7 +25,8 @@ export class EditPedidoComponent implements OnInit {
   datos_pedido_formulario: FormGroup;
   idProductoFromSelect: number;
   cantidad: number;
-  fecha: Date = new Date();
+  // fecha: Date = new Date();
+  fecha: String;
 
   constructor(private pedidosService: PedidosService,
     private productosService: ProductosService,
@@ -63,7 +64,9 @@ export class EditPedidoComponent implements OnInit {
 
   loadPedidoAEditar(){
     this.pedidoAEditar = this.pedidosComponent.getPedidoAEditar();
-    // this.fecha = this.pedidoAEditar.limit_date_request;
+    // this.fecha = this.pedidoAEditar.limit_date_request.toString();
+    var fecha_partida = this.pedidoAEditar.limit_date_request.toString().split("-", 3);
+    this.fecha = fecha_partida[2]+'/'+fecha_partida[1]+'/'+fecha_partida[0];
   //   this.fecha_nacimiento = this.pedidoAEditar.dateOfBirth.toString();
     // var fecha_partida = this.pedidoAEditar.limit_date_request.toString().split("-", 3);
   //   this.fecha_nacimiento = fecha_partida[2]+'/'+fecha_partida[1]+'/'+fecha_partida[0];
@@ -79,33 +82,32 @@ export class EditPedidoComponent implements OnInit {
   }
 
   editarPedido() {
-    this.pedidosService.updatePedido(this.pedidoAEditar)
-      .subscribe(data => {
-        this.pedidoAEditar = data;
-        alert("Se actualizo el miembro");
-        this.router.navigate(["app-pedidos"]);
-      });
-       //TO-DO Arreglar éstas dos fechas
-    // this.pedidoAAgregar.creation_date_request = new Date();
-    // this.pedidoAAgregar.creation_date_request = this.fecha;
-    // this.pedidoAAgregar.limit_date_request = new Date();
-    // this.pedidoAAgregar.limit_date_request = this.fecha;
+    // TO-DO Arreglar éstas dos fechas
+    this.pedidoAEditar.creation_date_request = new Date();
+    // this.pedidoAEditar.creation_date_request = fecha_nueva;
+    this.pedidoAEditar.limit_date_request = new Date();
+    var fecha_partida = this.fecha.split("/", 3);
+    var fecha_nueva = new Date();  
+    fecha_nueva.setDate((Number)(fecha_partida[0]));
+    fecha_nueva.setMonth((Number)(fecha_partida[1])-1);
+    fecha_nueva.setFullYear((Number)(fecha_partida[2]));
+    this.pedidoAEditar.limit_date_request = fecha_nueva;
 
-    // this.pedidoAAgregar.product = new Product();
-    // this.pedidoAAgregar.product.id_product =  this.idProductoFromSelect;
-    // this.pedidoAAgregar.is_active = true;
+    // this.pedidoAEditar.product = new Product();
+    // this.pedidoAEditar.product.id_product =  this.idProductoFromSelect;
+    this.pedidoAEditar.is_active = true;
     
-    // this.pedidosService.guardarPedido(this.pedidoAAgregar).subscribe(
-    //   (data)=> {console.log("Lo que retorna el server tras agregar el pedido",  data)
-    //   if(data != null){
-    //     console.log("OK PEDIDO " + data);
-    //     this.pedidosComponent.recargarPedidos();
-    //       }else{
-    //         console.log("validar que los datos esten correctos " + data);
-    //         this.pedidosComponent.recargarPedidos();
-    //       }
-    //   }
-    // );
+    this.pedidosService.updatePedido(this.pedidoAEditar).subscribe(
+      (data)=> {console.log("Lo que retorna el server tras editar el pedido",  data)
+      if(data != null){
+        alert("Pedido editado con éxito");
+        this.pedidosComponent.recargarPedidos();
+          }else{
+            console.log("Validar que los datos esten correctos " + data);
+            this.pedidosComponent.recargarPedidos();
+          }
+      }
+    );
   }
 
   vaciarCampos(){
