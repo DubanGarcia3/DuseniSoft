@@ -101,12 +101,12 @@
 
                     <div class="col-12 row">
                         <h5 class="col-auto">Correo electrónico: </h5>
-                        <p class="col-auto">{{miembroAux.password_member}}</p>
+                        <p class="col-auto">{{miembroAux.email_member}}</p>
                     </div>
 
                     <div class="col-12 row">
                         <h5 class="col-auto">Género: </h5>
-                        <p class="col-auto">{{miembroAux.gender}}</p>
+                        <p class="col-auto">{{convertirGenero(miembroAux.gender)}}</p>
                     </div>
 
                     <div class="col-12 row">
@@ -121,7 +121,7 @@
 
                     <div class="col-12 row">
                         <h5 class="col-auto">Fecha de nacimiento: </h5>
-                        <p class="col-auto">{{fecha_nacimiento}}</p>
+                        <p class="col-auto">{{convertirFecha(miembroAux.dateOfBirth)}}</p>
                     </div>
 
                     <div class="col-12 row">
