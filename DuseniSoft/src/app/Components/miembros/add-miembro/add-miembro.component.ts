@@ -81,6 +81,8 @@ export class AddMiembroComponent implements OnInit {
     return this.datos_miembro_formulario.controls; 
   }
 
+  
+
   getGenderFromSelect(){
     this.member.gender = this.genderFromSelect == 1 ? "M" : "F";
     // if (this.genderFromSelect == 1) {
