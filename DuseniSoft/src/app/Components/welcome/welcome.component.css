@@ -8,3 +8,14 @@
     border: #74d14c 1px solid;
     background-color: #74d14c;
 }
+
+.tb{
+    color: white !important;
+}
+.bgblack{
+    background-color: rgba(0, 0, 0, 0.226) !important;
+}
+
+.separador{
+    margin-bottom: 23%;
+}
