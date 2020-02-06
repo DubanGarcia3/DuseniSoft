@@ -68,9 +68,9 @@ constructor(private service: MiembrosService, private router: Router) {
 
   convertirMiembroActivo(isActive: boolean){
     if (isActive){
-      return 'Estado activo';
+      return 'Activo';
     }else{
-      return 'Estado inactivo';
+      return 'Inactivo';
     }
   }
 
