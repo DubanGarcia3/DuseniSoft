@@ -80,7 +80,11 @@ export class PedidosComponent implements OnInit {
     console.log(this.getPedido());
   }
 
-  editPedido() {
+  getPedidoAEditar(): Request{
+    return this.pedidoAEditar;
+  }
+
+  editarPedido() {
     this.pedidosService.updatePedido(this.getPedido())
       .subscribe(data => {
         this.pedidoAEditar = data;

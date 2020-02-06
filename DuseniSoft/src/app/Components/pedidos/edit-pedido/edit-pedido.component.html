@@ -1,1 +1,133 @@
-<p>edit-pedido works!</p>
+<!-- MODAL DE CONFIRMACIÓN PARA EDITAR PEDIDO-->
+<div>
+    <div class="modal fade" id="modal-confirm-edit-pedido" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modificar pedido seleccionado</h5>
+                </div>
+                <div class="modal-body">
+                    <p>¿Editar el pedido? </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-success" (click)="loadPedidoAEditar()" data-toggle="modal" data-target="#modalEditPedido" data-dismiss="modal">Editar</button>
+                    <button type="button " class="btn boton-morado" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MODAL DE EDICION DE PEDIDO -->
+<!-- EDITAR PEDIDO NUEVO -->
+<div class="modal fade" id="modalEditPedido" style="overflow-y: scroll;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Pedido</h5>
+                <button (click)="vaciarCampos()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="datos_pedido_formulario_edit" (ngSubmit)="editarPedido()">
+                    <div class="form-row form-group">
+                        <!-- SELECT PRODUCTOS Y BOTON AGREGAR PRODUCTO -->
+                        <div class="col-lg-12 mb-3">
+                            <label class="col-form-label">Producto</label>
+                            <select disabled [compareWith]="compararProductos" 
+                            [(ngModel)]="pedidoAEditar.product" 
+                            formControlName="producto"
+                            class="custom-select"
+                            id="select-productos">
+                            <!-- <option *ngFor="let producto of productosForSelect" [value]="producto.id_product">{{producto.name_product}}</option> -->
+                            <option [ngValue]="producto" selected *ngFor="let producto of productosForSelect">
+                                {{producto.name_product}}</option>
+                            </select>                            
+                            <div *ngIf="formulario.producto.invalid && (formulario.producto.dirty || formulario.producto.touched)">
+                                <div *ngIf="formulario.producto.errors.required" class="alert alert-danger">
+                                    Debe seleccionar una opción
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CANTIDAD INPUT -->
+                        <div class="col-12 mb-3">
+                            <label class="col-form-label">Cantidad requerida</label>
+                            <div class="row col-12">
+                            <input disabled [(ngModel)]="pedidoAEditar.required_quantity"
+                            formControlName="cantidad" 
+                            type="text" 
+                            class="form-control col-8" 
+                            placeholder="Ingrese la cantidad requerida de producto"
+                            pattern="^[0-9]+$">
+                            <span class="input-group-text col-4">Bultos</span>
+                            </div>
+                            <div *ngIf="formulario.cantidad.invalid && (formulario.cantidad.dirty || formulario.cantidad.touched)">
+                                <div *ngIf="formulario.cantidad.errors.required" class="alert alert-danger">
+                                    Debe un ingresar un valor
+                                </div>
+                                <div *ngIf="formulario.cantidad.errors?.pattern" class="alert alert-warning">
+                                    Debe ingresar únicamente números, sin puntos ni comas
+                                </div>
+                            </div>
+                        </div> 
+                        <!--FECHA LIMITE-->
+                        <div class="col-12 mb-3">
+                            <label class="col-form-label">Fecha límite del pedido</label>
+                            <input
+                            [(ngModel)]="fecha"
+                            formControlName="fecha_limite"
+                            class="form-control" 
+                            type="date"
+                            value="2013-01-08" min="2020-01-02" max="2080-01-01"/>
+                            <div *ngIf="formulario.fecha_limite.invalid && (formulario.fecha_limite.dirty || formulario.fecha_limite.touched)">
+                                <div *ngIf="formulario.fecha_limite.errors.required" class="alert alert-danger">
+                                    Debe un ingresar una fecha
+                                </div>
+                            </div>
+                        </div>
+                        <!-- PRECIO POR UNIDAD A PAGAR -->
+                        <div class="col-12 mb-3">
+                            <label class="col-form-label">Precio por unidad a pagar</label>
+                            <input disabled [(ngModel)]="pedidoAEditar.price_per_unit_to_pay"
+                            formControlName="precio"
+                            type="text"
+                            class="form-control"
+                            placeholder="Ej: 3000 por bulto"
+                            pattern="^[0-9]+$">
+                            <div *ngIf="formulario.precio.invalid && (formulario.precio.dirty || formulario.precio.touched)">
+                                <div *ngIf="formulario.precio.errors.required" class="alert alert-danger">
+                                    Debe ingresar un número de telefono
+                                </div>
+                                <div *ngIf="formulario.precio.errors?.pattern" class="alert alert-warning">
+                                    Debe ingresar únicamente números, sin puntos ni comas
+                                </div>
+                            </div>
+                        </div>
+                        <!-- DESCRIPCION -->
+                        <div class="col-12 mb-3">
+                            <label>Descripción del pedido</label>
+                            <textarea [(ngModel)]="pedidoAEditar.description" formControlName="descripcion" type="text" class="form-control" placeholder="Ingrese la descripcion del pedido" rows="3"></textarea>
+                            <div *ngIf="formulario.descripcion.invalid && (formulario.descripcion.dirty || formulario.descripcion.touched)">
+                                <div *ngIf="formulario.descripcion.errors.required" class="alert alert-danger">
+                                    Debe ingresar una descripcion para el pedido
+                                </div>
+                            </div>
+                        </div>
+                        <!-- DIRECCIÓN DE ENTREGA -->
+                        <div class="col-md-12 mb-3">
+                            <label class="text-muted">Se requiere en: {{direccionEntrega}}</label>
+                        </div>
+                    </div> 
+                    <div class="modal-footer">
+                        <button (click)="vaciarCampos()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button (click)="editarPedido()" type="submit" [disabled]="datos_pedido_formulario_edit.invalid" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+            </div> -->
+        </div>
+    </div>
+</div>

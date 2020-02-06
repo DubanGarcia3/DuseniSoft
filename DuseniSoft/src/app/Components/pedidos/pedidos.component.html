@@ -43,7 +43,7 @@
                                             <!-- <button type="button" class="btn btn-sm btn-outline-success">Ver</button>-->
                                             <button type="button" class="btn btn-sm boton-morado"
                                                 (click)="getIdPedido(pedido.id_request)" data-toggle="modal"
-                                                data-target="#modalEditPedido">Editar</button>
+                                                data-target="#modal-confirm-edit-pedido">Editar</button>
                                             <button type="button" class="btn btn-outline-danger"
                                                 (click)="getIdPedido(pedido.id_request)" data-toggle="modal"
                                                 data-target="#delete-pedido-modal">Eliminar
@@ -69,9 +69,9 @@
 </div>
 
 <!--
-    editar pedido
+    editar pedido VIEJO
 -->
-<div class="modal fade bd-example-modal-lg" id="modalEditPedido" tabindex="-1" role="dialog"
+<div class="modal fade bd-example-modal-lg" id="modalEditPedidoviejo" tabindex="-1" role="dialog"
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -106,6 +106,8 @@
         </div>
     </div>
 </div>
+<!-- MODAL EDITAR PEDIDO -->
+<app-edit-pedido></app-edit-pedido>
 <!-- VER PEDIDO -->
 <div class="modal fade" id="modalVerPedido" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

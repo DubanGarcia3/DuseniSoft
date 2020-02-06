@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 mb-3 ">
-                            <label class="col-form-label ">Fecha de nacimiento</label>
+                            <label class="col-form-label">Fecha de nacimiento</label>
                             <input value="auxMiembro.dateOfBirth" [(ngModel)]="fecha_nacimiento" formControlName="fecha_nacimiento" type="text " class="form-control " id="fecha_nacimiento " placeholder="Fecha en formato dd/mm/aaaa " pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
                             <div *ngIf="formulario.fecha_nacimiento.invalid && (formulario.fecha_nacimiento.dirty || formulario.fecha_nacimiento.touched) ">
                                 <div *ngIf="formulario.fecha_nacimiento.errors.required " class="alert alert-danger ">
