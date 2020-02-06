@@ -31,4 +31,10 @@ export class ProductosService {
   deleteProducto(id_product:number){
     return this.http.delete<Product>(this.Url+"removeProduct/"+id_product);
   }
+
+
+  
+  getTotalAportesporMesPorProducto(nombreProducto:any){
+    return this.http.get<String[]>(this.Url+"totalAportesporMesPorProducto/"+nombreProducto);
+  }
 }

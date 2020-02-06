@@ -7,8 +7,13 @@
         </div>
         <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 container" >
             <h3> Cantidad total aportada por producto</h3>
+
+            <div>
+                <button (click)="generarGrafica('papa')" >PAPA</button>
+                <button (click)="generarGrafica('arveja')" >ARVEJA</button>
+            </div>
             <div style="width: 95%;">
-                <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels"
+                <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="meses"
                     [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
                 </canvas>
             </div>

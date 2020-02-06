@@ -115,4 +115,6 @@ export class PedidosComponent implements OnInit {
     });
   }
 
+  editPedido(){}
+
 }

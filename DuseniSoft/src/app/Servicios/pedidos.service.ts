@@ -38,4 +38,8 @@ getContribucionesPorPedido(id_request: number){
   return this.http.get<String[]>(this.Url+"totalPersonasQueAportaronApedido/"+id_request);
 }
 
+getTotalAportesporMesPorProducto(nombreProducto:any){
+  return this.http.get<String[]>(this.Url+"totalAportesporMesPorProducto/"+nombreProducto);
+}
+
 }
