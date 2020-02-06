@@ -49,8 +49,8 @@
                                                 data-target="#delete-pedido-modal">Eliminar
                                             </button>
                                             <button type="button" class="btn btn-outline-success"
-                                                (click)="verPedido(pedido.id_pedido)" data-toggle="modal"
-                                                data-target="#modalVerPedido">Ver aportes
+                                                (click)="verPedido(pedido.id_request)" data-toggle="modal"
+                                                data-target="#modalVerPedido">Ver aportes 
                                             </button>
                                         </div>
                                     </div>
@@ -117,15 +117,33 @@
           </button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-12 mb-4" *ngFor="let datos_pedido of lista_aportes">
-                        <div class="card-body">
-                            <h3 class="card-title">{{datos_pedido.nombre}}</h3>
-                            <p class="card-text">Aportó: {{datos_pedido.cantidad}} bultos</p>
-                            <p class="card-text">Total a pagar por aporte {{datos_pedido.pago}} bultos</p>
-                    </div>
-                </div>
-            </div>
+                
+
+
+<div class="lista border border-secondary" id="divTablaMiembros">
+    <div class="">
+        <div class="table-responsive">
+            <table class="table table-hover table-sm row-border hover" id="tablaMiembros">
+                <thead class="text-center fondo">
+                    <tr class="">
+                        <th>Nombre</th>
+                        <th>Total aportado</th>
+                        <th>Total a pagar</th>                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let aportes of lista_aportes  "class="text-center">
+                        <td class="text-center">{{aportes[0]}}  {{aportes[1]}}</td>
+                        <td class="text-center">{{aportes[2]}}</td>
+                        <td class="text-center">200</td>
+                      
+                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
             <div class="modal-footer">
                 <button type="button" class="btn boton-morado" data-dismiss="modal">Aceptar</button>
             </div>
