@@ -135,7 +135,7 @@
                     <tr *ngFor="let aportes of lista_aportes  "class="text-center">
                         <td class="text-center">{{aportes[0]}}  {{aportes[1]}}</td>
                         <td class="text-center">{{aportes[2]}}</td>
-                        <td class="text-center">200</td>
+                        <td class="text-center">  <p > {{aportes[3]  | currency: '$' : true:'1.1-2' | lowercase}} cop</p></td>
                       
                         
                 </tbody>
