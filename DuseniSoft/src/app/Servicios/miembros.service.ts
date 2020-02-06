@@ -8,7 +8,7 @@ import { Member } from '../Modelo/Member';
 
 export class MiembrosService {
 
-  // Url = 'http://localhost:8081/';
+  //Url = 'http://localhost:8081/';
   Url = 'http://3.14.74.92:8081/';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
