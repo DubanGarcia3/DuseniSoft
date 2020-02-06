@@ -26,6 +26,8 @@ export class PedidosComponent implements OnInit {
   pedidoAEditar: Request = new Request();
   productosForSelect: Product[];
   direccionEntrega: String;
+
+
   
 
   constructor(private service: PedidosService, private router: Router,
@@ -94,8 +96,12 @@ export class PedidosComponent implements OnInit {
   }
 
   lista_aportes: String[];
-  verPedido(id_pedido: number){
+
+  verPedido(id_pedido: any){
+    console.log(":P nilson "  + id_pedido);
     this.pedidosService.getContribucionesPorPedido(id_pedido).subscribe(data => {
+    //  this.lista_aportes = data;
+    console.log(data);
       this.lista_aportes = data;
     });
   }

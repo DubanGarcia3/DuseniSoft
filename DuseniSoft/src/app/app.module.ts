@@ -29,7 +29,7 @@ import { VerMiembroComponent } from './Components/miembros/ver-miembro/ver-miemb
 import { ProductosComponent } from './Components/productos/productos.component';
 import { AddProductoComponent } from './Components/productos/add-producto/add-producto.component';
 import { AcercadeComponent } from './Components/acercade/acercade.component';
-import { VerPedidoComponent } from './Components/pedidos/ver-pedido/ver-pedido.component';
+import { TotalProductoComponent } from './Components/statistics/total-producto/total-producto.component';
 
 
 @NgModule({
@@ -54,7 +54,7 @@ import { VerPedidoComponent } from './Components/pedidos/ver-pedido/ver-pedido.c
     ProductosComponent,
     AddProductoComponent,
     AcercadeComponent,
-    VerPedidoComponent
+    TotalProductoComponent
   ],
   imports: [
     BrowserModule,
