@@ -13,9 +13,8 @@
     text-align: end;
     margin-bottom: 2%;
 }
-.thead-dark{
-    background-color: #5fad3d !important;
-}
+
 .fondo{
-    
+    background-color: #5fad3d !important;
+    color: white;
 }
