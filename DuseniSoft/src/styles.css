@@ -47,6 +47,18 @@
     border-color: #8a25b1;
 }
 
+.boton-morado-full {
+    background-color: #8a25b1;
+    border-color: #8a25b1;
+    color: white;
+}
+
+.boton-morado-full:hover {
+    color: white;
+    background: #591874;
+    border-color: #591874;
+}
+
 .boton-verde {
     color: #74d14c;
     border-color: #74d14c;
@@ -54,8 +66,8 @@
 
 .boton-verde:hover {
     color: white;
-    background: #74d14c;
-    border-color: #74d14c;
+    background: #69c044;
+    border-color: #69c044;
 }
 
 .boton-verde-full {
