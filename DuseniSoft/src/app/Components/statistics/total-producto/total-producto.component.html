@@ -1,20 +1,24 @@
-<app-icon-bar></app-icon-bar>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 divArbolNavegacion" id="divArbolNavegacion">
-            <app-tree-nav></app-tree-nav>
-            <app-log-out></app-log-out>
-        </div>
+        <div class="mb-3"></div>
         <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 container" >
-            <h3> Cantidad total aportada por producto</h3>
-
-            <div>
-                <button (click)="generarGrafica('papa')" >PAPA</button>
-                <button (click)="generarGrafica('arveja')" >ARVEJA</button>
+            <h3 class="mb-4"> Cantidad total aportada por producto</h3>
+            <h5> Cantidad total de papa aportada</h5>
+            <div class="mb-4" style="width: 95%;">
+                <canvas baseChart [chartType]="'line'" [datasets]="chartData2" [labels]="chartLabels2"
+                    [options]="chartOptions2" [legend]="true" [colors]="lineChartColors" (chartClick)="onChartClick($event)">
+                </canvas>
             </div>
-            <div style="width: 95%;">
-                <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="meses"
-                    [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+            <h5> Cantidad total de arveja aportada</h5>
+            <div class="mb-4" style="width: 95%;">
+                <canvas baseChart [chartType]="'line'" [datasets]="chartData3" [labels]="chartLabels3"
+                    [options]="chartOptions3" [legend]="true" [colors]="lineChartColors2" (chartClick)="onChartClick($event)">
+                </canvas>
+            </div>
+            <h5> Cantidad total de zanahoria aportada</h5>
+            <div class="mb-4" style="width: 95%;">
+                <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels"
+                    [options]="chartOptions" [legend]="true" [colors]="lineChartColors3" (chartClick)="onChartClick($event)">
                 </canvas>
             </div>
         </div>
