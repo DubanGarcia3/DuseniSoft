@@ -6,3 +6,7 @@ button:hover {
     background: #a55fc1;
     color: white;
 }
+
+.fixed-pos{
+    position: fixed;
+}

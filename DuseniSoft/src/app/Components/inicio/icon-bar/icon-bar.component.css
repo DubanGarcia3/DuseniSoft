@@ -9,3 +9,9 @@
 img{
     margin-left: 5%;
 }
+.fix-pos{
+    position: fixed;
+}
+.bgw{
+background-color: white;
+}
