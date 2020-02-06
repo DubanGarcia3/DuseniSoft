@@ -33,3 +33,7 @@ img{
     margin: 2%;
     float: center;
 }
+.img-center{
+    text-align: center;
+    float: center;
+}
