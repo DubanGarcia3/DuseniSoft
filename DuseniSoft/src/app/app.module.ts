@@ -29,6 +29,7 @@ import { VerMiembroComponent } from './Components/miembros/ver-miembro/ver-miemb
 import { ProductosComponent } from './Components/productos/productos.component';
 import { AddProductoComponent } from './Components/productos/add-producto/add-producto.component';
 import { AcercadeComponent } from './Components/acercade/acercade.component';
+import { TotalProductoComponent } from './Components/statistics/total-producto/total-producto.component';
 
 
 @NgModule({
@@ -53,7 +54,7 @@ import { AcercadeComponent } from './Components/acercade/acercade.component';
     ProductosComponent,
     AddProductoComponent,
     AcercadeComponent,
-    
+    TotalProductoComponent
   ],
   imports: [
     BrowserModule,
