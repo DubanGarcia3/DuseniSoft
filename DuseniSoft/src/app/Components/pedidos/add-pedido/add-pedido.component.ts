@@ -72,9 +72,12 @@ export class AddPedidoComponent implements OnInit {
       (data)=> {console.log("Lo que retorna el server tras agregar el pedido",  data)
       if(data != null){
         console.log("OK PEDIDO " + data);
+        this.vaciarCampos();
         this.pedidosComponent.recargarPedidos();
           }else{
             console.log("validar que los datos esten correctos " + data);
+            this.vaciarCampos();
+
             this.pedidosComponent.recargarPedidos();
           }
       }
