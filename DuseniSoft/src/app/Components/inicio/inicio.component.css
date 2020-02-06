@@ -24,4 +24,10 @@
 
 img {
     padding: 5%;
+    margin-left: 5%;
+}
+
+.botones-sup {
+    margin-top: 2%;
+    text-align: end;
 }
