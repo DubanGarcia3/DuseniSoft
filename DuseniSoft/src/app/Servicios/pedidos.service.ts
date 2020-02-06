@@ -34,4 +34,7 @@ updatePedido(pedido:Request){
 deletePedido(id_request:number){
   return this.http.delete<Request>(this.Url+"removeRequest/"+id_request);
 }
+getContribucionesPorPedido(id_request: number){
+  return this.http.get<String[]>(this.Url+"totalPersonasQueAportaronApedido/"+id_request);
+}
 }

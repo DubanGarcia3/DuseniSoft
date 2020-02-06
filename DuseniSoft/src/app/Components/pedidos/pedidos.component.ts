@@ -69,6 +69,11 @@ export class PedidosComponent implements OnInit {
     return this.pedidoAEditar;
   }
 
+  convertirFecha(fecha_limite: Date){
+    var fecha_partida = fecha_limite.toString().split("-", 3);
+    return fecha_partida[2]+'/'+fecha_partida[1]+'/'+fecha_partida[0];
+  }
+
   getIdPedido(id_request: number){
     this.idPedido = id_request;
     console.log('get id pedido, ',  this.idPedido);
@@ -82,6 +87,13 @@ export class PedidosComponent implements OnInit {
         alert("Se actualizo el miembro");
         this.router.navigate(["app-pedidos"]);
       });
+  }
+
+  lista_aportes: String[];
+  verPedido(id_pedido: number){
+    this.pedidosService.getContribucionesPorPedido(id_pedido).subscribe(data => {
+      this.lista_aportes = data;
+    });
   }
 
   vaciarCampos(){

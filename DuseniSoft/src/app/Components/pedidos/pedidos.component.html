@@ -37,7 +37,7 @@
                                     <!-- <p>ESTADO: {{pedido.is_active}}</p> -->
                                     <p>Cantidad requerida: {{pedido.required_quantity}}</p>
                                     <p>Cantidad recolectada: {{pedido.quantity}}</p>
-                                    <small class="text-muted">Fecha límite: {{pedido.limit_date_request}}</small>
+                                    <small class="text-muted">Fecha límite: {{convertirFecha(pedido.limit_date_request)}}</small>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <!-- <button type="button" class="btn btn-sm btn-outline-success">Ver</button>-->
@@ -47,6 +47,10 @@
                                             <button type="button" class="btn btn-outline-danger"
                                                 (click)="getIdPedido(pedido.id_request)" data-toggle="modal"
                                                 data-target="#delete-pedido-modal">Eliminar
+                                            </button>
+                                            <button type="button" class="btn btn-outline-success"
+                                                (click)="verPedido(pedido.id_pedido)" data-toggle="modal"
+                                                data-target="#modalVerPedido">Ver aportes
                                             </button>
                                         </div>
                                     </div>
@@ -98,6 +102,32 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- VER PEDIDO -->
+<div class="modal fade" id="modalVerPedido" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Aportes de los miembros</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 mb-4" *ngFor="let datos_pedido of lista_aportes">
+                        <div class="card-body">
+                            <h3 class="card-title">{{datos_pedido.nombre}}</h3>
+                            <p class="card-text">Aportó: {{datos_pedido.cantidad}} bultos</p>
+                            <p class="card-text">Total a pagar por aporte {{datos_pedido.pago}} bultos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn boton-morado" data-dismiss="modal">Aceptar</button>
             </div>
         </div>
     </div>
