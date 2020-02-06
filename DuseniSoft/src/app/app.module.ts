@@ -30,7 +30,7 @@ import { ProductosComponent } from './Components/productos/productos.component';
 import { AddProductoComponent } from './Components/productos/add-producto/add-producto.component';
 import { AcercadeComponent } from './Components/acercade/acercade.component';
 import { TotalProductoComponent } from './Components/statistics/total-producto/total-producto.component';
-
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,8 @@ import { TotalProductoComponent } from './Components/statistics/total-producto/t
     ProductosComponent,
     AddProductoComponent,
     AcercadeComponent,
-    TotalProductoComponent
+    TotalProductoComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -63,7 +64,8 @@ import { TotalProductoComponent } from './Components/statistics/total-producto/t
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ChartsModule
   ],
   providers: [
     LoginService
