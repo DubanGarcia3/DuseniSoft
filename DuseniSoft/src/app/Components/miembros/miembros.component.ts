@@ -21,7 +21,7 @@ constructor(private service: MiembrosService, private router: Router) {
   buscarMiembroFiltro;
   miembroAux:Member = new Member();
   auxCedula:number;
-  fecha_nacimiento: String;
+  fecha_nacimiento: String = new String();
   
   ngOnInit() {
     // this.service.getMiembros().subscribe(data => { this.miembros = data; });
@@ -49,9 +49,11 @@ constructor(private service: MiembrosService, private router: Router) {
     });
     //this.miembroAux = JSON.parse(localStorage.getItem("miembro"));
     console.log('el que se envia desde miembro-comp:', this.miembroAux)
+    if(this.miembroAux.dateOfBirth!=null){
     this.fecha_nacimiento = this.miembroAux.dateOfBirth.toString();
     var fecha_partida = this.miembroAux.dateOfBirth.toString().split("-", 3);
     this.fecha_nacimiento = fecha_partida[2]+'/'+fecha_partida[1]+'/'+fecha_partida[0];
+    }
   }
 
   getMiembroAux(): Member{
@@ -75,8 +77,10 @@ constructor(private service: MiembrosService, private router: Router) {
   }
 
   convertirFecha(fecha_limite: Date){
+    if(fecha_limite!=null){
     var fecha_partida = fecha_limite.toString().split("-", 3);
     return fecha_partida[2]+'/'+fecha_partida[1]+'/'+fecha_partida[0];
+    }
   }
 
 /*
