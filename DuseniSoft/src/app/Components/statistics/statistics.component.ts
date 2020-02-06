@@ -16,5 +16,4 @@ export class StatisticsComponent implements OnInit {
   irATotalProducto(){
     this.router.navigate(["app-total-producto"]);
   }
-
 }

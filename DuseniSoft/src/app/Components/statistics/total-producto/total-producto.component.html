@@ -1,12 +1,17 @@
-<p>total-producto works!</p>
-<div style="width: 40%;">
-    <canvas
-        baseChart
-        [chartType]="'line'"
-        [datasets]="chartData"
-        [labels]="chartLabels"
-        [options]="chartOptions"
-        [legend]="true"
-        (chartClick)="onChartClick($event)">
-    </canvas>
-  </div>
+<app-icon-bar></app-icon-bar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 divArbolNavegacion" id="divArbolNavegacion">
+            <app-tree-nav></app-tree-nav>
+            <app-log-out></app-log-out>
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 container" >
+            <h3> Cantidad total por producto</h3>
+            <div style="width: 95%;">
+                <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels"
+                    [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
