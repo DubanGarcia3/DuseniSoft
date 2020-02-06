@@ -1,5 +1,6 @@
-import { AppModule } from './../../../app.module';
 import { Component, OnInit } from '@angular/core';
+import { ProductosService } from 'src/app/Servicios/productos.service';
+import { MiembrosService } from 'src/app/Servicios/miembros.service';
 
 @Component({
   selector: 'app-total-producto',
@@ -8,19 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TotalProductoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private miembrosService:MiembrosService, private productService: ProductosService) { }
 
   ngOnInit() {
   }
-
 
   chartOptions = {
     responsive: true
   };
 
   chartData = [
-    { data: [330, 600, 260, 700], label: 'Account A' },
-    { data: [120, 455, 100, 340], label: 'Account B' },
+    { data: [50, 600, 260, 700], label: 'Papa' },
+    { data: [120, 455, 100, 340], label: 'Arveja' },
     { data: [45, 67, 800, 500], label: 'Account C' }
   ];
 
