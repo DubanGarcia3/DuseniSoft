@@ -58,6 +58,27 @@ constructor(private service: MiembrosService, private router: Router) {
     return this.miembroAux; 
   }
 
+  convertirGenero(gender:String){
+    if (gender = 'M'){
+      return 'Masculino';
+    }else{
+      return 'Femenino';
+    }
+  }
+
+  convertirMiembroActivo(isActive: boolean){
+    if (isActive){
+      return 'Estado activo';
+    }else{
+      return 'Estado inactivo';
+    }
+  }
+
+  convertirFecha(fecha_limite: Date){
+    var fecha_partida = fecha_limite.toString().split("-", 3);
+    return fecha_partida[2]+'/'+fecha_partida[1]+'/'+fecha_partida[0];
+  }
+
 /*
   eliminarMiembro(cedula: number){
     if(confirm("¿Está seguro que desear eliminar el miembro?")) {
