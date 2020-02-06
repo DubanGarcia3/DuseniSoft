@@ -94,7 +94,8 @@
                             class="form-control" 
                             type="date" 
                             value="20/01/2020" 
-                            min="20/01/2020">
+                            min="2020-02-06"
+                            max="2080-01-01">
                             <div *ngIf="formulario.fecha_limite.invalid && (formulario.fecha_limite.dirty || formulario.fecha_limite.touched)">
                                 <div *ngIf="formulario.fecha_limite.errors.required" class="alert alert-danger">
                                     Debe un ingresar una fecha
