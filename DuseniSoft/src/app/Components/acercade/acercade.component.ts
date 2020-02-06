@@ -20,4 +20,9 @@ export class AcercadeComponent implements OnInit {
   toWelcome(){
     this.router.navigate(["app-welcome"]);
   }
+
+
+  toHome(){
+    
+  }
 }
