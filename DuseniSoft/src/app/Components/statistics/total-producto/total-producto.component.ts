@@ -21,7 +21,7 @@ export class TotalProductoComponent implements OnInit {
   chartData = [
     { data: [50, 600, 260, 700], label: 'Papa' },
     { data: [120, 455, 100, 340], label: 'Arveja' },
-    { data: [45, 67, 800, 500], label: 'Account C' }
+    { data: [45, 67, 800, 500], label: 'Zanahoria' }
   ];
 
   chartLabels = ['January', 'February', 'Mars', 'April'];
